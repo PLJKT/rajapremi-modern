@@ -245,7 +245,7 @@
   var hours = document.getElementById('dfHours');
   if (hours) hours.textContent = C.hours;
   var waLink = document.getElementById('dfWaLink');
-  if (waLink) waLink.href = C.waLink;
+  if (waLink) { waLink.href = C.waLink; waLink.target = '_blank'; waLink.rel = 'noopener'; }
 
   /* Formulir demo: tidak pernah dikirim ke mana pun, tidak ada autentikasi. */
   var form = document.getElementById('daftarForm');
