@@ -188,7 +188,7 @@
     const best = idx === 0;
     return '' +
     '<article class="card result-card' + (best ? ' is-best' : '') + '" data-provider="' + r.provider.code + '">' +
-      (best ? '<span class="result-ribbon">' + ICON.star + ' Termurah</span>' : '') +
+      (best ? '<span class="result-ribbon">' + ICON.star + ' Total terendah</span>' : '') +
       '<div class="result-head">' +
         '<div class="result-provider">' +
           '<span class="provider-logo" style="background:' + r.provider.tint + '">' + RP.esc(r.provider.abbr) + '</span>' +

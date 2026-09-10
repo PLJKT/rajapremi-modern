@@ -93,7 +93,8 @@ check('formatted rupiah is present', /Rp\s?\d/.test(html));
 check('no commission or margin field leaks into customer-visible text',
   !/(commision|commission|margin|rate_basic|gross_premium)/i.test(visible(html)),
   'leaked margin wording');
-check('cheapest offer is flagged', /Termurah/.test(html));
+check('cheapest offer is flagged', /Total terendah/.test(html));
+check('no market-wide superlative on the offer card', !/Termurah/.test(html));
 check('zero-result filter shows a recovery state', (() => {
   setState({ providerFilter: '___none___' });
   const empty = RPQuote.build.results();
