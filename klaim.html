@@ -10,7 +10,9 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pusat Klaim RajaPremi — terlacak di setiap tahap">
 <meta property="og:description" content="Lima tahap klaim, daftar dokumen per jenis klaim, dan formulir klaim yang bisa dipantau dengan satu nomor klaim.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234338ca'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-size='15' font-weight='800' fill='white' text-anchor='middle'%3ERP%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="assets/img/brand/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/brand/favicon-32x32.png">
+<link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components.css">
@@ -72,7 +74,7 @@
 
       <div class="alert alert-info" style="margin-top:var(--s-5)">
         <span data-ico="clock"></span>
-        <div><strong>Batas waktu di halaman ini adalah komitmen pemrosesan, bukan janji tanggal.</strong>
+        <div><strong>Batas waktu di halaman ini perkiraan berdasarkan data mitra, bukan janji tanggal.</strong>
         Hitungan mulai dari berkas yang lengkap. Surveyor di luar kota besar bisa menambah satu hari kerja perpindahan;
         bila berkas kurang, jamnya berhenti sampai dokumen Anda masuk.</div>
       </div>
@@ -224,7 +226,7 @@
           <h3 style="margin-bottom:.5rem">Kecepatan klaim 7 mitra</h3>
           <p class="muted" style="font-size:var(--fs-sm)">
             Rata-rata waktu penyelesaian menurut data mitra. Angka ini yang kami pakai saat menyusun rekomendasi,
-            bukan hanya premi termurah.
+            bukan hanya premi terendah.
           </p>
           <div class="card card-flat" style="margin-top:var(--s-4)">
             <div class="table-scroll">
@@ -307,19 +309,19 @@
             </div>
             <div class="field">
               <label class="field-label" for="claimPhone">Nomor WhatsApp</label>
-              <input class="input" id="claimPhone" name="phone" type="tel" inputmode="tel" placeholder="0811 8899 777" required>
+              <input class="input" id="claimPhone" name="phone" type="tel" inputmode="tel" placeholder="08xx xxxx xxxx" required>
               <p class="field-hint">Dipakai surveyor untuk mengatur waktu inspeksi.</p>
             </div>
           </div>
 
           <div class="field">
             <label class="field-label" for="claimPlace">Lokasi kejadian</label>
-            <input class="input" id="claimPlace" name="place" type="text" placeholder="Jl. Wolter Monginsidi No. 63, Kebayoran Baru, Jakarta Selatan" autocomplete="off">
+            <input class="input" id="claimPlace" name="place" type="text" placeholder="Jl. Melati No. 12, Jakarta Selatan" autocomplete="off">
           </div>
 
           <div class="field">
             <label class="field-label" for="claimStory">Kronologi kejadian</label>
-            <textarea class="textarea" id="claimStory" name="story" rows="5" placeholder="Contoh: 12 Sep 2026, sekitar 08.40, motor saya tertabrak dari belakang saat berhenti di lampu merah Jl. Wolter Monginsidi. Tidak ada korban jiwa. Kerusakan: spakbor belakang dan lampu."></textarea>
+            <textarea class="textarea" id="claimStory" name="story" rows="5" placeholder="Contoh: 12 Sep 2026, sekitar 08.40, motor saya tertabrak dari belakang saat berhenti di lampu merah Jl. Melati. Tidak ada korban jiwa. Kerusakan: spakbor belakang dan lampu."></textarea>
             <p class="field-hint">Tulis tanggal, jam, lokasi, urutan kejadian, dan kondisi kerusakan.</p>
           </div>
 
@@ -366,8 +368,8 @@
       <div class="alert alert-danger" style="margin-top:var(--s-4)">
         <span data-ico="phone"></span>
         <div><strong>Klaim darurat di luar jam layanan.</strong> Untuk kecelakaan dengan korban jiwa, kehilangan kendaraan,
-        atau kerusakan yang membuat rumah tidak layak huni, hubungi kanal darurat 24 jam di nomor yang tertera di atas.
-        Petugas jaga akan membukakan berkas sementara walau dokumen belum lengkap.</div>
+        atau kerusakan yang membuat rumah tidak layak huni, hubungi nomor layanan kami pada jam kerja (Senin - Jumat, 8am - 6pm).
+        Laporan yang masuk di luar jam kerja ditindaklanjuti pada hari kerja berikutnya.</div>
       </div>
     </div>
   </section>
@@ -448,7 +450,7 @@
 
   var C = D.CONFIG || {};
   var phoneLine = document.getElementById('claimPhoneLine');
-  if (phoneLine) phoneLine.textContent = (C.phone || '—') + ' · layanan klaim 24 jam';
+  if (phoneLine) phoneLine.textContent = (C.phone || '—') + ' · jam layanan ' + (C.hours || '');
   var waLine = document.getElementById('claimWaLine');
   if (waLine) waLine.textContent = (C.whatsapp || '—') + ' · ' + (C.email || '—');
   var hoursLine = document.getElementById('claimHoursLine');

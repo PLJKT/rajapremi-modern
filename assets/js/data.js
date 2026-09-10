@@ -19,11 +19,13 @@
     liveApi: false,
     apiBase: 'https://api.rajapremi.co',
     serviceBase: 'https://service.rajapremi.co',
-    phone: '+62 21 5089 8888',
-    whatsapp: '+62 811 8899 777',
-    email: 'care@rajapremi.com',
-    hours: 'Senin–Jumat 08.30–17.30 WIB',
-    address: 'Jl. Wolter Monginsidi No. 63, Kebayoran Baru, Jakarta Selatan 12180',
+    // Contact details and rating are the ones published on www.rajapremi.com.
+    phone: '(021) 5790 494',
+    whatsapp: '(+62) 0852 9000 3471',
+    waLink: 'https://wa.me/6285290003471',
+    email: 'info@rajapremi.co.id',
+    hours: 'Senin - Jumat, 8am - 6pm',
+    address: 'BStartup Center, Menara Batavia lt 3A, Jl. KH Mas Mansyur Kav 126, Jakarta Pusat 10220',
     year: 2026,
     csRating: 4.6
   };
@@ -118,28 +120,28 @@
       icon: 'bike', from: 250000, unit: '/tahun', popular: true,
       desc: 'Perlindungan TLO maupun All Risk untuk motor harian, matic, sport, hingga motor niaga.',
       coverage: ['Total Loss Only (TLO) & All Risk', 'Perlindungan kecelakaan diri pengendara', 'Pertanggungjawaban hukum pihak ketiga (TPL)', 'Banjir, angin topan & huru-hara (perluasan)'],
-      facts: [['Jumlah penyedia', '7 mitra'], ['Klaim rata-rata', '5–10 hari kerja'], ['Periode polis', '12 bulan'], ['Perluasan opsional', 'Banjir, TPL, gempa']]
+      facts: [['Jumlah penyedia', '7 mitra'], ['Perkiraan klaim', '5–10 hari kerja'], ['Periode polis', '12 bulan'], ['Perluasan opsional', 'Banjir, TPL, gempa']]
     },
     {
       id: 'mobil', name: 'Asuransi Mobil', short: 'Comprehensive & TLO',
       icon: 'car', from: 1850000, unit: '/tahun', popular: true,
       desc: 'Hitung premi mobil berdasarkan harga pasar, area, usia kendaraan, dan riwayat klaim Anda.',
-      coverage: ['All Risk (comprehensive) & TLO', 'Banjir, gempa, kerusuhan (perluasan)', 'Towing & derek gratis', 'Penggantian kerugian pihak ketiga'],
-      facts: [['Jumlah penyedia', '9 mitra'], ['Kendaraan terdaftar', '142.000+'], ['Claim ratio', '97,3% dibayar'], ['Periode polis', '12 bulan']]
+      coverage: ['All Risk (comprehensive) & TLO', 'Banjir, gempa, kerusuhan (perluasan)', 'Towing & derek (sesuai polis)', 'Penggantian kerugian pihak ketiga'],
+      facts: [['Jumlah penyedia', '7 mitra'], ['Skema', 'All Risk & TLO'], ['Perluasan opsional', 'Banjir, gempa, huru-hara'], ['Periode polis', '12 bulan']]
     },
     {
       id: 'kesehatan', name: 'Asuransi Kesehatan', short: 'Individu, keluarga & karyawan',
       icon: 'heart', from: 450000, unit: '/bulan', popular: true,
       desc: 'Manfaat rawat inap, rawat jalan, gigi, mata, hingga layanan cashless di jaringan rumah sakit.',
-      coverage: ['Rawat inap & rawat jalan', 'Cashless di 1.200+ rumah sakit', 'Maternity & kesehatan gigi (opsional)', 'Telemedicine & konsultasi dokter'],
-      facts: [['Jaringan RS', '1.200+ cashless'], ['Usia masuk', '18–65 tahun'], ['Masa tunggu', '30–90 hari'], ['Kelas kamar', 'Kelas 1 s/d VIP']]
+      coverage: ['Rawat inap & rawat jalan', 'Cashless di jaringan rumah sakit rekanan', 'Maternity & kesehatan gigi (opsional)', 'Telemedicine & konsultasi dokter'],
+      facts: [['Jaringan RS', 'Jaringan rekanan mitra'], ['Usia masuk', '18–65 tahun'], ['Masa tunggu', '30–90 hari'], ['Kelas kamar', 'Kelas 1 s/d VIP']]
     },
     {
       id: 'properti', name: 'Asuransi Properti', short: 'Rumah, apartemen & ruko',
       icon: 'home', from: 350000, unit: '/tahun',
       desc: 'Melindungi bangunan dan isi rumah dari kebakaran, banjir, pencurian, dan bencana alam.',
       coverage: ['Kebakaran & petir', 'Banjir & tanah longsor', 'Pencurian & perampokan', 'Kerusuhan & sabotase'],
-      facts: [['Batas pertanggungan', 'Rp 100 jt – Rp 50 M'], ['Skema', 'Reimbursement / restorasi'], ['Survey risiko', 'Gratis'], ['Periode polis', '12 bulan']]
+      facts: [['Batas pertanggungan', 'Rp 100 jt – Rp 50 M'], ['Skema', 'Reimbursement / restorasi'], ['Survey risiko', 'Sesuai ketentuan mitra'], ['Periode polis', '12 bulan']]
     },
     {
       id: 'kecelakaan', name: 'Kecelakaan Diri', short: 'Perlindungan 24 jam',
@@ -153,7 +155,7 @@
       icon: 'plane', from: 95000, unit: '/perjalanan',
       desc: 'Untuk perjalanan bisnis maupun liburan: keterlambatan, kehilangan bagasi, hingga evakuasi medis.',
       coverage: ['Perlindungan medis di luar negeri', 'Pembatalan & keterlambatan perjalanan', 'Kehilangan bagasi & dokumen', 'Evakuasi medis & repatriasi'],
-      facts: [['Zona', 'Domestik, Asia, Worldwide'], ['Durasi', 'hingga 180 hari'], ['Visa Schengen', 'Memenuhi syarat'], ['Proses', 'Polis instan (e-policy)']]
+      facts: [['Zona', 'Domestik, Asia, Worldwide'], ['Durasi', 'hingga 180 hari'], ['Visa Schengen', 'Memenuhi syarat'], ['Proses', 'e-policy dikirim via email']]
     },
     {
       id: 'umrah', name: 'Umrah & Haji', short: 'Perlindungan ibadah',
@@ -275,39 +277,45 @@
     return base.concat(['Perluasan banjir tersedia', 'Premi 30–45% lebih ringan']);
   }
 
-  /* ---------- Testimonials (kept from the live site's review carousel) ---------- */
+  /* ---------- Reviews ----------
+     SAMPLE CONTENT. These are illustrative examples written for the demo, not
+     quotes from real customers; the review section labels them as such. In
+     production this array is filled from the review source the live site uses. */
   const TESTIMONIALS = [
-    { name: 'Andi Prasetyo', city: 'Jakarta', rating: 5, product: 'Asuransi Mobil',
-      text: 'Prosesnya cepat, dalam 10 menit saya dapat 8 penawaran dan langsung bisa pilih premi paling murah.' },
-    { name: 'Ratna Kusumaningrum', city: 'Bandung', rating: 5, product: 'Asuransi Kesehatan',
-      text: 'Dibantu memilih manfaat yang benar-benar dibutuhkan keluarga, bukan yang paling mahal. Hemat sekali.' },
-    { name: 'Bayu Setiawan', city: 'Surabaya', rating: 4, product: 'Asuransi Motor',
-      text: 'Polis digital langsung masuk email, dan saat klaim tinggal upload foto. Statusnya bisa dilacak.' },
-    { name: 'Siti Halimah', city: 'Yogyakarta', rating: 5, product: 'Umrah & Haji',
-      text: 'Untuk jamaah umrah kami, penerbitan polis kolektif jadi jauh lebih rapi dan cepat diverifikasi.' },
-    { name: 'Hendra Wijaya', city: 'Medan', rating: 4, product: 'Asuransi Properti',
-      text: 'Surveyor datang tepat waktu dan nilai pertanggungan ruko saya dihitung secara wajar.' },
-    { name: 'Maria Larasati', city: 'Denpasar', rating: 5, product: 'Travel Insurance',
-      text: 'Schengen visa saya lolos dengan polis dari sini. Customer service menjawab dalam beberapa menit.' }
+    { name: 'Contoh ulasan', city: 'Jakarta', rating: 5, product: 'Asuransi Mobil',
+      text: 'Empat penawaran muncul berdampingan, jadi perbandingan manfaat dan biaya polis bisa dibaca dalam satu layar.' },
+    { name: 'Contoh ulasan', city: 'Bandung', rating: 5, product: 'Asuransi Kesehatan',
+      text: 'Rincian manfaat dan masa tunggu ditulis di kartu produk, sehingga tidak perlu menebak isi polisnya.' },
+    { name: 'Contoh ulasan', city: 'Surabaya', rating: 4, product: 'Asuransi Motor',
+      text: 'E-policy dikirim ke email, dan status pengajuan bisa dipantau di halaman klaim tanpa menelepon.' },
+    { name: 'Contoh ulasan', city: 'Yogyakarta', rating: 5, product: 'Umrah & Haji',
+      text: 'Untuk pengajuan kolektif, satu berkas bisa mencakup banyak peserta sehingga verifikasinya lebih rapi.' },
+    { name: 'Contoh ulasan', city: 'Medan', rating: 4, product: 'Asuransi Properti',
+      text: 'Nilai pertanggungan dihitung dari data yang saya isi sendiri, dan angkanya bisa saya periksa ulang.' },
+    { name: 'Contoh ulasan', city: 'Denpasar', rating: 5, product: 'Travel Insurance',
+      text: 'Syarat polis untuk keperluan visa dijelaskan di halaman produk sebelum saya memutuskan.' }
   ];
 
   /* ---------- FAQ ---------- */
   const FAQ = [
-    { q: 'Berapa lama proses penerbitan polis?', a: 'Setelah pembayaran terkonfirmasi, polis digital (e-policy) diterbitkan otomatis dan dikirim ke email Anda dalam 5–15 menit untuk produk kendaraan, kecelakaan diri, dan travel. Produk kesehatan dengan masa tunggu dan produk jiwa memerlukan verifikasi 1–2 hari kerja.', cat: 'Polis' },
+    { q: 'Berapa lama proses penerbitan polis?', a: 'Setelah pembayaran terkonfirmasi, polis digital (e-policy) dikirim ke email Anda. Produk kendaraan, kecelakaan diri, dan travel umumnya paling cepat; produk kesehatan dengan masa tunggu dan produk jiwa masih memerlukan verifikasi tertulis dari mitra, biasanya 1–2 hari kerja.', cat: 'Polis' },
     { q: 'Apa perbedaan TLO dan All Risk?', a: 'TLO (Total Loss Only) menanggung kerugian bila kendaraan hilang atau kerusakan mencapai minimal 75% dari nilai kendaraan. All Risk menanggung seluruh kerusakan termasuk lecet dan penyok ringan. Premi All Risk umumnya 30–45% lebih tinggi dari TLO.', cat: 'Kendaraan' },
-    { q: 'Bagaimana cara membayar premi?', a: 'Kami menerima transfer bank, virtual account (BCA, Mandiri, BNI, BRI, Permata), kartu kredit, dan GoPay/OVO untuk premi di bawah Rp 10 juta. Semua pembayaran diproses oleh payment gateway berlisensi Bank Indonesia.', cat: 'Pembayaran' },
+    { q: 'Bagaimana cara membayar premi?', a: 'Pembayaran dilakukan lewat transfer bank atau virtual account, dan kartu kredit untuk produk tertentu. Kanal pembayaran yang tersedia ditampilkan saat checkout, mengikuti ketentuan masing-masing mitra.', cat: 'Pembayaran' },
     { q: 'Bagaimana cara mengajukan klaim?', a: 'Buka menu Klaim di aplikasi, pilih polis, unggah foto kerusakan dan dokumen pendukung. Anda akan menerima nomor klaim dan bisa memantau status setiap tahap. Untuk klaim darurat, hubungi bantuan 24 jam kami.', cat: 'Klaim' },
-    { q: 'Apakah data saya aman?', a: 'Data dienkripsi saat transit (TLS 1.3) dan saat disimpan. Akses ke data pribadi dibatasi dan diaudit. Kami tidak pernah menjual data nasabah kepada pihak ketiga. Detail lengkap ada di Kebijakan Privasi.', cat: 'Keamanan' },
-    { q: 'Bisakah saya membatalkan polis dan mendapat refund?', a: 'Ya. Pembatalan dalam 14 hari pertama sejak polis aktif dapat mengembalikan premi secara prorata dikurangi biaya administrasi, selama belum ada klaim. Ajukan lewat Pusat Bantuan atau email care@rajapremi.com.', cat: 'Polis' },
-    { q: 'Apakah RajaPremi ini perusahaan asuransi?', a: 'RajaPremi adalah broker/agregator asuransi berlisensi. Kami membandingkan produk dari perusahaan asuransi mitra, dan polis Anda diterbitkan serta dijamin oleh perusahaan asuransi terpilih — bukan oleh kami.', cat: 'Umum' },
+    { q: 'Apakah data saya aman?', a: 'Data dikirim lewat koneksi terenkripsi dan akses ke data pribadi dibatasi. Data Anda baru dibagikan ke mitra setelah Anda memilih penawaran. Ketentuan lengkap ada di Kebijakan Privasi.', cat: 'Keamanan' },
+    { q: 'Bisakah saya membatalkan polis dan mendapat refund?', a: 'Pembatalan mengikuti ketentuan polis masing-masing mitra — umumnya premi dikembalikan prorata dikurangi biaya administrasi selama belum ada klaim, dengan batas waktu sejak polis aktif. Ajukan lewat Pusat Bantuan atau email info@rajapremi.co.id, dan kami bantu prosesnya ke mitra.', cat: 'Polis' },
+    { q: 'Apakah RajaPremi ini perusahaan asuransi?', a: 'RajaPremi adalah agregator yang membandingkan produk dari perusahaan asuransi mitra. Polis Anda diterbitkan dan dijamin oleh perusahaan asuransi yang Anda pilih, bukan oleh kami. Status dan nomor izin mitra tercantum di dokumen polis.', cat: 'Umum' },
     { q: 'Apakah bisa untuk kendaraan plat nomor luar daerah?', a: 'Bisa. Tarif premi dipengaruhi kode plat wilayah. Pilih kode plat yang sesuai pada formulir perbandingan, dan pastikan alamat pemegang polis diisi benar.', cat: 'Kendaraan' }
   ];
 
-  /* ---------- Promos ---------- */
-  const PROMOS = [
-    { tag: 'Promo Baru', title: 'Asuransi gratis 30 hari', desc: 'Aktifkan perlindungan kecelakaan diri gratis setiap pendaftaran akun baru. S&K berlaku.', cta: 'Klaim promo', href: 'daftar.html', until: '31 Okt 2026' },
-    { tag: 'Hemat 35%', title: 'Diskon premi motor All Risk', desc: 'Untuk 5.000 pembelian pertama bulan ini, khusus pembelian online.', cta: 'Bandingkan sekarang', href: 'bandingkan.html', until: 'Kuota terbatas' },
-    { tag: 'Keluarga', title: 'Paket kesehatan keluarga', desc: 'Dua polis atau lebih dalam satu pembayaran — potongan langsung 20%.', cta: 'Lihat produk', href: 'produk.html?id=kesehatan', until: '31 Des 2026' }
+  /* ---------- Premium notes ----------
+     The live site runs time-boxed campaigns from its CMS. Until those campaign
+     records are wired in, this section states how premiums actually move —
+     no promised discount, no countdown, no quota. */
+  const PREMI_TIPS = [
+    { tag: 'Skema', title: 'TLO atau All Risk', desc: 'TLO hanya menanggung kehilangan atau kerusakan berat; All Risk menambah kerusakan ringan. Selisih preminya biasanya 30–45%.', cta: 'Bandingkan keduanya', href: 'bandingkan.html' },
+    { tag: 'Data', title: 'Area, usia, dan riwayat klaim', desc: 'Tiga variabel ini paling banyak mengubah hasil kuotasi. Isi kode plat dan tahun kendaraan dengan benar agar angkanya akurat.', cta: 'Coba hitung', href: 'bandingkan.html' },
+    { tag: 'Dokumen', title: 'Baca rincian biaya polis', desc: 'Setiap penawaran memisahkan premi mitra dan biaya polis, sehingga total yang dibayar sama dengan yang tertulis di polis.', cta: 'Lihat produk', href: 'produk.html?id=motor' }
   ];
 
   /* ---------- Claims timeline (kept from the existing claims flow) ---------- */
@@ -328,7 +336,7 @@
   global.RPData = {
     CONFIG: CONFIG, ICONS: I, NAV: NAV, PRODUCTS: PRODUCTS, PROVIDERS: PROVIDERS,
     COVERAGE: COVERAGE, PLATE_REGIONS: PLATE_REGIONS, TESTIMONIALS: TESTIMONIALS,
-    FAQ: FAQ, PROMOS: PROMOS, CLAIM_STEPS: CLAIM_STEPS, BENCHMARK: BENCHMARK,
+    FAQ: FAQ, PREMI_TIPS: PREMI_TIPS, CLAIM_STEPS: CLAIM_STEPS, BENCHMARK: BENCHMARK,
     generateQuotes: generateQuotes, rupiah: rupiah, shortenRupiah: shortenRupiah
   };
 })(window);

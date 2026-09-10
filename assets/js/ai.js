@@ -149,7 +149,7 @@
           actions: [
             { label: 'WhatsApp CS', href: D.CONFIG.whatsapp, external: true },
             { label: 'Telepon ' + D.CONFIG.phone, href: 'tel:' + D.CONFIG.phone.replace(/[^\d+]/g, '') },
-            { label: 'Email care@rajapremi.com', href: 'mailto:' + D.CONFIG.email }
+            { label: 'Email ' + D.CONFIG.email, href: 'mailto:' + D.CONFIG.email }
           ]
         };
       }
@@ -448,16 +448,16 @@
      ------------------------------------------------------------------ */
   const COPILOT_QUESTIONS = [
     { q: 'Berapa premi masuk bulan ini dibanding bulan lalu?',
-      a: 'Premi bruto bulan ini <strong>Rp2,84 miliar</strong>, naik <strong>18,4%</strong> dari bulan lalu (Rp2,40 miliar). Kenaikan didorong produk motor (+31%) setelah kampanye diskon All Risk.',
+      a: '<span class="muted">(data contoh)</span> Premi bruto bulan ini <strong>Rp2,84 miliar</strong>, naik <strong>18,4%</strong> dari bulan lalu (Rp2,40 miliar). Kenaikan didorong produk motor (+31%).',
       table: { head: ['Kanal', 'Bulan ini', 'Bulan lalu', 'Δ'], rows: [['Website', 'Rp1.640 jt', 'Rp1.420 jt', '+15,5%'], ['Partner/agen', 'Rp780 jt', 'Rp690 jt', '+13,0%'], ['Marketplace', 'Rp420 jt', 'Rp290 jt', '+44,8%']] } },
     { q: 'Mitra mana yang claim ratio-nya memburuk?',
-      a: 'Dua mitra perlu diperhatikan: <strong>PT Asuransi Reliance</strong> (claim ratio 118%) dan <strong>PT Asuransi Jasindo Syariah</strong> (97%). Reliance juga yang paling mahal untuk risiko yang sama, jadi penurunannya akan berpengaruh pada konversi.',
-      table: { head: ['Mitra', 'Claim ratio', 'Kebijakan aktif', 'Tren'], rows: [['Reliance', '118%', '1.240', 'Memburuk'], ['Jasindo Syariah', '97%', '2.180', 'Memburuk'], ['ACA', '62%', '3.410', 'Stabil'], ['Zurich', '58%', '4.120', 'Membaik']] } },
+      a: '<span class="muted">(data contoh — nama mitra disamarkan)</span> Dua mitra perlu diperhatikan: <strong>Mitra A</strong> (claim ratio 118%) dan <strong>Mitra B</strong> (97%). Keduanya bertarif lebih tinggi untuk risiko yang sama, jadi peninjauan tarifnya akan berpengaruh pada konversi.',
+      table: { head: ['Mitra', 'Claim ratio', 'Kebijakan aktif', 'Tren'], rows: [['Mitra A', '118%', '1.240', 'Memburuk'], ['Mitra B', '97%', '2.180', 'Memburuk'], ['Mitra C', '62%', '3.410', 'Stabil'], ['Mitra D', '58%', '4.120', 'Membaik']] } },
     { q: 'Produk apa yang paling sering ditinggalkan sebelum bayar?',
-      a: 'Kesehatan adalah yang tertinggi: <strong>64%</strong> pengguna sampai halaman kuotasi lalu berhenti, terutama pada tahap verifikasi usia. Menambahkan kuotasi instan tanpa pemeriksaan kesehatan diperkirakan menaikkan konversi 6–9 poin.',
+      a: '<span class="muted">(data contoh)</span> Kesehatan adalah yang tertinggi: <strong>64%</strong> pengguna sampai halaman kuotasi lalu berhenti, terutama pada tahap verifikasi usia. Menambahkan kuotasi instan tanpa pemeriksaan kesehatan diperkirakan menaikkan konversi 6–9 poin.',
       table: { head: ['Produk', 'Drop-off', 'Tahap tersering'], rows: [['Kesehatan', '64%', 'Verifikasi usia'], ['Motor', '41%', 'Pilih mitra'], ['Properti', '57%', 'Survey'], ['Travel', '22%', 'Bayar']] } },
     { q: 'Tampilkan polis yang akan berakhir 30 hari ke depan',
-      a: 'Ada <strong>1.876 polis</strong> berakhir dalam 30 hari dengan nilai premi perpanjangan potensial <strong>Rp612 juta</strong>. Yang paling bernilai untuk dihubungi lebih dulu: 214 polis motor All Risk.',
+      a: '<span class="muted">(data contoh)</span> Ada <strong>1.876 polis</strong> berakhir dalam 30 hari dengan nilai premi perpanjangan potensial <strong>Rp612 juta</strong>. Yang paling bernilai untuk dihubungi lebih dulu: 214 polis motor All Risk.',
       table: { head: ['Produk', 'Polis', 'Nilai perpanjangan'], rows: [['Motor All Risk', '214', 'Rp186 jt'], ['Kesehatan', '96', 'Rp241 jt'], ['Properti', '58', 'Rp142 jt'], ['Travel', '1.508', 'Rp43 jt']] } }
   ];
 
@@ -502,7 +502,7 @@
                 '<td class="bar-cell"><span class="bar" style="width:' + Math.min(100, v / max * 100) + '%"></span></td></tr>';
             }).join('') + '</tbody>' +
           '</table>' +
-          '<p class="field-note">Jawaban ini dirangkai dari data yang sama dengan dashboard di atas sehingga angkanya konsisten — pada produksi, kueri diterjemahkan ke SQL lalu dijalankan pada replika baca-saja.</p></div>';
+          '<p class="field-note">Angka pada panel ini adalah data contoh untuk demo, bukan data produksi — pada produksi kueri diterjemahkan ke SQL lalu dijalankan pada replika baca-saja.</p></div>';
       }, 900);
     });
   }

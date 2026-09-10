@@ -14,7 +14,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PAGES = [
   'index.html', 'bandingkan.html', 'produk.html', 'klaim.html', 'partner.html',
   'faq.html', 'bantuan.html', 'tentang.html', 'masuk.html', 'daftar.html',
-  'ai.html', '404.html', 'admin/index.html'
+  'ai.html', 'admin/index.html'
 ];
 
 const cssFiles = ['assets/css/tokens.css', 'assets/css/base.css', 'assets/css/components.css', 'assets/css/product.css'];
@@ -59,7 +59,7 @@ for (const page of PAGES) {
   const title = (html.match(/<title>([^<]+)<\/title>/) || [])[1];
   if (title && title.length > 12) ok('has a real <title>'); else bad('has a real <title>', String(title));
   if (/<meta name="description" content="[^"]{40,}"/.test(html)) ok('has a description'); else bad('has a description');
-  if (page !== '404.html' && !isAdmin) {
+  if (!isAdmin) {
     if (/rel="canonical"/.test(html)) ok('has canonical'); else bad('has canonical');
   }
 

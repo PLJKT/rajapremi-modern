@@ -148,7 +148,7 @@
         '<p class="field-note">' + ICON.info + ' Harga All Risk biasanya 30–45% lebih tinggi, namun menanggung kerusakan ringan.</p>' +
       '</div>' +
       '<button class="btn btn-primary btn-lg btn-block" type="submit">' + ICON.search + ' Bandingkan ' + D.PROVIDERS.length + ' mitra</button>' +
-      '<p class="form-foot">Gratis, tanpa kartu kredit. Data Anda tidak dibagikan ke mitra sampai Anda memilih.</p>' +
+      '<p class="form-foot">Membandingkan tidak berbayar dan tidak butuh kartu kredit. Data Anda baru dibagikan ke mitra setelah Anda memilih penawaran.</p>' +
     '</form>';
   }
 
@@ -174,7 +174,7 @@
       '</div>' +
       '<div class="qs-facts">' +
         '<div class="qs-fact"><span>' + rows.length + ' penawaran</span><small>Dari ' + D.PROVIDERS.length + ' mitra</small></div>' +
-        '<div class="qs-fact"><span>' + D.shortenRupiah(saving) + '</span><small>Selisih termurah vs tertinggi</small></div>' +
+        '<div class="qs-fact"><span>' + D.shortenRupiah(saving) + '</span><small>Selisih total terendah vs tertinggi</small></div>' +
         '<div class="qs-fact"><span>' + state.year + ' · ' + RP.esc((D.PLATE_REGIONS.find(p => p.code === state.plate) || {}).label || '') + '</span><small>' + rupiah(state.sumInsured) + '</small></div>' +
       '</div>' +
       '<div class="qs-actions">' +
@@ -203,7 +203,7 @@
         '<div class="result-price">' +
           '<span class="rp-total">' + rupiah(r.total) + '</span>' +
           '<span class="rp-break">Premi ' + rupiah(r.premium, false) + ' + biaya ' + rupiah(r.handlingFee + r.stampDuty, false) + '</span>' +
-          (r.savings > 0 ? '<span class="badge badge-success">Hemat ' + D.shortenRupiah(r.savings) + ' (' + r.savingsPct + '%)</span>' : '') +
+          (r.savings > 0 ? '<span class="badge badge-success">Selisih ' + D.shortenRupiah(r.savings) + ' (' + r.savingsPct + '%)</span>' : '') +
         '</div>' +
       '</div>' +
       '<ul class="result-points">' +
@@ -264,7 +264,7 @@
               '<option value="price-asc"' + (state.sort === 'price-asc' ? ' selected' : '') + '>Premi terendah</option>' +
               '<option value="price-desc"' + (state.sort === 'price-desc' ? ' selected' : '') + '>Premi tertinggi</option>' +
               '<option value="rating"' + (state.sort === 'rating' ? ' selected' : '') + '>Rating tertinggi</option>' +
-              '<option value="claims"' + (state.sort === 'claims' ? ' selected' : '') + '>Klaim tercepat</option>' +
+              '<option value="claims"' + (state.sort === 'claims' ? ' selected' : '') + '>Perkiraan klaim tercepat</option>' +
             '</select>' +
           '</label>' +
         '</div>' +
@@ -300,7 +300,7 @@
             '</tbody>' +
           '</table>' +
           '<div class="alert alert-info" style="margin-top:var(--s-4)">' + ICON.lock +
-            '<div><strong>Tidak ada biaya tersembunyi.</strong> Total di atas adalah jumlah yang Anda bayar dan jumlah yang tercatat pada polis. RajaPremi tidak menambahkan markup di atas harga mitra.</div></div>' +
+            '<div><strong>Total di atas sudah lengkap.</strong> Angkanya mencakup premi mitra ditambah biaya polis dan materai, dan inilah jumlah yang tercatat pada polis.</div></div>' +
           '<label class="checkline" style="margin-top:var(--s-4)"><input type="checkbox" checked> Saya setuju pada syarat &amp; ketentuan serta kebijakan privasi.</label>' +
         '</div>' +
         '<div class="modal-foot">' +
@@ -336,7 +336,7 @@
     if (!rows.length) return '';
     const cheapest = Math.min.apply(null, rows.map(r => r.total));
     const featureRows = [
-      ['Total dibayar', r => '<strong>' + rupiah(r.total) + '</strong>' + (r.total === cheapest ? ' <span class="badge badge-success">termurah</span>' : '')],
+      ['Total dibayar', r => '<strong>' + rupiah(r.total) + '</strong>' + (r.total === cheapest ? ' <span class="badge badge-success">total terendah</span>' : '')],
       ['Premi dasar', r => rupiah(r.premium)],
       ['Biaya polis &amp; materai', r => rupiah(r.handlingFee + r.stampDuty)],
       ['Perlindungan', r => r.coverage === 'ALL_RISK' ? 'All Risk' : 'TLO'],
@@ -347,14 +347,14 @@
       ['Pembayaran', r => r.payBy],
       ['Perluasan banjir', r => r.coverage === 'ALL_RISK' ? 'Termasuk' : 'Opsional'],
       ['Kerusakan ringan', r => r.coverage === 'ALL_RISK' ? 'Ditanggung' : 'Tidak ditanggung'],
-      ['Bantuan darurat', () => '24 jam']
+      ['Jam layanan', () => D.CONFIG.hours]
     ];
     return '' +
     '<div class="modal" id="compareModal">' +
       '<div class="modal-panel modal-wide">' +
         '<div class="modal-head">' +
           '<div><h3 style="margin:0">Perbandingan ' + rows.length + ' polis</h3>' +
-          '<p class="muted" style="margin:.2rem 0 0;font-size:var(--fs-sm)">Baris terbaik ditandai otomatis — tidak perlu menghitung manual.</p></div>' +
+          '<p class="muted" style="margin:.2rem 0 0;font-size:var(--fs-sm)">Baris dengan total terendah ditandai otomatis — tidak perlu menghitung manual.</p></div>' +
           '<button class="btn btn-ghost btn-icon" type="button" data-modal-close aria-label="Tutup">' + ICON.x + '</button>' +
         '</div>' +
         '<div class="modal-body">' +
@@ -368,7 +368,7 @@
           '</table></div>' +
           '<div class="alert alert-info" style="margin-top:var(--s-4)">' + ICON.spark +
             '<div><strong>RajaAI:</strong> untuk kebutuhan Anda, ' + RP.esc(rows.slice().sort((a, b) => a.total - b.total)[0].provider.name) +
-            ' memberi nilai terbaik. Bila Anda sering memarkir di jalan raya umum, All Risk lebih sering terpakai daripada selisih preminya.</div></div>' +
+            ' memiliki total terendah pada perbandingan ini. Bila Anda sering memarkir di jalan raya umum, All Risk lebih sering terpakai daripada selisih preminya.</div></div>' +
         '</div>' +
         '<div class="modal-foot"><button class="btn btn-secondary" type="button" data-modal-close>Tutup</button></div>' +
       '</div>' +

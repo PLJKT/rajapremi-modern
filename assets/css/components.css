@@ -222,6 +222,22 @@
   display: grid; place-items: center; font-size: var(--fs-md); font-weight: var(--fw-black);
   box-shadow: var(--sh-sm);
 }
+.brand-logo { width: 34px; height: 34px; display: block; flex: none; }
+/* Original on-site WhatsApp chat box (wording and behaviour kept as-is) */
+.wa-box {
+  display: flex; align-items: center; gap: var(--s-4);
+  padding: var(--s-4) var(--s-5); margin: 0 0 var(--s-6);
+  border: 1px solid rgba(37,211,102,.45); border-radius: var(--r-lg);
+  background: linear-gradient(180deg, rgba(37,211,102,.14), rgba(37,211,102,.05));
+  text-decoration: none;
+}
+.wa-box:hover { border-color: rgba(37,211,102,.8); }
+.wa-box-ico { width: 40px; height: 40px; flex: none; display: grid; place-items: center; color: #25d366; }
+.wa-box-ico svg { width: 28px; height: 28px; }
+.wa-box-body { display: flex; flex-direction: column; gap: .15rem; }
+.wa-box-body strong { font-size: var(--fs-lg); }
+.wa-box-text { color: #cbd5e1; font-size: var(--fs-md); }
+.wa-box-note { color: #94a3b8; font-size: var(--fs-xs); }
 .nav-links { display: flex; align-items: center; gap: var(--s-1); margin-left: var(--s-2); }
 .nav-link {
   display: inline-flex; align-items: center; gap: .3rem;

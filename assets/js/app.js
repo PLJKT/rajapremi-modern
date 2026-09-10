@@ -76,7 +76,7 @@
         '</div>'
       : '<div class="mega-aside">' +
           '<span class="badge badge-primary">' + ICON.mic + ' Suara & teks</span>' +
-          '<strong style="font-size:var(--fs-md)">Bantuan 24 jam</strong>' +
+          '<strong style="font-size:var(--fs-md)">Bantuan langsung</strong>' +
           '<p style="font-size:var(--fs-sm);color:var(--text-muted);margin:0">Tanya soal polis, klaim, atau perpanjangan langsung dari halaman mana pun.</p>' +
           '<a class="btn btn-soft btn-sm" href="bantuan.html">Buka pusat bantuan</a>' +
         '</div>';
@@ -113,8 +113,8 @@
       '<div class="container">' +
         '<nav class="nav" aria-label="Navigasi utama">' +
           '<a class="nav-brand" href="index.html">' +
-            '<span class="nav-logo">RP</span><span>' + esc(D.CONFIG.brand) + '</span>' +
-            '<span class="badge badge-success" style="margin-left:.15rem">' + ICON.shield + ' Berlisensi</span>' +
+            '<img class="brand-logo" src="assets/img/brand/rajapremi-logo.png" alt="" width="34" height="34"><span>' + esc(D.CONFIG.brand) + '</span>' +
+            '<span class="badge badge-primary" style="margin-left:.15rem">' + ICON.shield + ' Agregator asuransi</span>' +
           '</a>' +
           '<div class="nav-links">' + links + '</div>' +
           '<div class="nav-actions">' +
@@ -130,7 +130,7 @@
     '<div class="drawer" id="siteDrawer" role="dialog" aria-modal="true" aria-label="Menu">' +
       '<div class="drawer-panel">' +
         '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--s-4)">' +
-          '<span class="nav-brand"><span class="nav-logo">RP</span>' + esc(D.CONFIG.brand) + '</span>' +
+          '<span class="nav-brand"><img class="brand-logo" src="assets/img/brand/rajapremi-logo.png" alt="" width="34" height="34">' + esc(D.CONFIG.brand) + '</span>' +
           '<button class="btn btn-ghost btn-icon" type="button" data-drawer-close aria-label="Tutup menu">' + ICON.x + '</button>' +
         '</div>' + drawerLinks +
         '<div class="divider-text" style="margin:var(--s-5) 0">atau</div>' +
@@ -148,16 +148,24 @@
     return '' +
     '<footer class="site-footer">' +
       '<div class="container">' +
-        '<div class="footer-grid">' +
+        '<a class="wa-box" href="https://wa.me/6285290003471" target="_blank" rel="noopener">' +
+        '<span class="wa-box-ico">' + ICON.whatsapp + '</span>' +
+        '<span class="wa-box-body">' +
+          '<strong>Hubungi kami</strong>' +
+          '<span class="wa-box-text">Klik di sini untuk dapatkan Asuransi gratis!</span>' +
+          '<span class="wa-box-note">S&K berlaku</span>' +
+        '</span>' +
+      '</a>' +
+      '<div class="footer-grid">' +
           '<div class="footer-col">' +
-            '<div class="footer-brand"><span class="nav-logo">RP</span>' + esc(C.brand) + '</div>' +
+            '<div class="footer-brand"><img class="brand-logo" src="assets/img/brand/rajapremi-logo.png" alt="" width="34" height="34">' + esc(C.brand) + '</div>' +
             '<p style="color:#94a3b8;font-size:var(--fs-md);max-width:34ch">' + esc(C.tagline) + ' — membandingkan ' + D.PROVIDERS.length + ' perusahaan asuransi mitra untuk satu keputusan yang lebih baik.</p>' +
             '<div style="margin-top:var(--s-4);display:flex;gap:var(--s-3);align-items:center">' +
               '<span class="stars">' + ICON.star + ICON.star + ICON.star + ICON.star + ICON.star + '</span>' +
-              '<span style="font-size:var(--fs-sm);color:#94a3b8">' + C.csRating + ' / 5 dari 12.400 ulasan</span>' +
+              '<span style="font-size:var(--fs-sm);color:#94a3b8">Peringkat ' + String(C.csRating).replace('.', ',') + ' / 5 — kepuasan pelanggan</span>' +
             '</div>' +
             '<div class="footer-social" style="margin-top:var(--s-5)">' +
-              '<a href="#" aria-label="WhatsApp">' + ICON.whatsapp + '</a>' +
+              '<a href="https://wa.me/6285290003471" target="_blank" rel="noopener" aria-label="WhatsApp RajaPremi">' + ICON.whatsapp + '</a>' +
               '<a href="#" aria-label="Instagram">' + ICON.instagram + '</a>' +
               '<a href="#" aria-label="LinkedIn">' + ICON.linkedin + '</a>' +
               '<a href="#" aria-label="Facebook">' + ICON.facebook + '</a>' +
@@ -187,13 +195,13 @@
               '<li style="display:flex;gap:.5rem;align-items:flex-start"><span style="width:16px;flex:none;margin-top:.15rem">' + ICON.phone + '</span><span>' + esc(C.phone) + '</span></li>' +
               '<li style="display:flex;gap:.5rem;align-items:flex-start"><span style="width:16px;flex:none;margin-top:.15rem">' + ICON.whatsapp + '</span><span>WhatsApp ' + esc(C.whatsapp) + '</span></li>' +
               '<li style="display:flex;gap:.5rem;align-items:flex-start"><span style="width:16px;flex:none;margin-top:.15rem">' + ICON.mail + '</span><span>' + esc(C.email) + '</span></li>' +
-              '<li style="display:flex;gap:.5rem;align-items:flex-start"><span style="width:16px;flex:none;margin-top:.15rem">' + ICON.clock + '</span><span>' + esc(C.hours) + '<br>Bantuan darurat 24 jam</span></li>' +
+              '<li style="display:flex;gap:.5rem;align-items:flex-start"><span style="width:16px;flex:none;margin-top:.15rem">' + ICON.clock + '</span><span>' + esc(C.hours) + '</span></li>' +
               '<li style="display:flex;gap:.5rem;align-items:flex-start"><span style="width:16px;flex:none;margin-top:.15rem">' + ICON.pin + '</span><span>' + esc(C.address) + '</span></li>' +
             '</ul>' +
           '</div>' +
         '</div>' +
         '<div class="footer-bottom">' +
-          '<span>© ' + year + ' ' + esc(C.brand) + '. Seluruh hak cipta dilindungi. Broker asuransi berlisensi OJK.</span>' +
+          '<span>© ' + year + ' ' + esc(C.brand) + '. Seluruh hak cipta dilindungi.</span>' +
           '<span style="display:flex;gap:var(--s-5);flex-wrap:wrap">' +
             '<a href="#" style="color:#94a3b8">Syarat &amp; Ketentuan</a>' +
             '<a href="#" style="color:#94a3b8">Kebijakan Privasi</a>' +
