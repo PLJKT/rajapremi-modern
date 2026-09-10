@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bandingkan premi asuransi dari 7 mitra — RajaPremi</title>
+<meta name="description" content="Hitung dan bandingkan premi asuransi motor, mobil, dan lainnya dari 7 perusahaan asuransi mitra. Lihat selisih harga, kecepatan klaim, dan isi polis berdampingan.">
+<meta name="theme-color" content="#4338ca">
+<link rel="canonical" href="https://pljkt.github.io/rajapremi-modern/bandingkan.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234338ca'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-size='15' font-weight='800' fill='white' text-anchor='middle'%3ERP%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/product.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Lompat ke konten</a>
+<div id="site-header"></div>
+
+<main id="main">
+
+  <section class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Remah roti">
+        <a href="index.html">Beranda</a><span>/</span><span>Bandingkan</span>
+      </nav>
+      <h1>Bandingkan premi dari 7 mitra sekaligus</h1>
+      <p class="muted" style="max-width:70ch">
+        Isi data kendaraan Anda — hasilnya muncul langsung di bawah, dan alamat halaman ini bisa Anda simpan atau bagikan
+        untuk melanjutkan nanti. Tidak ada pendaftaran yang dipaksakan untuk melihat harga.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-sm">
+    <div class="container">
+      <div class="compare-layout">
+
+        <aside class="compare-side">
+          <div class="card card-pad-sm">
+            <div class="steps">
+              <span class="step is-active"><span class="step-num">1</span> Data</span>
+              <span class="step-line"></span>
+              <span class="step"><span class="step-num">2</span> Bandingkan</span>
+              <span class="step-line"></span>
+              <span class="step"><span class="step-num">3</span> Bayar</span>
+            </div>
+            <div id="quoteForm"></div>
+          </div>
+
+          <div class="card card-pad-sm" style="margin-top:var(--s-4)">
+            <strong style="font-size:var(--fs-sm)">Butuh bantuan mengisi?</strong>
+            <p class="muted" style="font-size:var(--fs-sm);margin:.4rem 0 .6rem">
+              Unggah foto STNK — RajaAI membaca nomor polisi, tahun, dan nilai kendaraan lalu mengisi formulirnya.
+            </p>
+            <button class="btn btn-soft btn-sm btn-block" data-ai-open data-ai-seed="unggah STNK saya">Baca STNK otomatis</button>
+            <p class="field-note">Foto tidak dikirim ke mana pun pada demo ini.</p>
+          </div>
+
+          <div class="alert alert-info" style="margin-top:var(--s-4)">
+            <span id="icoLock"></span>
+            <div><strong>Privasi.</strong> Data kendaraan Anda tidak dibagikan ke mitra sampai Anda menekan "Beli polis".
+            Sebelum itu, hanya mesin perbandingan kami yang menghubungi mereka.</div>
+          </div>
+        </aside>
+
+        <div class="compare-main">
+          <div id="quoteResults" hidden></div>
+          <div id="quoteFirstRun">
+            <div class="card card-pad-lg text-center">
+              <span style="display:inline-flex;width:44px;height:44px;color:var(--primary)" id="icoBigSearch"></span>
+              <h3 style="margin:var(--s-3) 0 .35rem">Hasil perbandingan muncul di sini</h3>
+              <p class="muted" style="max-width:52ch;margin:0 auto">
+                Isi harga kendaraan, kode plat, tahun, dan jenis perlindungan pada panel kiri. Kami akan menanyakan
+                seluruh mitra dalam satu permintaan, lalu menyusunnya dari yang paling murah.
+              </p>
+              <div class="row" style="gap:.5rem;justify-content:center;margin-top:var(--s-5);flex-wrap:wrap">
+                <button class="btn btn-primary" type="button" data-quote-demo>Isi contoh: motor 2021 Rp25 juta</button>
+                <button class="btn btn-secondary" type="button" data-ai-open data-ai-seed="Motor saya 2021, ambil TLO atau All Risk?">TLO atau All Risk?</button>
+              </div>
+            </div>
+
+            <div class="grid grid-3" style="margin-top:var(--s-5)">
+              <div class="card card-flat"><strong style="font-size:var(--fs-sm)">Harga transparan</strong>
+                <p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 0">Premi dasar dan biaya polis dipisah. Total yang Anda lihat adalah total yang tertulis di polis.</p></div>
+              <div class="card card-flat"><strong style="font-size:var(--fs-sm)">Bukan sekadar termurah</strong>
+                <p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 0">Kolom klaim dan isi perluasan ikut dibandingkan — premi murah tidak berguna bila klaimnya lambat.</p></div>
+              <div class="card card-flat"><strong style="font-size:var(--fs-sm)">Tanpa panggilan agen</strong>
+                <p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 0">Nomor telepon tidak diminta untuk melihat harga. Anda hanya memberi kontak saat akan membeli.</p></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sm surface">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <h2>Cara kami menghitung, terbuka</h2>
+          <p class="muted">Premi yang ditampilkan adalah hasil perhitungan mesin mitra pada saat Anda meminta. Yang perlu Anda tahu:</p>
+          <ol class="explain-list" style="font-size:var(--fs-md)">
+            <li>Tarif mengikuti harga kendaraan, tahun, kode plat wilayah, dan jenis perlindungan.</li>
+            <li>Setiap mitra memakai faktor risikonya sendiri — perbedaan antar mitra itu wajar.</li>
+            <li>Biaya polis dan materai ditampilkan terpisah, bukan dilebur ke dalam premi.</li>
+            <li>RajaPremi dibayar oleh mitra sebagai perantara; angka yang Anda bayar tidak ditambah untuk itu.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <strong style="font-size:var(--fs-sm)">Pertanyaan yang sering muncul di halaman ini</strong>
+          <div style="margin-top:var(--s-4)" id="compareFaq"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="compareTray"></div>
+<div id="site-footer"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/quote.js"></script>
+<script src="assets/js/ai.js"></script>
+<script>
+(function () {
+  var D = window.RPData, RP = window.RP;
+
+  var i1 = document.getElementById('icoLock'); if (i1) i1.innerHTML = D.ICONS.lock;
+  var i2 = document.getElementById('icoBigSearch'); if (i2) i2.innerHTML = D.ICONS.search;
+
+  var cf = document.getElementById('compareFaq');
+  if (cf) cf.innerHTML = D.FAQ.filter(function (f) { return ['Kendaraan', 'Premi', 'Klaim'].indexOf(f.cat) > -1; }).slice(0, 5)
+    .map(function (f) { return '<details class="acc"><summary>' + RP.esc(f.q) + '</summary><div class="acc-body">' + RP.esc(f.a) + '</div></details>'; }).join('');
+
+  RPQuote.mount({ formId: 'quoteForm', resultId: 'quoteResults', autorun: false });
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('[data-quote-demo]')) return;
+    var url = new URL(location.href);
+    url.searchParams.set('product', 'motor');
+    url.searchParams.set('harga', '25000000');
+    url.searchParams.set('plat', '13');
+    url.searchParams.set('tahun', '2021');
+    url.searchParams.set('coverage', '1');
+    history.replaceState(null, '', url);
+    location.reload();
+  });
+})();
+</script>
+</body>
+</html>

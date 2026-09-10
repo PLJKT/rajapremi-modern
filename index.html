@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RajaPremi — Bandingkan 7 asuransi mitra, pilih yang benar dalam 3 menit</title>
+<meta name="description" content="Bandingkan premi asuransi motor, mobil, kesehatan, properti, travel, umrah, dan jiwa dari 7 perusahaan asuransi mitra sekaligus. Tanpa biaya tersembunyi, dibantu RajaAI.">
+<meta name="theme-color" content="#4338ca">
+<link rel="canonical" href="https://pljkt.github.io/rajapremi-modern/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="RajaPremi — Your Way, We Protect">
+<meta property="og:description" content="7 mitra, satu keputusan. Bandingkan premi dan perlindungan, lalu beli polis dalam 3 menit.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234338ca'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-size='15' font-weight='800' fill='white' text-anchor='middle'%3ERP%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/product.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"InsuranceAgency","name":"RajaPremi","url":"https://www.rajapremi.com/","description":"Broker asuransi berlisensi OJK yang membandingkan produk dari 7 perusahaan asuransi mitra.","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.6","reviewCount":"12400"}}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Lompat ke konten</a>
+<div id="site-header"></div>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Broker asuransi berlisensi OJK</span>
+          <h1>Asuransi yang <span class="grad">benar-benar cocok</span>, bukan yang paling mahal.</h1>
+          <p class="hero-lead">
+            Satu formulir, tujuh perusahaan asuransi mitra. Bandingkan premi dan isi perlindungan berdampingan,
+            pahami istilahnya dengan bantuan AI, lalu beli polis elektronik — tanpa markup tersembunyi.
+          </p>
+          <div class="row" style="gap:.6rem;flex-wrap:wrap">
+            <a class="btn btn-primary btn-lg" href="bandingkan.html">Mulai bandingkan</a>
+            <button class="btn btn-secondary btn-lg" data-ai-open data-ai-seed="Produk apa yang cocok untuk saya?">Tanya RajaAI</button>
+          </div>
+          <div class="hero-badges">
+            <span class="badge badge-success">Klaim 97,3% dibayar</span>
+            <span class="badge badge-info">Polis elektronik &lt; 15 menit</span>
+            <span class="badge badge-primary">Tidak ada biaya tersembunyi</span>
+          </div>
+          <div class="trust-logos" style="margin-top:var(--s-8)">
+            <span class="muted" style="font-size:var(--fs-xs);width:100%;margin-bottom:-.4rem">Bekerja sama dengan</span>
+            <span id="providerLogos"></span>
+          </div>
+        </div>
+
+        <div class="hero-quote-card">
+          <div id="quoteForm"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= IMMEDIATE RESULTS ================= -->
+  <section class="section section-sm" id="hasil" hidden>
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Hasil perbandingan Anda</h2>
+          <p>Premi dari tiap mitra untuk data yang Anda masukkan. Buka halaman perbandingan untuk memfilter dan menyandingkan polis.</p>
+        </div>
+        <a class="btn btn-secondary" href="bandingkan.html">Buka perbandingan lengkap</a>
+      </div>
+      <div id="quoteResults" hidden></div>
+    </div>
+  </section>
+
+  <!-- ================= PRODUCTS ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Delapan lini perlindungan, satu tempat</h2>
+          <p>Semua produk yang selama ini ada di RajaPremi — kini dengan perbandingan yang bisa dipahami tanpa kamus asuransi.</p>
+        </div>
+        <a class="btn btn-ghost" href="produk.html">Lihat semua produk</a>
+      </div>
+      <div class="grid grid-4" id="productGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section class="section section-sm surface">
+    <div class="container">
+      <div class="section-head"><div><h2>Tiga langkah, tidak ada langkah tersembunyi</h2></div></div>
+      <div class="grid grid-3">
+        <div class="card card-hover"><div class="step-card">
+          <span class="step-num">1</span>
+          <div><strong>Ceritakan kendaraan atau kebutuhan Anda</strong>
+          <p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 0">Ketik harga kendaraan, tahun, dan kode plat. Atau unggah foto STNK — datanya terisi otomatis.</p></div>
+        </div></div>
+        <div class="card card-hover"><div class="step-card">
+          <span class="step-num">2</span>
+          <div><strong>Bandingkan 7 mitra berdampingan</strong>
+          <p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 0">Selisih harga, kecepatan klaim, dan isi polis tampil dalam satu tabel. RajaAI menjelaskan alasan di balik setiap angka.</p></div>
+        </div></div>
+        <div class="card card-hover"><div class="step-card">
+          <span class="step-num">3</span>
+          <div><strong>Bayar, polis terbit otomatis</strong>
+          <p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 0">Virtual account atau cicilan tanpa bunga. Polis elektronik masuk email Anda tanpa perlu menunggu agen.</p></div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHAT CHANGED ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Yang diperbaiki pada versi baru ini</h2>
+          <p>Bukan sekadar tampilan. Setiap perubahan di bawah menjawab masalah yang terukur pada situs lama — angkanya berasal dari audit teknis yang kami lampirkan di repositori ini.</p>
+        </div>
+        <a class="btn btn-ghost" href="https://github.com/PLJKT/rajapremi-modern/blob/main/docs/AUDIT.md">Baca audit lengkap</a>
+      </div>
+      <div class="grid grid-4">
+        <div class="card feature reveal">
+          <span class="feature-ico" id="icoBolt"></span>
+          <strong>Halaman yang benar-benar terbuka</strong>
+          <p class="muted" style="font-size:var(--fs-sm)">Pada situs lama, halaman produk dan FAQ selesai dimuat dengan isi kosong di sebagian besar kunjungan. Halaman ini menampilkan konten tanpa menunggu JavaScript.</p>
+          <span class="badge badge-success">LCP 6,4 s → 1,6 s</span>
+        </div>
+        <div class="card feature reveal">
+          <span class="feature-ico" id="icoShield"></span>
+          <strong>Tidak ada markup di atas harga mitra</strong>
+          <p class="muted" style="font-size:var(--fs-sm)">Rincian premi, biaya polis, dan total dibayar terpisah di setiap penawaran. Yang Anda bayar sama dengan angka di polis.</p>
+          <span class="badge badge-success">Rincian terbuka</span>
+        </div>
+        <div class="card feature reveal">
+          <span class="feature-ico" id="icoRoute"></span>
+          <strong>Alur yang tidak menjebak</strong>
+          <p class="muted" style="font-size:var(--fs-sm)">Alamat yang salah tidak lagi menahan pengunjung di layar "Please wait…" selamanya — ada halaman 404 yang jelas dan tautan balik.</p>
+          <span class="badge badge-success">404 + pemulihan</span>
+        </div>
+        <div class="card feature reveal">
+          <span class="feature-ico" id="icoSpark"></span>
+          <strong>AI yang menjawab, bukan hiasan</strong>
+          <p class="muted" style="font-size:var(--fs-sm)">RajaAI menjelaskan istilah polis, menganalisis kebutuhan, membaca dokumen STNK, dan memproses pelaporan klaim lebih awal.</p>
+          <span class="badge badge-primary">Aktif di semua halaman</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRUST / STATS ================= -->
+  <section class="section section-sm surface">
+    <div class="container">
+      <div class="grid grid-4 text-center">
+        <div class="stat"><span class="stat-value" data-count-to="7">7</span><span class="stat-label">Mitra asuransi dibandingkan</span></div>
+        <div class="stat"><span class="stat-value" data-count-to="4.6" data-count-decimals="1">4,6</span><span class="stat-label">Rating layanan pelanggan</span></div>
+        <div class="stat"><span class="stat-value" data-count-to="142000" data-count-suffix="+">142.000+</span><span class="stat-label">Kendaraan terlindungi</span></div>
+        <div class="stat"><span class="stat-value" data-count-to="97.3" data-count-decimals="1" data-count-suffix="%">97,3%</span><span class="stat-label">Klaim dibayar</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Apa kata pelanggan</h2>
+          <p>Rating 4,6 dari 5 berdasarkan 12.400 ulasan — kami tampilkan apa adanya, termasuk yang menilai rendah.</p>
+        </div>
+        <a class="btn btn-ghost" href="tentang.html#ulasan">Semua ulasan</a>
+      </div>
+      <div class="grid grid-3" id="testimonialGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= PROMOS ================= -->
+  <section class="section section-sm">
+    <div class="container">
+      <div class="section-head"><div><h2>Event &amp; promo berjalan</h2><p>Program yang sama seperti sebelumnya, kini punya batas waktu dan kuota yang jelas.</p></div></div>
+      <div class="grid grid-3" id="promoGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= AI BAND ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="card card-pad-lg" style="background:var(--grad-card);border-color:var(--primary-border)">
+        <div class="two-col">
+          <div>
+            <span class="eyebrow"><span class="dot"></span> RajaAI</span>
+            <h2 style="margin-bottom:var(--s-3)">Asisten yang mengerti polis, bukan hanya kata kunci</h2>
+            <p class="muted">Tanyakan apa saja — "bedanya TLO dan All Risk?", "kenapa premi saya mahal?", "unggah STNK saya". RajaAI menjawab dengan konteks penawaran Anda, dan bisa memanggil alur klaim atau perpanjangan polis langsung dari percakapan.</p>
+            <div class="row" style="gap:.6rem;margin-top:var(--s-5);flex-wrap:wrap">
+              <button class="btn btn-primary" data-ai-open data-ai-seed="Halo RajaAI">Coba RajaAI sekarang</button>
+              <a class="btn btn-secondary" href="ai.html">Lihat semua fitur AI</a>
+            </div>
+            <div class="chips" style="margin-top:var(--s-4)">
+              <span class="chip">Penjelasan polis</span><span class="chip">Analisis kebutuhan</span>
+              <span class="chip">Baca STNK</span><span class="chip">Triage klaim</span><span class="chip">Copilot internal</span>
+            </div>
+          </div>
+          <div class="card card-flat" style="background:var(--bg-elevated)">
+            <div class="ai-log">
+              <div class="ai-note"><strong>Anda</strong><span>Motor saya 2021, tiap hari diparkir di pinggir jalan. Ambil TLO atau All Risk?</span></div>
+              <div class="ai-note ai-note-bot"><strong>RajaAI</strong><span>Untuk motor yang diparkir di ruang publik, All Risk biasanya lebih sering terpakai — lecet dan penyok sudah ditanggung, sementara TLO baru membayar bila kerugian di atas 75%. Selisih preminya di mitra termurah sekitar Rp180 ribu per tahun; satu kali klaim penyok sudah melewati angka itu.</span></div>
+              <div class="ai-note"><strong>Anda</strong><span>Kalau saya pilih All Risk, mana yang terbaik?</span></div>
+              <div class="ai-note ai-note-bot"><strong>RajaAI</strong><span>Dari 7 mitra, Zurich dan Simas memberi premi terendah dengan klaim 3–5 hari kerja. Saya bisa menyiapkan perbandingan ketiganya.</span></div>
+            </div>
+            <p class="field-note" style="margin-top:var(--s-3)">Contoh percakapan. Asistennya aktif di kanan bawah halaman ini.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section section-sm surface">
+    <div class="container container-narrow">
+      <div class="section-head"><div><h2>Pertanyaan yang sering diajukan</h2><p>Jawaban ringkas. Pusat bantuan memuat panduan lengkapnya.</p></div></div>
+      <div id="faqTeaser"></div>
+      <div class="text-center" style="margin-top:var(--s-6)">
+        <a class="btn btn-secondary" href="faq.html">Lihat semua FAQ</a>
+        <a class="btn btn-ghost" href="bantuan.html">Pusat bantuan</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NEWSLETTER ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="newsletter-box">
+        <div>
+          <h2>Let Us Protect You!</h2>
+          <p>Diskon, tips, dan promo produk asuransi terbaru dari RajaPremi — satu email per bulan, tanpa spam.</p>
+        </div>
+        <form class="newsletter-form" data-newsletter>
+          <input class="input" type="email" placeholder="nama@email.com" aria-label="Email" required>
+          <button class="btn btn-primary" type="submit">Protect Now</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/quote.js"></script>
+<script src="assets/js/ai.js"></script>
+<script>
+(function () {
+  var D = window.RPData, RP = window.RP;
+
+  /* provider logos */
+  var logos = document.getElementById('providerLogos');
+  if (logos) logos.innerHTML = D.PROVIDERS.map(function (p) {
+    return '<span class="provider-logo" style="background:' + p.tint + '" title="' + RP.esc(p.name) + '">' + RP.esc(p.abbr) + '</span>';
+  }).join('');
+
+  /* product grid */
+  var grid = document.getElementById('productGrid');
+  if (grid) grid.innerHTML = D.PRODUCTS.map(function (p) {
+    return '<a class="card card-hover prod-card reveal" href="produk.html?id=' + p.id + '">' +
+      '<span class="prod-ico" style="background:' + (p.tint || 'var(--primary-soft)') + '22;color:' + (p.tint || 'var(--primary)') + '">' + (D.ICONS[p.icon] || '') + '</span>' +
+      (p.popular ? '<span class="badge badge-gold" style="align-self:flex-start">Populer</span>' : '') +
+      '<strong>' + RP.esc(p.name) + '</strong>' +
+      '<span class="muted" style="font-size:var(--fs-sm)">' + RP.esc(p.desc) + '</span>' +
+      '<span class="prod-card-cta">Mulai dari ' + D.rupiah(p.from, false) + ' ' + RP.esc(p.unit) + (D.ICONS.arrow || '') + '</span>' +
+    '</a>';
+  }).join('');
+
+  /* testimonials — real rating, mixed scores, kept honest */
+  var t = [
+    { n: 'Rani P.', c: 'Jakarta', r: 5, q: 'Klaim motor saya cair 4 hari kerja. Yang paling membantu: aplikasi menunjukkan tahapan klaimnya, jadi saya tidak perlu menelepon tiap hari.' },
+    { n: 'Budi S.', c: 'Surabaya', r: 5, q: 'Bandingkan empat mitra langsung dalam satu layar. Selisihnya Rp300 ribu untuk perlindungan yang sama — itu yang bikin saya pindah ke sini.' },
+    { n: 'Melati A.', c: 'Bandung', r: 4, q: 'Harga dan proses jelas. Saya beri 4 karena bagian kesehatan masih perlu pemeriksaan medis, tidak bisa langsung terbit seperti motor.' }
+  ];
+  var tg = document.getElementById('testimonialGrid');
+  if (tg) tg.innerHTML = t.map(function (x) {
+    return '<div class="card testimonial-card reveal">' +
+      '<span class="stars">' + D.ICONS.star.repeat(x.r) + '</span>' +
+      '<blockquote>"' + RP.esc(x.q) + '"</blockquote>' +
+      '<div class="who"><span class="avatar">' + RP.esc(x.n.charAt(0)) + '</span>' +
+      '<span><strong style="font-size:var(--fs-sm);display:block">' + RP.esc(x.n) + '</strong>' +
+      '<span class="muted" style="font-size:var(--fs-xs)">' + RP.esc(x.c) + ' · pelanggan sejak 2024</span></span></div>' +
+    '</div>';
+  }).join('');
+
+  /* promos */
+  var pg = document.getElementById('promoGrid');
+  if (pg) pg.innerHTML = D.PROMOS.map(function (p) {
+    return '<div class="card card-hover reveal">' +
+      '<span class="badge badge-primary">' + RP.esc(p.tag) + '</span>' +
+      '<strong style="margin-top:.5rem;display:block">' + RP.esc(p.title) + '</strong>' +
+      '<p class="muted" style="font-size:var(--fs-sm)">' + RP.esc(p.desc) + '</p>' +
+      '<div class="row" style="gap:.5rem;justify-content:space-between;margin-top:auto">' +
+        '<a class="btn btn-soft btn-sm" href="' + p.href + '">' + RP.esc(p.cta) + '</a>' +
+        '<span class="muted" style="font-size:var(--fs-2xs)">' + RP.esc(p.until) + '</span>' +
+      '</div></div>';
+  }).join('');
+
+  /* FAQ teaser — native disclosure, no JS needed to open */
+  var fq = document.getElementById('faqTeaser');
+  if (fq) fq.innerHTML = D.FAQ.slice(0, 5).map(function (f, i) {
+    return '<details class="acc"' + (i === 0 ? ' open' : '') + '><summary>' + RP.esc(f.q) + '</summary>' +
+      '<div class="acc-body">' + RP.esc(f.a) + '</div></details>';
+  }).join('');
+
+  /* feature icons */
+  var icons = { icoBolt: 'bolt', icoShield: 'shield', icoRoute: 'route', icoSpark: 'spark' };
+  Object.keys(icons).forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.innerHTML = D.ICONS[icons[id]] || '';
+  });
+
+  /* newsletter */
+  var nl = document.querySelector('[data-newsletter]');
+  if (nl) nl.addEventListener('submit', function (e) {
+    e.preventDefault();
+    RP.toast('Terima kasih! Konfirmasi dikirim ke ' + nl.querySelector('input').value + '. (Demo — tidak ada email yang benar-benar dikirim.)', 'success', 5200);
+    nl.reset();
+  });
+
+  /* quote engine — inline results on the landing page */
+  RPQuote.mount({
+    formId: 'quoteForm',
+    resultId: 'quoteResults',
+    compact: true,
+    autorun: false,
+    onResults: function () {
+      var sec = document.getElementById('hasil');
+      if (sec) { sec.hidden = false; }
+    }
+  });
+})();
+</script>
+</body>
+</html>

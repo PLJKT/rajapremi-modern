@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>RajaPremi Audit — Executive Dashboard</title>
+<style>
+  :root{
+    --p0:#e5484d; --p1:#f5a524; --p2:#0ea5e9; --p3:#8b8d98;
+    --ok:#30a46c;
+  }
+  *{box-sizing:border-box}
+  html,body{
+    font-family:var(--app-font, inherit);
+    color:var(--foreground);
+    margin:0; padding:0;
+  }
+  .wrap{max-width:1000px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+  h1{font-size:19px;margin:0;font-weight:650;letter-spacing:-.01em}
+  h2{font-size:13px;margin:0 0 8px;font-weight:650;text-transform:uppercase;letter-spacing:.06em;color:var(--muted-foreground)}
+  .sub{color:var(--muted-foreground);font-size:12.5px;margin-top:4px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;width:100%}
+  .card{border:1px solid var(--border);border-radius:10px;padding:11px 13px;background:var(--card)}
+  .kpi{font-size:24px;font-weight:680;line-height:1.15;letter-spacing:-.02em}
+  .klab{font-size:11px;color:var(--muted-foreground);margin-top:3px;line-height:1.35}
+  table{border-collapse:collapse;width:100%;font-size:12.5px}
+  th{text-align:left;font-weight:600;color:var(--muted-foreground);font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:6px 8px;border-bottom:1px solid var(--border)}
+  td{padding:7px 8px;border-bottom:1px solid var(--border);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .pill{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;color:#fff;white-space:nowrap}
+  .p0{background:var(--p0)} .p1{background:var(--p1)} .p2{background:var(--p2)} .p3{background:var(--p3)}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;color:var(--accent)}
+  .bar{height:9px;border-radius:99px;background:var(--border);overflow:hidden;min-width:120px}
+  .bar > i{display:block;height:100%;background:var(--accent)}
+  .bars{display:flex;flex-direction:column;gap:9px;width:100%}
+  .brow{display:grid;grid-template-columns:190px 1fr 78px;gap:10px;align-items:center;font-size:12px}
+  .brow .n{color:var(--muted-foreground)}
+  .brow .v{text-align:right;font-variant-numeric:tabular-nums}
+  .note{border-left:3px solid var(--accent);padding:6px 0 6px 11px;font-size:12.5px;color:var(--muted-foreground);max-width:1000px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px;width:100%;align-items:start}
+  ul{margin:6px 0 0;padding-left:17px;font-size:12.5px;line-height:1.55}
+  li{margin:3px 0}
+  .tag{font-size:10.5px;border:1px solid var(--border);border-radius:5px;padding:1px 6px;color:var(--muted-foreground)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div>
+    <h1>RajaPremi.com — Audit Scorecard</h1>
+    <div class="sub">10 Sep 2026 · live reconnaissance of www + api + service.rajapremi.com · 40 findings, 9 critical</div>
+  </div>
+
+  <div class="grid">
+    <div class="card"><div class="kpi" style="color:var(--p0)">9</div><div class="klab">P0 / critical findings<br>(money &amp; trust at risk)</div></div>
+    <div class="card"><div class="kpi" style="color:var(--p0)">0 chars</div><div class="klab">rendered on <code>/product</code> and <code>/faq</code> in a real browser</div></div>
+    <div class="card"><div class="kpi" style="color:var(--p1)">400 KB</div><div class="klab">JS+CSS on first paint<br>(1.80 MB uncompressed)</div></div>
+    <div class="card"><div class="kpi" style="color:var(--p1)">3.43 s</div><div class="klab">worst-first-byte on the homepage (best 0.30 s)</div></div>
+    <div class="card"><div class="kpi" style="color:var(--p0)">97</div><div class="klab">route chunks the browser prefetches on every page view</div></div>
+    <div class="card"><div class="kpi" style="color:var(--p1)">2016</div><div class="klab">newest row in the live vehicle/plate reference tables</div></div>
+    <div class="card"><div class="kpi" style="color:var(--p1)">2023</div><div class="klab">Vue 2 end-of-life — the whole storefront still ships 2.6.14</div></div>
+    <div class="card"><div class="kpi" style="color:var(--ok)">7</div><div class="klab">insurers actually quoting through the live engine</div></div>
+  </div>
+
+  <div>
+    <h2>Critical findings — fix these first</h2>
+    <table>
+      <tr><th style="width:52px">Sev</th><th style="width:210px">Finding</th><th>Evidence</th><th style="width:250px">Business impact</th></tr>
+      <tr><td><span class="pill p0">P0-1</span></td><td>Coverage codes are <b>inverted</b> between front-end and back-end</td><td>UI sends <code>TLO=1, All Risk=2</code>; API defines <code>ALL_RISK=1, TLO=2</code>. Live test: <code>coverage=1</code> → 7 quotes, <code>coverage=2</code> → empty</td><td>Choosing “All Risk” returns nothing; choosing “TLO” is priced &amp; recorded as All Risk → wrong cover sold, claims disputes</td></tr>
+      <tr><td><span class="pill p0">P0-2</span></td><td>Your <b>commission &amp; margin data is public</b> in the quote API response</td><td>Every quote returns <code>basic_commision 25.00</code>, <code>rate_basic 1.80</code>, <code>handling_fee 25000</code>, <code>gross_premium 450000</code> vs customer <code>gross_total_temp 510000</code></td><td>Any competitor can read your exact margin per product and price under you; insurer relations exposed</td></tr>
+      <tr><td><span class="pill p0">P0-3</span></td><td>API key is checked for <b>presence, not validity</b></td><td>Missing header → “Cannot found token Authorization”. Bogus value <code>X-API-KEY: bogus-X</code> → full 7-insurer quote</td><td>The gate is decorative; quote engine &amp; reference data are effectively open to anyone</td></tr>
+      <tr><td><span class="pill p0">P0-4</span></td><td><code>generate-key</code> mints a token for <b>any identity you invent</b></td><td>POST with a random <code>user_id</code> → returns a usable <code>data.token</code></td><td>No real identity layer; every downstream “authentication” is unverifiable</td></tr>
+      <tr><td><span class="pill p0">P0-5</span></td><td>Core pages render <b>nothing</b></td><td><code>/product</code> → 0 chars; <code>/faq</code> → 0 chars; <code>/compare</code> → chrome only (530 chars)</td><td>The three pages that explain products, answer objections and show quotes are blank</td></tr>
+      <tr><td><span class="pill p0">P0-6</span></td><td>Bad URLs fail <b>silently forever</b></td><td><code>/motor</code>, <code>/asuransi-kesehatan</code> → HTTP 200, body stuck on “Please wait...”</td><td>Soft-404s; users wait on a spinner instead of a 404/redirect; SEO damage</td></tr>
+      <tr><td><span class="pill p0">P0-7</span></td><td>No security headers anywhere</td><td>www returns only <code>Server: cloudflare</code>, <code>cf-cache-status: DYNAMIC</code> — no HSTS/CSP/X-Frame-Options/Referrer-Policy. API: <code>X-Powered-By: PHP/8.1.4</code>, <code>Access-Control-Allow-Origin: *</code> + <code>Allow-Credentials: true</code>, <code>PHPSESSID</code> with no <code>Secure</code>/<code>SameSite</code></td><td>Clickjacking, cross-site API abuse from any origin, session hijacking on public Wi-Fi, version fingerprinting</td></tr>
+      <tr><td><span class="pill p0">P0-8</span></td><td>Unpinned CDN libs in the <b>back office</b></td><td><code>bootstrap-vue@latest</code>, <code>vue-select@latest</code>; Vue 2.6.14, axios 0.26.1, CKEditor 4.18.0, moment 2.29.2, AdminLTE, jQuery via stackpath</td><td>An upstream <code>@latest</code> release can brick your internal admin console with no deploy on your side</td></tr>
+      <tr><td><span class="pill p0">P0-9</span></td><td>Zero SEO surface on an SPA</td><td>One title for every route, <code>sitemap.xml</code> serves HTML, no JSON-LD / canonical / OG on product pages</td><td>Google indexes an empty shell — you pay for traffic you could earn</td></tr>
+    </table>
+  </div>
+
+  <div class="two">
+    <div>
+      <h2>Weight actually delivered (brotli)</h2>
+      <div class="bars">
+        <div class="brow"><span class="n">chunk-vendors.js</span><span class="bar"><i style="width:84%"></i></span><span class="v">337 KB</span></div>
+        <div class="brow"><span class="n">app.css</span><span class="bar"><i style="width:10%"></i></span><span class="v">38 KB</span></div>
+        <div class="brow"><span class="n">app.js</span><span class="bar"><i style="width:6%"></i></span><span class="v">22 KB</span></div>
+        <div class="brow"><span class="n">HTML shell</span><span class="bar"><i style="width:1%"></i></span><span class="v">2 KB</span></div>
+        <div class="brow"><span class="n" style="color:var(--foreground)">Target on a Nuxt build</span><span class="bar"><i style="width:22%;background:var(--ok)"></i></span><span class="v" style="color:var(--ok)">~90 KB</span></div>
+      </div>
+      <div class="note" style="margin-top:12px">One vendored bundle carries 84% of the payload — and all 97 lazy route chunks are emitted as <code>rel="prefetch"</code>, so the browser downloads the entire app for every visitor.</div>
+    </div>
+    <div>
+      <h2>What the live engine really does</h2>
+      <ul>
+        <li>Motorcycle quote, <b>unauthenticated</b>: 7 insurers reply for one 25 M IDR / 2021 bike</li>
+        <li>Customer total spread <b>500,000 → 950,000 IDR</b> (90% gap between cheapest and dearest)</li>
+        <li>Five insurers at <code>rate_basic 1.80%</code>, one at <code>3.50%</code> — algorithmically derived</li>
+        <li>Quote token is opaque &amp; per-request, but the buy step is <code>/car/summary/&lt;token&gt;</code> even for motorcycles</li>
+        <li>Reference tables (plate/area/state) last written <b>20 Oct 2016</b> — quotes still offered for a 2021 vehicle</li>
+        <li>Footer says © 2022, a landline-looking number, and <code>info@rajapremi.co.id</code> — a different domain from the site</li>
+      </ul>
+    </div>
+  </div>
+
+  <div>
+    <h2>Sequenced remediation</h2>
+    <table>
+      <tr><th style="width:120px">Horizon</th><th>Work</th><th style="width:110px">Effort</th></tr>
+      <tr><td><b>H1 — Week 1-3</b><br><span class="tag">emergency</span></td><td>Strip margin fields from API responses · real key validation + rate limits · fix the coverage enum inversion · security headers &amp; CORS allow-list · real 404 / error boundary · pin all CDN versions · swap the stackpath Font Awesome copy for a local build</td><td>~12 dev-days<br>(1 senior + 1 mid)</td></tr>
+      <tr><td><b>H2 — Month 1-3</b><br><span class="tag">rebuild</span></td><td>Nuxt 3 storefront with SSR/prerendered money pages · design system (tokens + 30 components) · fix <code>/product</code>, <code>/faq</code>, <code>/compare</code> · real auth (OAuth/JWT) replacing <code>generate-key</code> · Filament 3 admin replacing the AdminLTE console · CI/CD + Sentry + uptime</td><td>~45 dev-days</td></tr>
+      <tr><td><b>H3 — Quarter 2-3</b><br><span class="tag">AI layer</span></td><td>Conversational quote assistant · STNK &amp; claim-photo vision intake · needs-analysis recommender · comparison explainer · WhatsApp retention bot · back-office copilot · renewal &amp; churn prediction · Indonesian voice-note handling</td><td>~60 dev-days<br>+ model spend</td></tr>
+    </table>
+  </div>
+
+  <div class="note">
+    Full detail — 40 findings with evidence &amp; fixes, page-by-page UX specs, 12 AI features with architecture and cost estimates, admin rebuild, GitHub demo plan and a 30/60/90 plan — is in
+    <b>RAJAPREMI-MODERNIZATION-BLUEPRINT.md</b> (66 KB) delivered alongside this dashboard.
+  </div>
+
+</div>
+</body>
+</html>

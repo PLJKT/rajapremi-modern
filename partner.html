@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Program Mitra — jadi agen asuransi RajaPremi | Komisi &amp; cara daftar</title>
+<meta name="description" content="Rekrutmen mitra RajaPremi: model komisi per produk, simulasi penghasilan, tiga langkah onboarding, syarat berkas, dan formulir pendaftaran agen asuransi.">
+<meta name="theme-color" content="#4338ca">
+<link rel="canonical" href="https://pljkt.github.io/rajapremi-modern/partner.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Program Mitra RajaPremi — jual 8 produk, 7 mitra, satu dashboard">
+<meta property="og:description" content="Komisi transparan per produk, onboarding tiga langkah, dan formulir pendaftaran agen asuransi.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234338ca'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-size='15' font-weight='800' fill='white' text-anchor='middle'%3ERP%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/product.css">
+<style>
+  /* hanya tata letak khusus halaman mitra */
+  .partner-card { display: flex; flex-direction: column; }
+  .partner-card .feature-ico { margin-bottom: .6rem; }
+  .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: var(--s-5); }
+  .tier-rate { font-variant-numeric: tabular-nums; }
+  .partner-num { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px;
+    border-radius: var(--r-full); background: var(--primary); color: #fff; font-weight: var(--fw-black);
+    font-size: var(--fs-sm); flex: none; }
+  .partner-stage { display: flex; flex-direction: column; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Lompat ke konten</a>
+<div id="site-header"></div>
+
+<main id="main">
+
+  <!-- ================= PAGE HEAD ================= -->
+  <section class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Remah roti">
+        <a href="index.html">Beranda</a><span>/</span><span>Program Mitra</span>
+      </nav>
+      <span class="eyebrow"><span class="dot"></span> Program Mitra</span>
+      <h1>Jual delapan produk dari tujuh perusahaan asuransi — lewat satu dashboard</h1>
+      <p class="muted" style="max-width:74ch;font-size:var(--fs-lg)">
+        RajaPremi bukan perusahaan asuransi. Kami agregator yang menerbitkan polis lewat mitra berlisensi.
+        Anda masuk sebagai agen atau agensi, memakai jaringan kami untuk membandingkan harga, menerbitkan polis,
+        dan melacak komisi — tanpa membangun sistem sendiri.
+      </p>
+      <div class="row" style="gap:.6rem;margin-top:var(--s-5);flex-wrap:wrap">
+        <a class="btn btn-primary" href="#daftar">Daftar jadi mitra</a>
+        <button class="btn btn-secondary" type="button" data-ai-open data-ai-seed="syarat jadi mitra RajaPremi">Tanya syaratnya ke RajaAI</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ANGKA ================= -->
+  <section class="section section-sm">
+    <div class="container">
+      <div class="grid grid-4">
+        <div class="card stat">
+          <div class="stat-value" id="statProducts">8</div>
+          <div class="stat-label">Lini produk yang bisa Anda jual</div>
+        </div>
+        <div class="card stat">
+          <div class="stat-value" id="statProviders">7</div>
+          <div class="stat-label">Perusahaan asuransi mitra berlisensi</div>
+        </div>
+        <div class="card stat">
+          <div class="stat-value">12–25%</div>
+          <div class="stat-label">Rentang komisi per produk</div>
+        </div>
+        <div class="card stat">
+          <div class="stat-value">H+14</div>
+          <div class="stat-label">Komisi dibayar setelah polis aktif</div>
+        </div>
+      </div>
+
+      <div class="alert alert-info" style="margin-top:var(--s-5)">
+        <span data-ico="info"></span>
+        <div><strong>Semua angka komisi di halaman ini ilustrasi.</strong> Skema final mengikuti perjanjian keagenan
+        dengan masing-masing perusahaan asuransi dan bisa berbeda per produk, per wilayah, dan per volume penjualan Anda.
+        Kami menampilkan rentangnya terbuka supaya Anda bisa menghitung sebelum mendaftar.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VALUE PROPOSITION ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Kenapa bergabung, bukan menjual sendiri</h2>
+          <p>Empat hal yang paling sering disebut mitra sebagai alasan mereka pindah dari cara kerja lama.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card partner-card">
+          <span class="feature-ico" data-ico="search"></span>
+          <h3>Perbandingan harga dalam satu layar</h3>
+          <p class="muted" style="font-size:var(--fs-sm)">
+            Satu kali input data nasabah, Anda dapat penawaran dari tujuh mitra sekaligus. Tidak perlu buka tujuh
+            portal berbeda untuk menemukan harga yang layak dibandingkan.
+          </p>
+          <span class="badge badge-primary" style="align-self:flex-start">Hemat 40 menit per penawaran</span>
+        </div>
+
+        <div class="card partner-card">
+          <span class="feature-ico" data-ico="chart"></span>
+          <h3>Komisi terlihat, bukan dikira-kira</h3>
+          <p class="muted" style="font-size:var(--fs-sm)">
+            Nilai komisi muncul saat penawaran dibuat, sebelum Anda menjanjikan apa pun ke nasabah. Riwayat pembayaran
+            bisa diunduh sebagai rekap bulanan untuk pembukuan Anda.
+          </p>
+          <span class="badge badge-primary" style="align-self:flex-start">Rekap pembayaran bulanan</span>
+        </div>
+
+        <div class="card partner-card">
+          <span class="feature-ico" data-ico="doc"></span>
+          <h3>Administrasi polis kami yang urus</h3>
+          <p class="muted" style="font-size:var(--fs-sm)">
+            Penerbitan e-policy, penagihan, pengingat jatuh tempo, dan pengurusan klaim ditangani sistem dan tim kami.
+            Anda fokus mencari nasabah, bukan mengejar berkas.
+          </p>
+          <span class="badge badge-primary" style="align-self:flex-start">E-policy otomatis</span>
+        </div>
+
+        <div class="card partner-card">
+          <span class="feature-ico" data-ico="bolt"></span>
+          <h3>Alat kerja, bukan sekadar kode referral</h3>
+          <p class="muted" style="font-size:var(--fs-sm)">
+            Simulator premi, kalkulator komisi, materi presentasi per produk, dan RajaAI yang menjawab pertanyaan calon
+            nasabah di luar jam kerja Anda.
+          </p>
+          <span class="badge badge-primary" style="align-self:flex-start">Asisten AI, 24 jam</span>
+        </div>
+
+        <div class="card partner-card">
+          <span class="feature-ico" data-ico="users"></span>
+          <h3>Dua jalur: perorangan atau agensi</h3>
+          <p class="muted" style="font-size:var(--fs-sm)">
+            Agen perorangan dapat dashboard pribadi. Agensi dan broker dapat dashboard tim dengan pembagian komisi
+            antar anggota, ekspor laporan, dan beberapa kode mitra dalam satu organisasi.
+          </p>
+          <span class="badge badge-primary" style="align-self:flex-start">Dashboard tim tersedia</span>
+        </div>
+
+        <div class="card partner-card">
+          <span class="feature-ico" data-ico="scale"></span>
+          <h3>Kepatuhan dan berkas yang rapi</h3>
+          <p class="muted" style="font-size:var(--fs-sm)">
+            Setiap penerbitan polis tercatat dengan jejak audit, termasuk persetujuan nasabah dan dokumen pendukungnya.
+            Berguna saat Anda diaudit atau saat klaim dipersoalkan.
+          </p>
+          <span class="badge badge-primary" style="align-self:flex-start">Jejak audit per polis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MODEL KOMPISI ================= -->
+  <section class="section section-sm surface">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Model penghasilan Anda</h2>
+          <p>Tiga sumber pendapatan: komisi polis baru, komisi perpanjangan, dan bonus volume.</p>
+        </div>
+      </div>
+
+      <div class="card card-flat">
+        <div class="table-scroll">
+          <table class="table table-tight">
+            <thead>
+              <tr>
+                <th>Produk</th>
+                <th>Premi mulai</th>
+                <th>Komisi mitra</th>
+                <th>Estimasi komisi per polis</th>
+                <th>Perpanjangan</th>
+              </tr>
+            </thead>
+            <tbody id="commissionRows"></tbody>
+            <tfoot>
+              <tr>
+                <td class="row-label">Rata-rata dari 8 produk</td>
+                <td id="avgPremium">—</td>
+                <td id="avgRate">—</td>
+                <td><strong id="avgCommission">—</strong></td>
+                <td>5%</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="field-note">
+          <span data-ico="info"></span>
+          Kolom premi mulai memakai harga terendah yang kami tampilkan di halaman produk. Komisi dihitung dari premi
+          yang benar-benar dibayar nasabah, bukan dari harga terendah; polis dengan perluasan tambahan membayar komisi
+          lebih besar dengan persentase yang sama.
+        </div>
+      </div>
+
+      <div class="grid grid-3" style="margin-top:var(--s-6)">
+        <div class="card">
+          <span class="badge badge-gold">Sumber pertama</span>
+          <h3 style="margin-top:var(--s-3)">Komisi polis baru</h3>
+          <p class="muted" style="font-size:var(--fs-sm)">
+            Dibayar satu kali setiap polis baru diterbitkan dan dinyatakan aktif. Dibayarkan H+14 setelah polis aktif,
+            bukan setelah nasabah membayar, dan tanpa syarat kanal penjualan tertentu.
+          </p>
+          <div class="kpi-label">Dibayar paling lama</div>
+          <div class="stat-value">14 hari</div>
+        </div>
+        <div class="card">
+          <span class="badge badge-gold">Sumber kedua</span>
+          <h3 style="margin-top:var(--s-3)">Komisi perpanjangan</h3>
+          <p class="muted" style="font-size:var(--fs-sm)">
+            Polis yang Anda terbitkan dan diperpanjang nasabahnya tahun berikutnya tetap memberi komisi sekitar 5%.
+            Ini bagian pendapatan yang tumbuh tanpa usaha pencarian nasabah baru.
+          </p>
+          <div class="kpi-label">Perpanjangan tahun ke-2 dan setelahnya</div>
+          <div class="stat-value">5%</div>
+        </div>
+        <div class="card">
+          <span class="badge badge-gold">Sumber ketiga</span>
+          <h3 style="margin-top:var(--s-3)">Bonus volume</h3>
+          <p class="muted" style="font-size:var(--fs-sm)">
+            Tambahan persentase bila total premi bulanan Anda melewati ambang tertentu. Ambang dan besarannya berbeda
+            per mitra dan disepakati di perjanjian, jadi kami tidak menjanjikan angkanya di halaman ini.
+          </p>
+          <div class="kpi-label">Dihitung per bulan, dibayar triwulanan</div>
+          <div class="stat-value">Bervariasi</div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:var(--s-8)">Simulasi penghasilan bulanan</h3>
+      <p class="muted" style="font-size:var(--fs-sm);max-width:70ch;margin-top:.35rem">
+        Rp <span id="avgPerPolicy">0</span> adalah rata-rata komisi per polis dari tabel di atas. Simulasi ini hanya
+        mengitung komisi polis baru dan belum menambahkan perpanjangan maupun bonus volume.
+      </p>
+
+      <div class="tier-grid" style="margin-top:var(--s-5)">
+        <div class="card stat">
+          <span class="badge badge-primary">Tahap awal</span>
+          <div class="stat-value" id="sim5">—</div>
+          <div class="stat-label">5 polis per bulan</div>
+        </div>
+        <div class="card stat">
+          <span class="badge badge-primary">Aktif penuh</span>
+          <div class="stat-value" id="sim15">—</div>
+          <div class="stat-label">15 polis per bulan</div>
+        </div>
+        <div class="card stat">
+          <span class="badge badge-success">Agensi kecil</span>
+          <div class="stat-value" id="sim30">—</div>
+          <div class="stat-label">30 polis per bulan</div>
+        </div>
+        <div class="card stat">
+          <span class="badge badge-gold">Agensi mapan</span>
+          <div class="stat-value" id="sim60">—</div>
+          <div class="stat-label">60 polis per bulan</div>
+        </div>
+      </div>
+
+      <div class="alert alert-warn" style="margin-top:var(--s-5)">
+        <span data-ico="warn"></span>
+        <div><strong>Simulasi bukan janji penghasilan.</strong> Empat puluh polis motor dengan premi kecil menghasilkan
+        angka yang jauh berbeda dari empat puluh polis kesehatan. Kami sengaja memakai rata-rata seluruh produk
+        supaya Anda tidak terpaku pada produk yang paling menguntungkan saja.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ONBOARDING 3 LANGKAH ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Tiga langkah sampai komisi pertama</h2>
+          <p>Rata-rata mitra selesai dalam enam hari kerja, dan sebagian besar waktunya untuk verifikasi berkas.</p>
+        </div>
+      </div>
+
+      <div class="card card-pad-lg">
+        <div class="steps">
+          <span class="step is-active"><span class="step-num">1</span> Daftar</span>
+          <span class="step-line"></span>
+          <span class="step"><span class="step-num">2</span> Verifikasi &amp; pelatihan</span>
+          <span class="step-line"></span>
+          <span class="step"><span class="step-num">3</span> Aktif &amp; menutup polis</span>
+        </div>
+
+        <div class="grid grid-3" style="margin-top:var(--s-5)">
+          <div class="card card-flat partner-stage">
+            <div class="row" style="gap:.6rem;align-items:center">
+              <span class="partner-num">1</span>
+              <strong>Daftar dan unggah berkas</strong>
+            </div>
+            <p class="muted" style="font-size:var(--fs-sm);margin:.6rem 0 .5rem">
+              Isi formulir di bawah, unggah KTP, NPWP, buku rekening, dan sertifikat AAJI atau AASI bila sudah ada.
+              Sertifikat belum wajib di tahap ini — banyak mitra menyelesaikannya sambil belajar.
+            </p>
+            <span class="badge badge-primary" style="align-self:flex-start">1 hari kerja</span>
+          </div>
+
+          <div class="card card-flat partner-stage">
+            <div class="row" style="gap:.6rem;align-items:center">
+              <span class="partner-num">2</span>
+              <strong>Verifikasi dan pelatihan</strong>
+            </div>
+            <p class="muted" style="font-size:var(--fs-sm);margin:.6rem 0 .5rem">
+              Kami memverifikasi identitas dan rekening, lalu menjalankan sesi onboarding produk secara daring:
+              cara membaca polis, batas pertanggungan, pengecualian, dan alur klaim. Ditutup ujian dasar 30 soal.
+            </p>
+            <span class="badge badge-primary" style="align-self:flex-start">3–5 hari kerja</span>
+          </div>
+
+          <div class="card card-flat partner-stage">
+            <div class="row" style="gap:.6rem;align-items:center">
+              <span class="partner-num">3</span>
+              <strong>Aktif dan mulai menutup polis</strong>
+            </div>
+            <p class="muted" style="font-size:var(--fs-sm);margin:.6rem 0 .5rem">
+              Kode mitra, akses dashboard, dan halaman kustom Anda aktif. Mulai saat itu setiap polis yang terbit
+              tercatat atas nama Anda, dan komisi pertama masuk H+14 setelah polis aktif.
+            </p>
+            <span class="badge badge-success" style="align-self:flex-start">Hari ke-6</span>
+          </div>
+        </div>
+
+        <div class="alert alert-info" style="margin-top:var(--s-5)">
+          <span data-ico="info"></span>
+          <div><strong>Yang tidak kami minta:</strong> setoran awal, biaya pendaftaran, target penjualan minimum,
+          atau kewajiban membeli polis sendiri. Pada demo ini pendaftaran hanya menghasilkan notifikasi di layar —
+          tidak ada berkas yang benar-benar terunggah.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SYARAT ================= -->
+  <section class="section section-sm surface">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Syarat dan berkas pendaftaran</h2>
+          <p>Periksa dulu sebelum mengisi formulir supaya verifikasi tidak bolak-balik.</p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card card-flat">
+          <div class="table-scroll">
+            <table class="table table-tight">
+              <thead><tr><th>Berkas / ketentuan</th><th>Perorangan</th><th>Agensi &amp; korporat</th></tr></thead>
+              <tbody>
+                <tr><td>KTP pemilik rekening</td><td><span class="badge badge-success">Wajib</span></td><td><span class="badge badge-success">Wajib</span></td></tr>
+                <tr><td>NPWP pribadi atau badan</td><td><span class="badge badge-success">Wajib</span></td><td><span class="badge badge-success">Wajib</span></td></tr>
+                <tr><td>Buku rekening atas nama sendiri</td><td><span class="badge badge-success">Wajib</span></td><td><span class="badge badge-success">Wajib</span></td></tr>
+                <tr><td>Sertifikat AAJI / AASI / lisensi pialang</td><td><span class="badge badge-warn">Boleh menyusul</span></td><td><span class="badge badge-success">Wajib 1 orang</span></td></tr>
+                <tr><td>Nomor WhatsApp aktif</td><td><span class="badge badge-success">Wajib</span></td><td><span class="badge badge-success">Wajib</span></td></tr>
+                <tr><td>Akta pendirian &amp; izin usaha</td><td><span class="badge badge-danger">Tidak perlu</span></td><td><span class="badge badge-success">Wajib</span></td></tr>
+                <tr><td>Daftar anggota tim &amp; pembagian komisi</td><td><span class="badge badge-danger">Tidak perlu</span></td><td><span class="badge badge-success">Wajib</span></td></tr>
+                <tr><td>Usia minimum 18 tahun</td><td><span class="badge badge-success">Wajib</span></td><td><span class="badge badge-success">Wajib</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <h3>Jadwal pembayaran komisi</h3>
+            <p class="muted" style="font-size:var(--fs-sm)">
+              Tanggal berikut dihitung dari hari polis dinyatakan aktif, bukan dari hari penawaran dibuat.
+            </p>
+            <div class="table-scroll" style="margin-top:var(--s-4)">
+              <table class="table table-tight">
+                <thead><tr><th>Tahap</th><th>Kapan</th></tr></thead>
+                <tbody>
+                  <tr><td>Polis aktif</td><td>Hari ke-0</td></tr>
+                  <tr><td>Komisi tercatat di dashboard</td><td>Hari ke-1</td></tr>
+                  <tr><td>Masa tenggang pembatalan</td><td>Hari ke-1 sampai 14</td></tr>
+                  <tr><td>Komisi ditransfer ke rekening</td><td>Hari ke-14 sampai 17</td></tr>
+                  <tr><td>Rekap bulanan terbit</td><td>Awal bulan berikutnya</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="alert alert-success" style="margin-top:var(--s-4)">
+            <span data-ico="lock"></span>
+            <div><strong>Bila polis dibatalkan nasabah dalam 14 hari,</strong> komisi atas polis itu ikut batal dan tidak
+            pernah masuk ke saldo Anda. Setelah masa tenggang lewat, komisi menjadi hak Anda walau polis berhenti
+            karena nasabah tidak memperpanjang tahun berikutnya.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FORMULIR PENDAFTARAN ================= -->
+  <section class="section" id="daftar">
+    <div class="container container-narrow">
+      <div class="section-head">
+        <div>
+          <h2>Formulir pendaftaran mitra</h2>
+          <p>Lima menit. Tim kemitraan menghubungi Anda pada hari kerja berikutnya.</p>
+        </div>
+      </div>
+
+      <div class="card card-pad-lg">
+        <div class="alert alert-warn" style="margin-bottom:var(--s-5)">
+          <span data-ico="info"></span>
+          <div><strong>Ini demo pendaftaran.</strong> Tidak ada data yang dikirim, tidak ada berkas yang diunggah, dan
+          tidak ada perjanjian keagenan yang terbentuk dari formulir ini.</div>
+        </div>
+
+        <form class="quote-form" id="partnerForm" novalidate>
+          <div class="grid grid-2">
+            <div class="field">
+              <label class="field-label" for="pName">Nama lengkap</label>
+              <input class="input" id="pName" name="name" type="text" placeholder="Nama sesuai KTP" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label class="field-label" for="pEmail">Email</label>
+              <input class="input" id="pEmail" name="email" type="email" placeholder="nama@email.com" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="grid grid-2">
+            <div class="field">
+              <label class="field-label" for="pPhone">WhatsApp</label>
+              <input class="input" id="pPhone" name="phone" type="tel" inputmode="tel" placeholder="0811 8899 777" required>
+              <p class="field-hint">Dipakai tim kemitraan untuk menghubungi Anda.</p>
+            </div>
+            <div class="field">
+              <label class="field-label" for="pCity">Kota domisili</label>
+              <input class="input" id="pCity" name="city" type="text" placeholder="Surabaya" autocomplete="address-level2" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="field-label">Anda mendaftar sebagai</span>
+            <div class="radio-cards" data-partner-type>
+              <button class="radio-card is-active" type="button" data-value="perorangan">
+                <span class="radio-card-top"><strong>Agen perorangan</strong><span class="radio-dot" data-dot><span data-ico="check"></span></span></span>
+                <span class="radio-card-desc">Dashboard pribadi, komisi penuh milik Anda, tanpa anggota tim.</span>
+              </button>
+              <button class="radio-card" type="button" data-value="agensi">
+                <span class="radio-card-top"><strong>Agensi atau broker</strong></span>
+                <span class="radio-card-desc">Dashboard tim, beberapa kode mitra, dan pembagian komisi antar anggota.</span>
+              </button>
+              <button class="radio-card" type="button" data-value="korporat">
+                <span class="radio-card-top"><strong>Korporat atau komunitas</strong></span>
+                <span class="radio-card-desc">Koperasi, perusahaan leasing, dealer, atau komunitas dengan anggota banyak.</span>
+              </button>
+              <button class="radio-card" type="button" data-value="pindah">
+                <span class="radio-card-top"><strong>Agen pindah platform</strong></span>
+                <span class="radio-card-desc">Sudah menjual asuransi di tempat lain dan ingin memindahkan nasabah aktif.</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-2">
+            <div class="field">
+              <label class="field-label" for="pExp">Pengalaman menjual asuransi</label>
+              <select class="select" id="pExp" name="experience">
+                <option value="0">Belum pernah, ingin mulai dari nol</option>
+                <option value="1">Kurang dari 1 tahun</option>
+                <option value="2">1–3 tahun</option>
+                <option value="3">3–5 tahun</option>
+                <option value="5">Lebih dari 5 tahun</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field-label" for="pVolume">Rencana polis per bulan</label>
+              <select class="select" id="pVolume" name="volume">
+                <option value="5">1–5 polis</option>
+                <option value="15" selected>6–15 polis</option>
+                <option value="30">16–30 polis</option>
+                <option value="60">Lebih dari 30 polis</option>
+              </select>
+              <p class="field-hint">Perkiraan saja. Ini dipakai memilih pendampingan yang sesuai, bukan target.</p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="pProducts">Produk yang paling Anda kuasai</label>
+            <select class="select" id="pProducts" name="products">
+              <option value="motor">Motor &amp; kendaraan roda dua</option>
+              <option value="mobil">Mobil</option>
+              <option value="kesehatan">Kesehatan</option>
+              <option value="properti">Properti &amp; aset bisnis</option>
+              <option value="kecelakaan">Kecelakaan diri</option>
+              <option value="travel">Travel</option>
+              <option value="umrah">Umrah &amp; Haji</option>
+              <option value="jiwa">Jiwa</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="pNote">Catatan untuk tim kemitraan</label>
+            <textarea class="textarea" id="pNote" name="note" rows="4" placeholder="Contoh: saya punya jaringan 40 anggota koperasi di Sidoarjo dan ingin mulai dari asuransi motor, lalu menambah kesehatan tahun depan."></textarea>
+          </div>
+
+          <div class="field">
+            <label class="checkbox">
+              <input type="checkbox" name="sertifikat">
+              <span>Saya sudah memiliki sertifikat AAJI, AASI, atau lisensi pialang dan siap mengirimkan salinannya.</span>
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" name="agree" required>
+              <span>Saya setuju dihubungi tim kemitraan RajaPremi lewat WhatsApp dan email, dan memahami bahwa halaman ini demo tanpa perjanjian keagenan.</span>
+            </label>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Kirim pendaftaran mitra</button>
+          <p class="form-foot">Demo — tidak ada data yang terkirim. Pada layanan nyata, tim kemitraan menghubungi Anda dalam satu hari kerja.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ MITRA ================= -->
+  <section class="section section-sm surface">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Pertanyaan calon mitra</h2>
+          <p>Yang paling sering ditanyakan agen sebelum menandatangani perjanjian.</p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <details class="acc" open>
+            <summary>Berapa modal awal untuk bergabung?</summary>
+            <div class="acc-body">Nol. Tidak ada biaya pendaftaran, setoran, atau kewajiban membeli polis untuk diri sendiri. Pendapatan kami berasal dari sisi perusahaan asuransi dan dari selisih layanan agregasi, bukan dari iuran mitra. Kalau ada pihak yang meminta biaya atas nama RajaPremi, laporkan ke tim kemitraan.</div>
+          </details>
+          <details class="acc">
+            <summary>Apakah saya harus punya sertifikat agen asuransi?</summary>
+            <div class="acc-body">Belum, kalau Anda mendaftar sebagai agen perorangan. Verifikasi awal tetap berjalan dan Anda bisa mulai belajar produk; sertifikat AAJI untuk produk jiwa dan AASI untuk produk umum diperlukan sebelum Anda menerbitkan polis untuk kelas produk tersebut. Untuk agensi dan broker, minimal satu orang di tim wajib berlisensi.</div>
+          </details>
+          <details class="acc">
+            <summary>Bagaimana komisi dihitung dan kapan dibayar?</summary>
+            <div class="acc-body">Komisi dihitung dari premi yang dibayar nasabah, dengan persentase sesuai tabel di atas. Nilainya muncul di dashboard begitu polis aktif, lalu ditahan selama masa tenggang pembatalan 14 hari. Transfernya masuk ke rekening atas nama Anda antara hari ke-14 dan ke-17, dan rekap bulanannya bisa diunduh untuk pembukuan.</div>
+          </details>
+          <details class="acc">
+            <summary>Bolehkah saya tetap menjual produk asuransi lain di luar RajaPremi?</summary>
+            <div class="acc-body">Boleh. Kami tidak meminta eksklusivitas dan tidak melarang Anda bekerja dengan perusahaan lain, selama Anda tidak memasarkan produk lain sebagai produk RajaPremi. Yang kami minta hanya tidak mencampur klaim dan dokumen nasabah antarplatform, karena jejak auditnya berbeda.</div>
+          </details>
+          <details class="acc">
+            <summary>Nasabah saya mau klaim — siapa yang mengurus?</summary>
+            <div class="acc-body">Tim klaim kami, dengan Anda tetap mendapat kabar di setiap tahap. Kami yang meneruskan berkas ke perusahaan asuransi, mengatur jadwal surveyor, dan mengabari Anda lewat email dan WhatsApp. Anda tidak perlu bolak-balik ke kantor mitra. Alur lengkapnya ada di <a href="klaim.html">pusat klaim</a>.</div>
+          </details>
+        </div>
+
+        <div>
+          <div class="card">
+            <span class="feature-ico" data-ico="chat"></span>
+            <h3>Belum yakin cocok atau tidak?</h3>
+            <p class="muted" style="font-size:var(--fs-sm)">
+              RajaAI bisa menjelaskan skema komisi, beda jalur perorangan dan agensi, sampai produk mana yang paling
+              sering diklaim nasabah. Anda bisa bertanya berkali-kali tanpa dihubungi sales.
+            </p>
+            <div class="row" style="gap:.6rem;margin-top:var(--s-4);flex-wrap:wrap">
+              <button class="btn btn-primary btn-sm" type="button" data-ai-open data-ai-seed="syarat jadi mitra RajaPremi">Tanya syarat mitra</button>
+              <button class="btn btn-soft btn-sm" type="button" data-ai-open data-ai-seed="berapa komisi mitra RajaPremi per produk?">Tanya soal komisi</button>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:var(--s-4)">
+            <h3>Bandingkan dulu produk yang akan Anda jual</h3>
+            <p class="muted" style="font-size:var(--fs-sm)">
+              Harga dan cakupan kedelapan produk, tujuh mitra asuransinya, dan kecepatan klaimnya — semuanya terbuka
+              sebelum Anda mendaftar.
+            </p>
+            <div class="row" style="gap:.6rem;margin-top:var(--s-4);flex-wrap:wrap">
+              <a class="btn btn-secondary btn-sm" href="bandingkan.html">Buka perbandingan</a>
+              <a class="btn btn-soft btn-sm" href="klaim.html">Lihat alur klaim</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/quote.js"></script>
+<script src="assets/js/ai.js"></script>
+<script>
+(function () {
+  var D = window.RPData, RP = window.RP;
+
+  /* ikon inline dari data.js */
+  document.querySelectorAll('[data-ico]').forEach(function (el) {
+    el.innerHTML = D.ICONS[el.getAttribute('data-ico')] || '';
+  });
+
+  /* jumlah produk & mitra langsung dari data.js */
+  var sp = document.getElementById('statProducts');
+  if (sp) sp.textContent = (D.PRODUCTS || []).length;
+  var spr = document.getElementById('statProviders');
+  if (spr) spr.textContent = (D.PROVIDERS || []).length;
+
+  /* --- tabel model komisi, dihitung dari harga produk di data.js --- */
+  var RATE = { motor: 0.15, mobil: 0.15, kesehatan: 0.12, properti: 0.15, kecelakaan: 0.20, travel: 0.25, umrah: 0.20, jiwa: 0.25 };
+  var products = (D.PRODUCTS || []).filter(function (p) { return RATE[p.id]; });
+
+  var rows = document.getElementById('commissionRows');
+  if (rows) rows.innerHTML = products.map(function (p) {
+    var rate = RATE[p.id];
+    var comm = p.from * rate;
+    return '<tr>' +
+      '<td><span class="row" style="gap:.6rem;align-items:center">' +
+        '<span class="provider-logo provider-logo-sm" style="background:var(--primary)">' + (D.ICONS[p.icon] || '') + '</span>' +
+        '<span><strong style="font-size:var(--fs-sm);display:block">' + RP.esc(p.name) + '</strong>' +
+        '<span class="muted" style="font-size:var(--fs-2xs)">' + RP.esc(p.short) + '</span></span>' +
+      '</span></td>' +
+      '<td>' + D.rupiah(p.from) + '<span class="muted" style="font-size:var(--fs-xs)">' + RP.esc(p.unit || '') + '</span></td>' +
+      '<td class="tier-rate">' + Math.round(rate * 100) + '%</td>' +
+      '<td><strong class="tier-rate">' + D.rupiah(comm) + '</strong></td>' +
+      '<td class="tier-rate">5%</td>' +
+      '</tr>';
+  }).join('');
+
+  var avgPremium = 0, avgComm = 0;
+  products.forEach(function (p) { avgPremium += p.from; avgComm += p.from * RATE[p.id]; });
+  if (products.length) { avgPremium = avgPremium / products.length; avgComm = avgComm / products.length; }
+
+  var el;
+  if ((el = document.getElementById('avgPremium'))) el.textContent = D.rupiah(avgPremium);
+  if ((el = document.getElementById('avgRate'))) el.textContent = '14% (rata-rata)';
+  if ((el = document.getElementById('avgCommission'))) el.textContent = D.rupiah(avgComm);
+  if ((el = document.getElementById('avgPerPolicy'))) el.textContent = D.rupiah(avgComm, false);
+
+  /* --- simulasi penghasilan bulanan --- */
+  [[5, 'sim5'], [15, 'sim15'], [30, 'sim30'], [60, 'sim60']].forEach(function (pair) {
+    var node = document.getElementById(pair[1]);
+    if (node) node.textContent = D.rupiah(pair[0] * avgComm);
+  });
+
+  /* --- tipe mitra: pilih satu --- */
+  var typeWrap = document.querySelector('[data-partner-type]');
+  if (typeWrap) typeWrap.addEventListener('click', function (e) {
+    var card = e.target.closest('.radio-card');
+    if (!card) return;
+    typeWrap.querySelectorAll('.radio-card').forEach(function (c) {
+      c.classList.remove('is-active');
+      var dot = c.querySelector('[data-dot]');
+      if (dot) dot.remove();
+    });
+    card.classList.add('is-active');
+    var top = card.querySelector('.radio-card-top');
+    if (top && !top.querySelector('[data-dot]')) {
+      var span = document.createElement('span');
+      span.className = 'radio-dot';
+      span.setAttribute('data-dot', '');
+      span.innerHTML = D.ICONS.check || '';
+      top.appendChild(span);
+    }
+  });
+
+  /* --- formulir pendaftaran: demo, tidak dikirim --- */
+  var form = document.getElementById('partnerForm');
+  if (form) form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = form.querySelector('#pName').value.trim();
+    var email = form.querySelector('#pEmail').value.trim();
+    if (!name || !email) {
+      RP.toast('Nama lengkap dan email perlu diisi dulu sebelum pendaftaran dikirim.', 'warn', 5200);
+      return;
+    }
+    var vol = form.querySelector('#pVolume').value;
+    RP.toast('Demo saja — pendaftaran ' + name + ' tidak dikirim. Pada layanan nyata tim kemitraan menghubungi Anda soal rencana ' + vol + ' polis per bulan.', 'success', 5600);
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>

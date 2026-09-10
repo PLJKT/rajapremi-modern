@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fitur AI RajaPremi — RajaAI di layanan pelanggan dan operasional</title>
+<meta name="description" content="Enam fitur AI yang bekerja di demo RajaPremi: asisten polis, analisis kebutuhan, pembacaan STNK, triage klaim, penjelasan premi, dan copilot operasional.">
+<meta name="theme-color" content="#4338ca">
+<link rel="canonical" href="https://pljkt.github.io/rajapremi-modern/ai.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234338ca'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-size='15' font-weight='800' fill='white' text-anchor='middle'%3ERP%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/product.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Lompat ke konten</a>
+<div id="site-header"></div>
+
+<main id="main">
+
+  <section class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Remah roti">
+        <a href="index.html">Beranda</a><span>/</span><span>Fitur AI</span>
+      </nav>
+      <span class="eyebrow"><span class="dot"></span> RajaAI</span>
+      <h1>AI yang dipakai untuk hal yang benar-benar menahan orang</h1>
+      <p class="muted" style="max-width:74ch;font-size:var(--fs-lg)">
+        Asuransi bukan masalah kekurangan informasi, tapi masalah istilah yang tidak dipahami dan proses yang tidak terlihat.
+        Enam fitur di halaman ini adalah versi yang sudah berjalan pada demo — silakan klik dan uji sendiri.
+      </p>
+      <div class="row" style="gap:.6rem;margin-top:var(--s-5);flex-wrap:wrap">
+        <button class="btn btn-primary" data-ai-open data-ai-seed="Halo RajaAI">Buka asisten</button>
+        <a class="btn btn-secondary" href="admin/index.html">Lihat copilot internal</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 1. Feature map ============ -->
+  <section class="section section-sm">
+    <div class="container">
+      <div class="grid grid-3">
+        <div class="card feature reveal"><span class="feature-ico" data-ico="chat"></span>
+          <strong>1. Asisten polis</strong>
+          <p class="muted" style="font-size:var(--fs-sm)">Menjawab pertanyaan istilah dan prosedur, dengan rujukan ke konten resmi. Menerima suara maupun teks.</p>
+          <span class="badge badge-success">Sudah jalan</span></div>
+        <div class="card feature reveal"><span class="feature-ico" data-ico="users"></span>
+          <strong>2. Analisis kebutuhan</strong>
+          <p class="muted" style="font-size:var(--fs-sm)">Tiga pertanyaan singkat menghasilkan urutan prioritas produk dan plafon — bukan sekadar daftar produk terpopuler.</p>
+          <span class="badge badge-success">Sudah jalan</span></div>
+        <div class="card feature reveal"><span class="feature-ico" data-ico="camera"></span>
+          <strong>3. Pembacaan dokumen</strong>
+          <p class="muted" style="font-size:var(--fs-sm)">Foto STNK/BPKB menjadi data formulir: nomor rangka, tahun, nilai kendaraan — dengan tingkat keyakinan per bidang.</p>
+          <span class="badge badge-success">Simulasi</span></div>
+        <div class="card feature reveal"><span class="feature-ico" data-ico="shield"></span>
+          <strong>4. Triage klaim</strong>
+          <p class="muted" style="font-size:var(--fs-sm)">Foto kerusakan diklasifikasi dan diestimasi sebelum surveyor datang, sehingga pelaporan lebih cepat dan lebih akurat.</p>
+          <span class="badge badge-success">Simulasi</span></div>
+        <div class="card feature reveal"><span class="feature-ico" data-ico="spark"></span>
+          <strong>5. Penjelasan premi</strong>
+          <p class="muted" style="font-size:var(--fs-sm)">Setiap penawaran bisa dibuka alasan perhitungannya. Ini yang paling sering ditanyakan sebelum orang percaya.</p>
+          <span class="badge badge-success">Sudah jalan</span></div>
+        <div class="card feature reveal"><span class="feature-ico" data-ico="chart"></span>
+          <strong>6. Copilot operasional</strong>
+          <p class="muted" style="font-size:var(--fs-sm)">Tim internal bertanya dalam bahasa sehari-hari ("claim ratio mitra mana yang memburuk?") dan mendapat tabel serta grafik.</p>
+          <span class="badge badge-primary">Demo di dashboard</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. Asisten + suara ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <h2>Asisten polis, dengan suara</h2>
+          <p class="muted">Pelanggan Indonesia jauh lebih nyaman berbicara daripada mengetik — terutama saat mengurus klaim.
+          Asisten ini menerima pesan suara berbahasa Indonesia dan menjawab dalam konteks penawaran yang sedang dilihat.</p>
+          <div class="grid grid-2" style="margin-top:var(--s-5)">
+            <div class="card card-flat"><strong style="font-size:var(--fs-sm)">Grounded, bukan mengarang</strong>
+              <p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 0">Jawaban diambil dari konten polis, FAQ, dan data mitra. Bila tidak yakin, ia menyerahkan ke manusia.</p></div>
+            <div class="card card-flat"><strong style="font-size:var(--fs-sm)">Serah terima manusia</strong>
+              <p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 0">Satu perintah membuka WhatsApp, telepon, atau email dengan riwayat percakapan terlampir.</p></div>
+          </div>
+          <div class="row" style="gap:.6rem;margin-top:var(--s-5);flex-wrap:wrap">
+            <button class="btn btn-primary" data-ai-open data-ai-seed="TLO dan All Risk bedanya apa?">Coba tanya soal polis</button>
+            <button class="btn btn-secondary" id="voiceDemo">Rekam suara saya</button>
+          </div>
+          <p class="field-note">Pengenalan suara memakai Web Speech API peramban Anda — pada demo ini tidak ada audio yang dikirim ke server.</p>
+        </div>
+        <div class="card">
+          <div class="ai-log">
+            <div class="ai-note"><strong>Anda (suara)</strong><span>"Motor saya kena banjir, bisa klaim nggak?"</span></div>
+            <div class="ai-note ai-note-bot"><strong>RajaAI</strong><span>Banjiir termasuk perluasan yang harus aktif di polis. Saya cek polis motor All Risk Anda — perluasan banjir aktif sejak 12 Maret. Silakan unggah tiga foto: tampak depan, bagian yang rendam, dan STNK.</span></div>
+            <div class="ai-note"><strong>Anda</strong><span>"Kalau cuma TLO?"</span></div>
+            <div class="ai-note ai-note-bot"><strong>RajaAI</strong><span>Untuk TLO, klaim hanya dibayar bila kerugian mencapai 75% nilai kendaraan. Kerusakan akibat rendam ringan umumnya tidak masuk. Mau saya sambungkan ke tim klaim untuk pemeriksaan lanjutan?</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. Analisis kebutuhan ============ -->
+  <section class="section section-sm surface">
+    <div class="container container-narrow">
+      <h2>Analisis kebutuhan</h2>
+      <p class="muted">Metode yang sama dipakai agen: identifikasi risiko, tanggungan, lalu anggaran. Di sini dijalankan dalam tiga pertanyaan.</p>
+      <div class="card card-pad-lg text-center" style="margin-top:var(--s-5)">
+        <p class="muted" style="max-width:56ch;margin:0 auto var(--s-4)">Wizard ini berjalan di dalam panel asisten agar percakapannya berlanjut — bukan formulir terpisah yang mengulang dari awal.</p>
+        <button class="btn btn-primary btn-lg" data-ai-open data-ai-seed="Produk apa yang cocok untuk saya?">Mulai analisis kebutuhan</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. OCR ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <h2>Dari foto STNK ke formulir</h2>
+          <p class="muted">Mengetik nomor rangka 17 digit adalah tempat orang berhenti. Pada situs lama, satu salah ketik membuat
+          perbandingan gagal tanpa penjelasan. Sekarang dokumennya yang membaca, dan setiap bidang membawa skor keyakinan
+          sehingga Anda tahu mana yang perlu diperiksa ulang.</p>
+          <ul class="explain-list" style="font-size:var(--fs-md);margin-top:var(--s-4)">
+            <li>Ekstraksi bidang: nomor polisi, pemilik, merek, tahun, nomor mesin, nomor rangka.</li>
+            <li>Validasi format nomor rangka dan tahun sebelum dipakai.</li>
+            <li>Nilai kendaraan dipetakan otomatis ke formulir perbandingan.</li>
+            <li>Gambar diproses di server dan tidak disimpan pada implementasi produksi.</li>
+          </ul>
+        </div>
+        <div class="card card-pad-lg">
+          <div class="ocr-widget" data-ocr>
+            <label class="ocr-drop" data-ocr-drop>
+              <span data-ico="upload"></span>
+              <strong>Jatuhkan foto STNK di sini</strong>
+              <span class="muted">JPG/PNG/PDF hingga 8 MB — atau klik untuk memilih</span>
+              <input type="file" accept="image/*,.pdf" hidden data-ocr-file>
+            </label>
+            <div class="ocr-result" data-ocr-result hidden></div>
+            <div class="ocr-actions" style="margin-top:.6rem">
+              <button class="btn btn-soft btn-sm" type="button" data-ocr-demo>Pakai contoh STNK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. Triage klaim ============ -->
+  <section class="section section-sm surface">
+    <div class="container">
+      <h2>Triage klaim dari foto</h2>
+      <p class="muted" style="max-width:70ch">Langkah paling lambat dalam klaim kendaraan adalah menunggu klasifikasi. Model vision memberi
+      klasifikasi awal dan estimasi biaya dalam hitungan detik, sehingga surveyor datang dengan konteks — dan pelanggan tidak menunggu tanpa kabar.</p>
+      <div class="card card-pad-lg" style="margin-top:var(--s-5)" id="triageDemo"></div>
+    </div>
+  </section>
+
+  <!-- ============ 6. Copilot ============ -->
+  <section class="section">
+    <div class="container">
+      <h2>Copilot untuk tim internal</h2>
+      <p class="muted" style="max-width:70ch">Pertanyaan operasional biasanya berakhir di meja analis. Copilot menerjemahkan pertanyaan bahasa
+      sehari-hari menjadi kueri dan menampilkan angka yang konsisten dengan dashboard.</p>
+      <div class="card card-pad-lg" style="margin-top:var(--s-5)" id="copilotDemo"></div>
+    </div>
+  </section>
+
+  <!-- ============ 7. Guardrails + cara kerja ============ -->
+  <section class="section section-sm surface">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <h2>Batas yang kami pasang sendiri</h2>
+          <div class="grid" style="gap:var(--s-4);margin-top:var(--s-5)">
+            <div class="card card-flat"><strong style="font-size:var(--fs-sm)">Tidak menetapkan klaim</strong>
+              <p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 0">AI hanya mengklasifikasi dan memperkirakan. Keputusan klaim tetap milik perusahaan asuransi, dan itu ditulis di setiap layar.</p></div>
+            <div class="card card-flat"><strong style="font-size:var(--fs-sm)">Tidak menyimpan data pribadi di percakapan</strong>
+              <p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 0">Nomor polis dan identitas dimask sebelum diproses; riwayat percakapan terpisah dari rekam polis.</p></div>
+            <div class="card card-flat"><strong style="font-size:var(--fs-sm)">Kunci API tidak pernah sampai ke peramban</strong>
+              <p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 0">Semua panggilan mitra lewat server. Pada situs lama, kunci API dapat dibaca siapa pun dari berkas JavaScript publik.</p></div>
+            <div class="card card-flat"><strong style="font-size:var(--fs-sm)">Selalu ada jalan ke manusia</strong>
+              <p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 0">Asisten menyerahkan percakapan bila diminta, bila pertanyaannya menyangkut uang, atau bila keyakinannya rendah.</p></div>
+          </div>
+        </div>
+        <div>
+          <h2>Bagaimana demo ini dibangun</h2>
+          <p class="muted">Transparansi teknis, supaya Anda tahu yang mana yang bisa langsung dipakai:</p>
+          <div class="card">
+            <table class="table table-tight">
+              <thead><tr><th>Bagian</th><th>Pada demo ini</th><th>Untuk produksi</th></tr></thead>
+              <tbody>
+                <tr><td>Router maksud</td><td>Deterministik, di peramban</td><td>LLM + retrieval (RAG)</td></tr>
+                <tr><td>Sumber jawaban</td><td>Konten site &amp; FAQ yang sama</td><td>Dokumen polis + basis pengetahuan</td></tr>
+                <tr><td>Suara</td><td>Web Speech API (nyata)</td><td>Transkripsi sisi server</td></tr>
+                <tr><td>Dokumen</td><td>Simulasi ekstraksi</td><td>Model vision + validasi</td></tr>
+                <tr><td>Triage foto</td><td>Simulasi klasifikasi</td><td>Model vision terlatih klaim</td></tr>
+                <tr><td>Copilot</td><td>Data contoh konsisten</td><td>SQL atas replika baca-saja</td></tr>
+                <tr><td>Kunci &amp; rahasia</td><td>Tidak ada di peramban</td><td>Server + rotasi kunci</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="alert alert-warn" style="margin-top:var(--s-4)">
+            <span data-ico="info"></span>
+            <div><strong>Catatan jujur.</strong> Tiga fitur (asisten, analisis kebutuhan, penjelasan premi) berjalan sungguhan di demo ini dengan logika lokal.
+            Tiga lainnya (dokumen, triage, copilot) adalah simulasi antarmuka dengan keluaran contoh — alurnya nyata, modelnya belum.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. Rollout ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><h2>Tahapan penerapan</h2><p>Estimasi berbasis ruang lingkup, bukan janji tanggal.</p></div></div>
+      <div class="card">
+        <div class="table-scroll">
+          <table class="table">
+            <thead><tr><th>Tahap</th><th>Isi</th><th>Dampak yang diharapkan</th><th>Perkiraan</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1</strong></td><td>Asisten polis + penjelasan premi + perbaikan rendering halaman</td><td>Biaya dukungan turun, konversi perbandingan naik</td><td>4–6 minggu</td></tr>
+              <tr><td><strong>2</strong></td><td>Baca dokumen + analisis kebutuhan</td><td>Waktu pengisian turun, drop-off formulir turun</td><td>6–10 minggu</td></tr>
+              <tr><td><strong>3</strong></td><td>Triage klaim + copilot internal + peringatan dini churn</td><td>Klaim lebih cepat, retensi perpanjangan naik</td><td>10–16 minggu</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/quote.js"></script>
+<script src="assets/js/ai.js"></script>
+<script>
+(function () {
+  var D = window.RPData, RP = window.RP;
+  document.querySelectorAll('[data-ico]').forEach(function (el) {
+    el.innerHTML = D.ICONS[el.getAttribute('data-ico')] || '';
+  });
+  var v = document.getElementById('voiceDemo');
+  if (v) v.addEventListener('click', function () { window.RPAI.startVoice(); });
+})();
+</script>
+</body>
+</html>

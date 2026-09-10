@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pusat Klaim — laporkan, lacak, dan cairkan klaim asuransi | RajaPremi</title>
+<meta name="description" content="Pusat klaim RajaPremi: lima tahap klaim dengan SLA tiap tahap, daftar dokumen yang diminta per jenis klaim, formulir klaim online, dan kecepatan klaim 7 mitra.">
+<meta name="theme-color" content="#4338ca">
+<link rel="canonical" href="https://pljkt.github.io/rajapremi-modern/klaim.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pusat Klaim RajaPremi — terlacak di setiap tahap">
+<meta property="og:description" content="Lima tahap klaim, daftar dokumen per jenis klaim, dan formulir klaim yang bisa dipantau dengan satu nomor klaim.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234338ca'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-size='15' font-weight='800' fill='white' text-anchor='middle'%3ERP%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/product.css">
+<style>
+  /* hanya tata letak khusus halaman klaim */
+  .claim-stage { display: flex; flex-direction: column; }
+  .claim-stage .feature-ico { margin-bottom: .5rem; }
+  .claim-doc-type { font-size: var(--fs-xs); color: var(--text-subtle); white-space: nowrap; }
+  .claim-contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--s-4); }
+  @media (max-width: 640px) { .claim-strip .step { font-size: var(--fs-2xs); } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Lompat ke konten</a>
+<div id="site-header"></div>
+
+<main id="main">
+
+  <!-- ================= PAGE HEAD ================= -->
+  <section class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Remah roti">
+        <a href="index.html">Beranda</a><span>/</span><span>Klaim</span>
+      </nav>
+      <span class="eyebrow"><span class="dot"></span> Pusat Klaim</span>
+      <h1>Klaim yang terlacak, bukan ditunggu tanpa kabar</h1>
+      <p class="muted" style="max-width:74ch;font-size:var(--fs-lg)">
+        Setiap klaim mendapat satu nomor, lima tahap yang jelas, dan batas waktu yang tertulis.
+        Anda tahu sedang di tahap mana, siapa yang memegang berkasnya, dan kapan dana berpindah.
+      </p>
+      <div class="row" style="gap:.6rem;margin-top:var(--s-5);flex-wrap:wrap">
+        <button class="btn btn-primary" type="button" data-ai-open data-ai-seed="cara klaim">Tanya cara klaim ke RajaAI</button>
+        <button class="btn btn-secondary" type="button" data-ai-open data-ai-seed="status klaim saya">Lacak status klaim</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLA ================= -->
+  <section class="section section-sm">
+    <div class="container">
+      <div class="grid grid-3">
+        <div class="card stat">
+          <div class="stat-value" id="statSlaFirst">≤ 10 menit</div>
+          <div class="stat-label">Pelaporan ke nomor klaim terbit</div>
+        </div>
+        <div class="card stat">
+          <div class="stat-value">1–3 hari</div>
+          <div class="stat-label">Surveyor mitra menghubungi Anda</div>
+        </div>
+        <div class="card stat">
+          <div class="stat-value">4,6<span style="font-size:var(--fs-lg)">/5</span></div>
+          <div class="stat-label">Penilaian layanan klaim pelanggan</div>
+        </div>
+      </div>
+
+      <div class="alert alert-info" style="margin-top:var(--s-5)">
+        <span data-ico="clock"></span>
+        <div><strong>Batas waktu di halaman ini adalah komitmen pemrosesan, bukan janji tanggal.</strong>
+        Hitungan mulai dari berkas yang lengkap. Surveyor di luar kota besar bisa menambah satu hari kerja perpindahan;
+        bila berkas kurang, jamnya berhenti sampai dokumen Anda masuk.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5 TAHAP ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Lima tahap, satu nomor klaim</h2>
+          <p>Setiap perpindahan tahap dikirim lewat email dan WhatsApp. Tidak ada tahap yang berjalan tanpa pemberitahuan.</p>
+        </div>
+      </div>
+
+      <div class="card card-pad-lg">
+        <div class="steps claim-strip">
+          <span class="step is-active"><span class="step-num">1</span> Lapor</span>
+          <span class="step-line"></span>
+          <span class="step"><span class="step-num">2</span> Dokumen</span>
+          <span class="step-line"></span>
+          <span class="step"><span class="step-num">3</span> Surveyor</span>
+          <span class="step-line"></span>
+          <span class="step"><span class="step-num">4</span> Persetujuan</span>
+          <span class="step-line"></span>
+          <span class="step"><span class="step-num">5</span> Bayar</span>
+        </div>
+        <div class="grid grid-3" id="claimStages"></div>
+        <div class="field-note">
+          <span data-ico="info"></span>
+          Estimasi per tahap di atas berlaku untuk klaim kendaraan dan kecelakaan diri. Klaim kesehatan dengan rawat inap
+          dapat menunggu konfirmasi rumah sakit; klaim jiwa memerlukan verifikasi dokumen 3–7 hari kerja.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DOKUMEN ================= -->
+  <section class="section section-sm surface">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Dokumen yang diminta</h2>
+          <p>Satu daftar per jenis klaim. Kirim yang wajib saja dulu — sisanya bisa menyusul tanpa membatalkan klaim.</p>
+        </div>
+      </div>
+
+      <div class="card card-flat">
+        <div class="table-scroll">
+          <table class="table table-tight">
+            <thead>
+              <tr><th>Dokumen</th><th>Untuk klaim</th><th>Format</th><th>Keterangan</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Formulir klaim</strong></td>
+                <td class="claim-doc-type">Semua</td>
+                <td class="claim-doc-type">Diisi online</td>
+                <td>Terisi otomatis dari data polis Anda — tidak perlu ditandatangani basah.</td>
+              </tr>
+              <tr>
+                <td><strong>Polis atau sertifikat</strong></td>
+                <td class="claim-doc-type">Semua</td>
+                <td class="claim-doc-type">PDF / e-policy</td>
+                <td>Jika e-policy hilang, kami terbitkan ulang dalam beberapa menit.</td>
+              </tr>
+              <tr>
+                <td><strong>Fotokopi identitas</strong></td>
+                <td class="claim-doc-type">Semua</td>
+                <td class="claim-doc-type">JPG, PNG, atau PDF</td>
+                <td>KTP pemegang polis. Untuk klaim jiwa, tambahkan kartu keluarga.</td>
+              </tr>
+              <tr>
+                <td><strong>Foto kerusakan</strong></td>
+                <td class="claim-doc-type">Kendaraan, properti</td>
+                <td class="claim-doc-type">JPG / PNG</td>
+                <td>Minimal tiga sudut: keseluruhan, bagian rusak, dan pelat/nomor polisi terlihat.</td>
+              </tr>
+              <tr>
+                <td><strong>STNK &amp; SIM</strong></td>
+                <td class="claim-doc-type">Kendaraan</td>
+                <td class="claim-doc-type">JPG / PNG</td>
+                <td>Pastikan masa berlaku pajak STNK masih aktif saat kejadian.</td>
+              </tr>
+              <tr>
+                <td><strong>Kronologi kejadian</strong></td>
+                <td class="claim-doc-type">Semua</td>
+                <td class="claim-doc-type">Diisi online</td>
+                <td>Tanggal, jam, lokasi, dan kondisi. Tulis apa adanya — beda cerita memperlambat klaim.</td>
+              </tr>
+              <tr>
+                <td><strong>Surat keterangan kepolisian</strong></td>
+                <td class="claim-doc-type">Kendaraan (hilang, tabrakan)</td>
+                <td class="claim-doc-type">PDF / foto</td>
+                <td>Wajib bila ada pihak ketiga, kehilangan, atau kerusuhan.</td>
+              </tr>
+              <tr>
+                <td><strong>Kuitansi &amp; rincian biaya</strong></td>
+                <td class="claim-doc-type">Kesehatan, ringan</td>
+                <td class="claim-doc-type">PDF / foto</td>
+                <td>Kuitansi asli rumah sakit atau bengkel rekanan, termasuk rincian tindakan.</td>
+              </tr>
+              <tr>
+                <td><strong>Hasil laboratorium &amp; resep</strong></td>
+                <td class="claim-doc-type">Kesehatan, rawat jalan</td>
+                <td class="claim-doc-type">PDF / foto</td>
+                <td>Diminta bila nilai klaim melewati Rp 5 juta atau diagnosis perlu penilaian lanjutan.</td>
+              </tr>
+              <tr>
+                <td><strong>Surat dokter &amp; akta kematian</strong></td>
+                <td class="claim-doc-type">Jiwa, kecelakaan diri</td>
+                <td class="claim-doc-type">PDF / foto</td>
+                <td>Diterbitkan rumah sakit dan catatan sipil. Kami bantu urutkan bila berkas belum lengkap.</td>
+              </tr>
+              <tr>
+                <td><strong>Laporan kehilangan barang</strong></td>
+                <td class="claim-doc-type">Travel, properti</td>
+                <td class="claim-doc-type">PDF / foto</td>
+                <td>Dari maskapai, hotel, atau kepolisian setempat untuk barang bagasi dan elektronik.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="field-note">
+          <span data-ico="lock"></span>
+          Berkas diunggah terenkripsi dan hanya dibuka petugas klaim mitra yang menangani polis Anda. Dokumen identitas
+          dimask pada tampilan internal agar nomornya tidak terbaca seluruhnya.
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:var(--s-6)">
+        <div>
+          <h3 style="margin-bottom:.5rem">Tiga hal yang paling sering menahan klaim</h3>
+          <p class="muted" style="font-size:var(--fs-sm)">
+            Delapan dari sepuluh klaim yang tertahan bukan karena ditolak, melainkan karena berkasnya belum bisa dinilai.
+          </p>
+          <ol class="explain-list" style="font-size:var(--fs-md)">
+            <li><strong>Foto tidak menunjukkan kerusakan.</strong> Ambil ulang dari jarak satu meter, pencahayaan cukup.</li>
+            <li><strong>Kronologi tidak sinkron dengan tanggal kejadian di polis.</strong> Klaim kejadian sebelum polis aktif tidak dapat diproses.</li>
+            <li><strong>Klaim diajukan ke mitra yang salah.</strong> Satu polis hanya diproses oleh perusahaan yang menerbitkannya — kami arahkan otomatis.</li>
+          </ol>
+          <div class="row" style="gap:.6rem;margin-top:var(--s-4);flex-wrap:wrap">
+            <button class="btn btn-soft btn-sm" type="button" data-ai-open data-ai-seed="Dokumen apa yang diperlukan untuk klaim?">Periksa berkas saya dengan RajaAI</button>
+            <a class="btn btn-secondary btn-sm" href="bandingkan.html">Bandingkan mitra yang klaimnya cepat</a>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom:.5rem">Kecepatan klaim 7 mitra</h3>
+          <p class="muted" style="font-size:var(--fs-sm)">
+            Rata-rata waktu penyelesaian menurut data mitra. Angka ini yang kami pakai saat menyusun rekomendasi,
+            bukan hanya premi termurah.
+          </p>
+          <div class="card card-flat" style="margin-top:var(--s-4)">
+            <div class="table-scroll">
+              <table class="table table-tight">
+                <thead><tr><th>Mitra</th><th>Rating</th><th>Klaim</th></tr></thead>
+                <tbody id="providerClaimRows"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FORMULIR KLAIM ================= -->
+  <section class="section">
+    <div class="container container-narrow">
+      <div class="section-head">
+        <div>
+          <h2>Formulir klaim</h2>
+          <p>Tiga menit untuk tahap pertama. Nomor klaim terbit begitu formulir ini terkirim.</p>
+        </div>
+      </div>
+
+      <div class="card card-pad-lg">
+        <div class="alert alert-warn" style="margin-bottom:var(--s-5)">
+          <span data-ico="info"></span>
+          <div><strong>Ini demo.</strong> Formulir tidak mengirim data ke mana pun dan tidak membuat klaim sungguhan.
+          Untuk klaim nyata, gunakan kanal di bagian bawah halaman ini.</div>
+        </div>
+
+        <form class="quote-form" id="claimForm" novalidate>
+          <div class="field">
+            <label class="field-label" for="claimPolicy">Nomor polis</label>
+            <input class="input" id="claimPolicy" name="policy" type="text" placeholder="RP-MTR-2026-018842" autocomplete="off" required>
+            <p class="field-hint">Tertera di e-policy yang dikirim ke email Anda saat pembelian.</p>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="claimProduct">Produk yang diklaim</label>
+            <select class="select" id="claimProduct" name="product">
+              <option value="motor">Asuransi Motor</option>
+              <option value="mobil">Asuransi Mobil</option>
+              <option value="kesehatan">Asuransi Kesehatan</option>
+              <option value="properti">Asuransi Properti</option>
+              <option value="kecelakaan">Kecelakaan Diri</option>
+              <option value="travel">Travel Insurance</option>
+              <option value="umrah">Umrah &amp; Haji</option>
+              <option value="jiwa">Asuransi Jiwa</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <span class="field-label">Jenis klaim</span>
+            <div class="radio-cards" data-claim-type>
+              <button class="radio-card is-active" type="button" data-value="ringan">
+                <span class="radio-card-top"><strong>Kerusakan ringan</strong><span class="radio-dot" data-dot><span data-ico="check"></span></span></span>
+                <span class="radio-card-desc">Lecet, penyok, kaca pecah. Estimasi biaya biasanya di bawah Rp 5 juta.</span>
+              </button>
+              <button class="radio-card" type="button" data-value="berat">
+                <span class="radio-card-top"><strong>Kerusakan berat atau hilang</strong></span>
+                <span class="radio-card-desc">Total loss, kehilangan kendaraan, atau kerugian yang menghentikan usaha.</span>
+              </button>
+              <button class="radio-card" type="button" data-value="rawatinap">
+                <span class="radio-card-top"><strong>Rawat inap / perawatan</strong></span>
+                <span class="radio-card-desc">Biaya rumah sakit, tindakan medis, dan obat selama masa perawatan.</span>
+              </button>
+              <button class="radio-card" type="button" data-value="pihakk3">
+                <span class="radio-card-top"><strong>Pihak ketiga</strong></span>
+                <span class="radio-card-desc">Kerugian yang Anda sebabkan kepada orang lain atau barang milik orang lain.</span>
+              </button>
+            </div>
+            <p class="field-note"><span data-ico="shield"></span> Pilihan ini menentukan daftar dokumen yang diminta pada tahap kedua.</p>
+          </div>
+
+          <div class="grid grid-2">
+            <div class="field">
+              <label class="field-label" for="claimDate">Tanggal kejadian</label>
+              <input class="input" id="claimDate" name="date" type="date" required>
+            </div>
+            <div class="field">
+              <label class="field-label" for="claimPhone">Nomor WhatsApp</label>
+              <input class="input" id="claimPhone" name="phone" type="tel" inputmode="tel" placeholder="0811 8899 777" required>
+              <p class="field-hint">Dipakai surveyor untuk mengatur waktu inspeksi.</p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="claimPlace">Lokasi kejadian</label>
+            <input class="input" id="claimPlace" name="place" type="text" placeholder="Jl. Wolter Monginsidi No. 63, Kebayoran Baru, Jakarta Selatan" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="claimStory">Kronologi kejadian</label>
+            <textarea class="textarea" id="claimStory" name="story" rows="5" placeholder="Contoh: 12 Sep 2026, sekitar 08.40, motor saya tertabrak dari belakang saat berhenti di lampu merah Jl. Wolter Monginsidi. Tidak ada korban jiwa. Kerusakan: spakbor belakang dan lampu."></textarea>
+            <p class="field-hint">Tulis tanggal, jam, lokasi, urutan kejadian, dan kondisi kerusakan.</p>
+          </div>
+
+          <div class="field">
+            <span class="field-label">Estimasi nilai klaim</span>
+            <div class="input-group">
+              <span class="input-affix">Rp</span>
+              <input class="input" name="amount" type="text" inputmode="numeric" placeholder="3.500.000">
+            </div>
+            <p class="field-hint">Perkiraan Anda sendiri, bukan penilaian akhir. Surveyor mitra yang menetapkan nilainya.</p>
+          </div>
+
+          <div class="field">
+            <label class="checkbox">
+              <input type="checkbox" name="docs" required>
+              <span>Saya sudah menyiapkan foto kerusakan dan fotokopi identitas sesuai daftar dokumen di halaman ini.</span>
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" name="truth" required>
+              <span>Saya menyatakan informasi di formulir ini benar dan tidak menutupi kejadian sebelumnya pada kendaraan yang sama.</span>
+            </label>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Kirim klaim dan terbitkan nomor klaim</button>
+          <p class="form-foot">Demo — tidak ada data yang dikirim. Pada layanan nyata, nomor klaim terbit di layar dan dikirim ke email Anda.</p>
+        </form>
+      </div>
+
+      <div class="claim-contact" style="margin-top:var(--s-5)">
+        <div class="card card-flat">
+          <strong style="font-size:var(--fs-sm)">Telepon layanan klaim</strong>
+          <p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 0" id="claimPhoneLine">Memuat nomor…</p>
+        </div>
+        <div class="card card-flat">
+          <strong style="font-size:var(--fs-sm)">WhatsApp &amp; email</strong>
+          <p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 0" id="claimWaLine">Memuat kontak…</p>
+        </div>
+        <div class="card card-flat">
+          <strong style="font-size:var(--fs-sm)">Jam layanan</strong>
+          <p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 0" id="claimHoursLine">Memuat jam…</p>
+        </div>
+      </div>
+
+      <div class="alert alert-danger" style="margin-top:var(--s-4)">
+        <span data-ico="phone"></span>
+        <div><strong>Klaim darurat di luar jam layanan.</strong> Untuk kecelakaan dengan korban jiwa, kehilangan kendaraan,
+        atau kerusakan yang membuat rumah tidak layak huni, hubungi kanal darurat 24 jam di nomor yang tertera di atas.
+        Petugas jaga akan membukakan berkas sementara walau dokumen belum lengkap.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section section-sm surface">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Pertanyaan yang paling sering datang ke tim klaim</h2>
+          <p>Jawaban pendek, angka yang jelas. Bila pertanyaan Anda tidak ada di sini, RajaAI menjawabnya langsung.</p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <details class="acc" open>
+            <summary>Berapa lama dana klaim masuk ke rekening?</summary>
+            <div class="acc-body">Tiga sampai tujuh hari kerja setelah persetujuan terbit. Persetujuan sendiri keluar dua sampai lima hari kerja setelah surveyor menyatakan berkas lengkap. Total waktu yang wajar untuk klaim kendaraan ringan: 6–12 hari kerja. Pembayaran ke bengkel rekanan biasanya lebih cepat karena kami bayar langsung ke bengkel.</div>
+          </details>
+          <details class="acc">
+            <summary>Saya kehabisan waktu — bisakah klaim ditolak karena terlambat?</summary>
+            <div class="acc-body">Batas pelaporan mengikuti polis Anda, umumnya 3 hari kerja untuk kendaraan dan 30 hari untuk kesehatan. Yang membuat klaim gugur bukan keterlambatan itu sendiri, melainkan kejadian yang sudah tidak bisa diverifikasi. Kalau Anda melewati batas, tetap ajukan — tim kami menilai per kasus dan akan memberi tahu alasannya secara tertulis bila ditolak.</div>
+          </details>
+          <details class="acc">
+            <summary>Kendaraan boleh diperbaiki dulu sebelum surveyor datang?</summary>
+            <div class="acc-body">Tidak. Perbaikan sebelum inspeksi menghapus bukti kerusakan dan hampir selalu berakhir dengan klaim yang hanya dibayar sebagian. Satu-satunya pengecualian adalah kerusakan yang membahayakan bila dibiarkan — dalam hal itu, hubungi kanal darurat dulu dan foto kerusakan sebelum kendaraan dipindahkan.</div>
+          </details>
+          <details class="acc">
+            <summary>Bagaimana kalau klaim saya ditolak?</summary>
+            <div class="acc-body">Anda menerima surat penolakan dengan alasan pasal polisnya, bukan penolakan lisan. Anda dapat meminta peninjauan ulang sekali dengan dokumen tambahan, dan bila tetap ditolak, mengajukan pengaduan ke OJK. Kami menyimpan seluruh riwayat percakapan dan berkas agar pengaduan Anda punya bukti lengkap.</div>
+          </details>
+          <details class="acc">
+            <summary>Apakah saya bisa memantau klaim dari ponsel?</summary>
+            <div class="acc-body">Ya. Satu nomor klaim membuka halaman status yang sama di ponsel maupun komputer, dan setiap perpindahan tahap dikirim lewat email dan WhatsApp. Untuk pertanyaan cepat seperti "berapa lama lagi", RajaAI membaca status terakhir dan menjawab tanpa antre ke petugas.</div>
+          </details>
+        </div>
+
+        <div>
+          <div class="card">
+            <strong style="font-size:var(--fs-sm)">Dari basis pengetahuan RajaPremi</strong>
+            <p class="muted" style="font-size:var(--fs-sm);margin:.4rem 0 var(--s-4)">
+              Pertanyaan umum tentang polis, pembayaran, dan keamanan data yang paling sering diajukan pelanggan kami.
+            </p>
+            <div id="claimFaqExtra"></div>
+            <div class="row" style="gap:.6rem;margin-top:var(--s-4);flex-wrap:wrap">
+              <button class="btn btn-primary btn-sm" type="button" data-ai-open data-ai-seed="Bagaimana cara klaim?">Tanya RajaAI</button>
+              <a class="btn btn-soft btn-sm" href="ai.html">Lihat semua fitur AI</a>
+            </div>
+          </div>
+
+          <div class="alert alert-success" style="margin-top:var(--s-4)">
+            <span data-ico="check"></span>
+            <div><strong>Klaim yang dipantau AI.</strong> RajaAI menandai klaim yang mendekati batas SLA dan mengingatkan petugas
+            sebelum pelanggan perlu menelepon. Pada demo ini, alurnya nyata; pengingatnya belum terhubung ke sistem mitra.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/quote.js"></script>
+<script src="assets/js/ai.js"></script>
+<script>
+(function () {
+  var D = window.RPData, RP = window.RP;
+
+  /* ikon inline dari data.js */
+  document.querySelectorAll('[data-ico]').forEach(function (el) {
+    el.innerHTML = D.ICONS[el.getAttribute('data-ico')] || '';
+  });
+
+  var C = D.CONFIG || {};
+  var phoneLine = document.getElementById('claimPhoneLine');
+  if (phoneLine) phoneLine.textContent = (C.phone || '—') + ' · layanan klaim 24 jam';
+  var waLine = document.getElementById('claimWaLine');
+  if (waLine) waLine.textContent = (C.whatsapp || '—') + ' · ' + (C.email || '—');
+  var hoursLine = document.getElementById('claimHoursLine');
+  if (hoursLine) hoursLine.textContent = C.hours || '—';
+
+  /* lima tahap klaim */
+  var stageIcons = ['send', 'upload', 'camera', 'check', 'wallet'];
+  var sg = document.getElementById('claimStages');
+  if (sg) sg.innerHTML = (D.CLAIM_STEPS || []).map(function (s, i) {
+    return '<div class="card card-flat claim-stage">' +
+      '<span class="feature-ico">' + (D.ICONS[stageIcons[i]] || '') + '</span>' +
+      '<strong>Tahap ' + (i + 1) + ': ' + RP.esc(s.title) + '</strong>' +
+      '<p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 .5rem">' + RP.esc(s.desc) + '</p>' +
+      '<span class="badge badge-primary" style="align-self:flex-start">' + RP.esc(s.sla) + '</span>' +
+      '</div>';
+  }).join('');
+
+  /* kecepatan klaim mitra — tercepat lebih dulu */
+  var rows = document.getElementById('providerClaimRows');
+  if (rows) rows.innerHTML = (D.PROVIDERS || []).slice().sort(function (a, b) {
+    return parseFloat(a.claims) - parseFloat(b.claims);
+  }).map(function (p) {
+    return '<tr>' +
+      '<td><span class="row" style="gap:.5rem;align-items:center">' +
+        '<span class="provider-logo provider-logo-sm" style="background:' + p.tint + '" title="' + RP.esc(p.name) + '">' + RP.esc(p.abbr) + '</span>' +
+        '<span style="font-size:var(--fs-sm)">' + RP.esc(p.name) + '</span>' +
+      '</span></td>' +
+      '<td>' + RP.esc(String(p.rating)) + ' / 5</td>' +
+      '<td><span class="badge badge-info">' + RP.esc(p.claims) + '</span></td>' +
+      '</tr>';
+  }).join('');
+
+  /* FAQ dari data.js — kategori yang relevan untuk halaman klaim */
+  var extra = document.getElementById('claimFaqExtra');
+  if (extra) extra.innerHTML = (D.FAQ || []).filter(function (f) {
+    return ['Klaim', 'Polis', 'Pembayaran', 'Keamanan'].indexOf(f.cat) > -1;
+  }).map(function (f) {
+    return '<details class="acc"><summary>' + RP.esc(f.q) + '</summary>' +
+      '<div class="acc-body">' + RP.esc(f.a) + '</div></details>';
+  }).join('');
+
+  /* jenis klaim — pilih satu */
+  var typeWrap = document.querySelector('[data-claim-type]');
+  if (typeWrap) typeWrap.addEventListener('click', function (e) {
+    var card = e.target.closest('.radio-card');
+    if (!card) return;
+    typeWrap.querySelectorAll('.radio-card').forEach(function (c) {
+      c.classList.remove('is-active');
+      var dot = c.querySelector('[data-dot]');
+      if (dot) dot.remove();
+    });
+    card.classList.add('is-active');
+    var top = card.querySelector('.radio-card-top');
+    if (top && !top.querySelector('[data-dot]')) {
+      var span = document.createElement('span');
+      span.className = 'radio-dot';
+      span.setAttribute('data-dot', '');
+      span.innerHTML = D.ICONS.check || '';
+      top.appendChild(span);
+    }
+    var hint = document.querySelector('.claim-type-hint');
+    if (hint) hint.textContent = card.getAttribute('data-value');
+  });
+
+  /* formulir klaim — demo, tidak dikirim ke mana pun */
+  var form = document.getElementById('claimForm');
+  if (form) form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var policy = form.querySelector('#claimPolicy').value.trim();
+    if (!policy) {
+      RP.toast('Nomor polis belum diisi. Nomor ini ada di e-policy di email Anda.', 'warn', 5200);
+      return;
+    }
+    RP.toast('Demo saja — klaim ' + policy + ' tidak dikirim. Pada layanan nyata nomor klaim terbit sekarang.', 'success', 5200);
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>

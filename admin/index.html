@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Internal — RajaPremi</title>
+<meta name="description" content="Konsol internal RajaPremi: kinerja penjualan, mitra, klaim, dan copilot AI untuk tim operasional.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0f172a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f172a'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-size='15' font-weight='800' fill='white' text-anchor='middle'%3ERP%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/product.css">
+</head>
+<body>
+
+<div class="admin-shell">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="admin-side">
+    <div class="admin-brand">
+      <span class="nav-logo">RP</span> RajaPremi
+      <span class="badge badge-warn">Internal</span>
+    </div>
+
+    <nav class="admin-nav-group">
+      <span>Operasional</span>
+      <a class="admin-nav-link is-active" href="#ringkasan" data-ico="chart">Ringkasan</a>
+      <a class="admin-nav-link" href="#penawaran" data-ico="doc">Penawaran <span class="badge badge-primary">14</span></a>
+      <a class="admin-nav-link" href="#polis" data-ico="shield">Polis aktif</a>
+      <a class="admin-nav-link" href="#klaim" data-ico="route">Klaim berjalan <span class="badge badge-warn">6</span></a>
+      <a class="admin-nav-link" href="#pelanggan" data-ico="users">Pelanggan</a>
+    </nav>
+
+    <nav class="admin-nav-group">
+      <span>Katalog</span>
+      <a class="admin-nav-link" href="#mitra" data-ico="building">Mitra &amp; tarif</a>
+      <a class="admin-nav-link" href="#produk" data-ico="grid">Produk</a>
+      <a class="admin-nav-link" href="#konten" data-ico="edit">Konten situs</a>
+    </nav>
+
+    <nav class="admin-nav-group">
+      <span>Kecerdasan</span>
+      <a class="admin-nav-link" href="#copilot" data-ico="spark">Copilot AI</a>
+      <a class="admin-nav-link" href="#kualitas" data-ico="bell">Peringatan dini <span class="badge badge-danger">2</span></a>
+    </nav>
+
+    <nav class="admin-nav-group">
+      <span>Sistem</span>
+      <a class="admin-nav-link" href="#keamanan" data-ico="lock">Keamanan &amp; audit</a>
+      <a class="admin-nav-link" href="#performa" data-ico="bolt">Performa</a>
+      <a class="admin-nav-link" href="../index.html" data-ico="arrow">Lihat situs publik</a>
+    </nav>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="admin-main">
+
+    <header class="admin-top">
+      <div>
+        <h1>Ringkasan operasional</h1>
+        <p class="muted" style="margin:.15rem 0 0;font-size:var(--fs-xs)" id="todayLine"></p>
+      </div>
+      <div class="admin-top-right">
+        <label class="search" style="min-width:230px">
+          <span data-ico="search"></span>
+          <input class="input" type="search" placeholder="Cari polis, pelanggan, mitra…" aria-label="Cari">
+        </label>
+        <select class="select select-sm" aria-label="Periode">
+          <option>30 hari terakhir</option><option>Bulan ini</option><option>Kuartal ini</option><option>Tahun ini</option>
+        </select>
+        <button class="btn btn-ghost btn-icon" data-theme-toggle type="button"></button>
+        <button class="btn btn-soft btn-sm" data-ai-open data-ai-seed="Ringkas kondisi bisnis bulan ini">RajaAI</button>
+        <span class="avatar" title="Admin">A</span>
+      </div>
+    </header>
+
+    <div class="admin-content">
+
+      <!-- KPI -->
+      <section id="ringkasan">
+        <div class="kpi-grid">
+          <div class="card kpi-card">
+            <span class="kpi-label">Premi bruto (30 hari)</span>
+            <span class="kpi-value">Rp2,84 M</span>
+            <span class="kpi-delta kpi-up">▲ 18,4% vs periode lalu</span>
+          </div>
+          <div class="card kpi-card">
+            <span class="kpi-label">Polis terbit</span>
+            <span class="kpi-value">3.912</span>
+            <span class="kpi-delta kpi-up">▲ 9,1%</span>
+          </div>
+          <div class="card kpi-card">
+            <span class="kpi-label">Konversi kuotasi → polis</span>
+            <span class="kpi-value">31,4%</span>
+            <span class="kpi-delta kpi-up">▲ 4,2 poin</span>
+          </div>
+          <div class="card kpi-card">
+            <span class="kpi-label">Claim ratio portofolio</span>
+            <span class="kpi-value">68,2%</span>
+            <span class="kpi-delta kpi-down">▼ 1,7 poin (membaik)</span>
+          </div>
+          <div class="card kpi-card">
+            <span class="kpi-label">Komisi diterima</span>
+            <span class="kpi-value">Rp624 jt</span>
+            <span class="kpi-delta kpi-up">▲ 21,0%</span>
+          </div>
+          <div class="card kpi-card">
+            <span class="kpi-label">SLA klaim rata-rata</span>
+            <span class="kpi-value">6,8 hari</span>
+            <span class="kpi-delta kpi-up">▼ 1,4 hari lebih cepat</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tren + kanal -->
+      <section class="two-col">
+        <div class="card">
+          <div class="panel-head">
+            <div><strong>Premi bruto 12 bulan</strong><p class="muted" style="font-size:var(--fs-xs);margin:.15rem 0 0">Rupiah juta · data demo konsisten dengan seluruh halaman ini</p></div>
+            <span class="badge badge-success">Tren naik</span>
+          </div>
+          <div class="spark" id="sparkPremi"></div>
+          <div class="row" style="justify-content:space-between;margin-top:.5rem">
+            <span class="muted" style="font-size:var(--fs-2xs)">Okt 2025</span>
+            <span class="muted" style="font-size:var(--fs-2xs)">Sep 2026</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="panel-head"><strong>Kontribusi kanal</strong></div>
+          <table class="table table-tight">
+            <tbody>
+              <tr><td>Website langsung</td><td class="num">Rp1.640 jt</td><td class="bar-cell"><span class="bar" style="width:100%"></span></td></tr>
+              <tr><td>Partner / agen</td><td class="num">Rp780 jt</td><td class="bar-cell"><span class="bar" style="width:48%"></span></td></tr>
+              <tr><td>Marketplace</td><td class="num">Rp420 jt</td><td class="bar-cell"><span class="bar" style="width:26%"></span></td></tr>
+              <tr><td>Perpanjangan otomatis</td><td class="num">Rp312 jt</td><td class="bar-cell"><span class="bar" style="width:19%"></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Copilot -->
+      <section class="card card-pad-lg" id="copilot">
+        <div class="panel-head">
+          <div>
+            <strong>Copilot AI <span class="badge badge-primary">Baru</span></strong>
+            <p class="muted" style="font-size:var(--fs-sm);margin:.3rem 0 0;max-width:70ch">
+              Tanyakan kondisi bisnis dalam bahasa sehari-hari. Kueri diterjemahkan ke SQL dan dijalankan pada replika baca-saja —
+              tidak ada akses tulis, dan setiap pertanyaan dicatat untuk audit.
+            </p>
+          </div>
+        </div>
+        <div id="copilotDemo" style="margin-top:var(--s-4)"></div>
+      </section>
+
+      <!-- Penawaran terbaru -->
+      <section class="card" id="penawaran">
+        <div class="panel-head">
+          <div><strong>Penawaran terbaru</strong><p class="muted" style="font-size:var(--fs-xs);margin:.15rem 0 0">Semua nilai dalam rupiah · kolom margin hanya terlihat di konsol internal</p></div>
+          <button class="btn btn-secondary btn-sm">Ekspor CSV</button>
+        </div>
+        <div class="table-scroll">
+          <table class="table">
+            <thead>
+              <tr><th>Waktu</th><th>Pelanggan</th><th>Produk</th><th>Mitra</th><th class="num">Premi</th><th class="num">Total bayar</th><th class="num">Komisi</th><th>Status</th></tr>
+            </thead>
+            <tbody id="offersTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Mitra -->
+      <section class="card" id="mitra">
+        <div class="panel-head">
+          <div><strong>Kinerja mitra</strong><p class="muted" style="font-size:var(--fs-xs);margin:.15rem 0 0">Tarif, volume, dan rasio klaim per perusahaan asuransi</p></div>
+        </div>
+        <div class="table-scroll">
+          <table class="table">
+            <thead>
+              <tr><th>Mitra</th><th class="num">Rating</th><th class="num">Faktor tarif</th><th class="num">Polis aktif</th><th class="num">Claim ratio</th><th>SLA klaim</th><th>Status integrasi</th></tr>
+            </thead>
+            <tbody id="partnersTable"></tbody>
+          </table>
+        </div>
+        <p class="field-note" style="padding:0 var(--s-5) var(--s-5)">
+          Dua mitra dengan claim ratio di atas 95% ditandai untuk peninjauan tarif — keputusan ini sebelumnya tidak punya datanya,
+          karena laporan hanya tersedia bulanan dalam bentuk lembar kerja terpisah.
+        </p>
+      </section>
+
+      <!-- Klaim + peringatan -->
+      <section class="two-col">
+        <div class="card" id="klaim">
+          <div class="panel-head">
+            <div><strong>Klaim berjalan</strong><p class="muted" style="font-size:var(--fs-xs);margin:.15rem 0 0">6 berkas aktif · 2 mendekati batas SLA</p></div>
+          </div>
+          <table class="table table-tight">
+            <thead><tr><th>Nomor</th><th>Produk</th><th>Tahap</th><th class="num">Umur</th><th>SLA</th></tr></thead>
+            <tbody id="claimsTable"></tbody>
+          </table>
+        </div>
+
+        <div class="card" id="kualitas">
+          <div class="panel-head"><strong>Peringatan dini</strong></div>
+          <div class="stack" style="display:grid;gap:.6rem">
+            <div class="alert alert-warn"><span data-ico="warn"></span><div><strong>Reliance — claim ratio 118%</strong>
+              <p style="margin:.2rem 0 0;font-size:var(--fs-sm)">Volume naik 40% sementara rasio klaim memburuk. Pertimbangkan menurunkan eksposur pada motor All Risk.</p></div></div>
+            <div class="alert alert-warn"><span data-ico="clock"></span><div><strong>1.876 polis berakhir dalam 30 hari</strong>
+              <p style="margin:.2rem 0 0;font-size:var(--fs-sm)">Kampanye perpanjangan otomatis belum dijalankan untuk 214 polis motor All Risk.</p></div></div>
+            <div class="alert alert-info"><span data-ico="spark"></span><div><strong>Peluang dari AI</strong>
+              <p style="margin:.2rem 0 0;font-size:var(--fs-sm)">Drop-off kuotasi kesehatan 64% pada tahap verifikasi usia — tambahkan kuotasi indikatif sebelum pemeriksaan medis.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Keamanan -->
+      <section class="card card-pad-lg" id="keamanan">
+        <div class="panel-head">
+          <div><strong>Keamanan &amp; audit</strong><p class="muted" style="font-size:var(--fs-sm);margin:.3rem 0 0;max-width:74ch">Daftar ini memetakan temuan audit situs lama ke perbaikan yang berlaku di versi baru — termasuk hal-hal yang tidak terlihat dari sisi pengunjung.</p></div>
+        </div>
+        <div class="table-scroll" style="margin-top:var(--s-4)">
+          <table class="table">
+            <thead><tr><th>Temuan pada situs lama</th><th>Dampak</th><th>Perbaikan</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Kunci API terbaca di berkas JavaScript publik</td><td>Siapa pun bisa memakai kuota mesin kuotasi</td><td>Semua panggilan mitra lewat server; kunci dirotasi dan dibatasi per lingkungan</td><td><span class="badge badge-success">Selesai</span></td></tr>
+              <tr><td>Parameter perlindungan TLO dan All Risk tertukar</td><td>Pelanggan memilih TLO tetapi menerima harga All Risk, atau tidak mendapat penawaran sama sekali</td><td>Satu kamus kode bersama antara antarmuka dan API, dengan uji otomatis</td><td><span class="badge badge-success">Selesai</span></td></tr>
+              <tr><td>Komisi dan tarif mitra tampil di respons publik</td><td>Margin internal bisa dibaca pelanggan dan pesaing</td><td>Respons publik hanya memuat angka yang relevan bagi pelanggan; margin hanya di konsol internal</td><td><span class="badge badge-success">Selesai</span></td></tr>
+              <tr><td>Kunci API hanya diperiksa keberadaannya</td><td>Kunci palsu tetap dilayani</td><td>Validasi kunci, batas laju per kunci, dan pencatatan anomali</td><td><span class="badge badge-success">Selesai</span></td></tr>
+              <tr><td>Tidak ada header keamanan</td><td>Rentan penyisipan skrip dan pembajakan sesi</td><td>Kebijakan keamanan konten, HSTS, dan cookie dengan atribut aman</td><td><span class="badge badge-success">Selesai</span></td></tr>
+              <tr><td>Halaman penting selesai dimuat tanpa isi</td><td>Pengunjung pergi sebelum melihat produk</td><td>Halaman dirender dengan isi sejak awal, tanpa menunggu skrip</td><td><span class="badge badge-success">Selesai</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Performa -->
+      <section class="card card-pad-lg" id="performa">
+        <div class="panel-head"><div><strong>Performa: sebelum dan sesudah</strong><p class="muted" style="font-size:var(--fs-sm);margin:.3rem 0 0">Angka "sebelum" berasal dari audit situs lama; "sesudah" adalah target yang diukur pada versi baru ini.</p></div></div>
+        <div class="kpi-grid" style="margin-top:var(--s-4)" id="perfGrid"></div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/quote.js"></script>
+<script src="../assets/js/ai.js"></script>
+<script>
+(function () {
+  var D = window.RPData, RP = window.RP, T = D.BENCHMARK;
+
+  document.querySelectorAll('[data-ico]').forEach(function (el) {
+    el.innerHTML = D.ICONS[el.getAttribute('data-ico')] || '';
+  });
+
+  var today = new Date();
+  document.getElementById('todayLine').textContent =
+    today.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) +
+    ' · data demo, bukan angka produksi';
+
+  /* sparkline */
+  var spark = document.getElementById('sparkPremi');
+  if (spark) {
+    var series = [1180, 1240, 1310, 1290, 1420, 1520, 1610, 1690, 1740, 1880, 2120, 2400];
+    var max = Math.max.apply(null, series);
+    spark.innerHTML = series.map(function (v) { return '<i style="height:' + Math.round(v / max * 100) + '%"></i>'; }).join('');
+  }
+
+  /* penawaran terbaru — angka konsisten dengan halaman perbandingan */
+  var offers = [
+    ['09:42', 'Rani P.', 'Motor · All Risk', 'SIMAS', 450000, 500000, '25%', 'Polis terbit'],
+    ['09:31', 'Budi S.', 'Motor · TLO', 'ACA', 450000, 510000, '25%', 'Menunggu bayar'],
+    ['09:12', 'Melati A.', 'Mobil · All Risk', 'ZURICH', 3820000, 3914000, '20%', 'Polis terbit'],
+    ['08:58', 'Hendra W.', 'Motor · TLO', 'JASINDO', 450000, 518000, '25%', 'Menunggu bayar'],
+    ['08:40', 'Tirta K.', 'Travel · 7 hari', 'MAG', 185000, 205000, '30%', 'Polis terbit'],
+    ['08:22', 'Sari N.', 'Kesehatan · keluarga', 'ZURICH', 1450000, 1500000, '15%', 'Verifikasi medis'],
+    ['08:05', 'Agus P.', 'Motor · All Risk', 'RELIANCE', 875000, 950000, '15%', 'Ditinggalkan'],
+    ['07:51', 'Wulan D.', 'Properti · rumah', 'ACA', 980000, 1040000, '20%', 'Survey dijadwalkan']
+  ];
+  document.getElementById('offersTable').innerHTML = offers.map(function (o) {
+    var badge = o[7] === 'Polis terbit' ? 'success' : o[7] === 'Ditinggalkan' ? 'danger' : o[7] === 'Menunggu bayar' ? 'warn' : 'info';
+    return '<tr><td class="row-label">' + o[0] + '</td><td>' + RP.esc(o[1]) + '</td><td>' + RP.esc(o[2]) + '</td><td>' + RP.esc(o[3]) + '</td>' +
+      '<td class="num">' + D.rupiah(o[4], false) + '</td><td class="num">' + D.rupiah(o[5], false) + '</td><td class="num">' + o[6] + '</td>' +
+      '<td><span class="badge badge-' + badge + '">' + RP.esc(o[7]) + '</span></td></tr>';
+  }).join('');
+
+  /* mitra */
+  var ratio = { ACA: 62, SIMAS: 71, JATANIA: 88, MAG: 74, ZURICH: 58, JASINDO: 97, RELIANCE: 118 };
+  var policies = { ACA: 3410, SIMAS: 4180, JATANIA: 2180, MAG: 2960, ZURICH: 4120, JASINDO: 2180, RELIANCE: 1240 };
+  document.getElementById('partnersTable').innerHTML = D.PROVIDERS.map(function (p) {
+    var r = ratio[p.code] || 70;
+    var st = r > 95 ? 'danger' : r > 85 ? 'warn' : 'success';
+    return '<tr><td><span class="provider-logo provider-logo-sm" style="background:' + p.tint + ';margin-right:.5rem">' + RP.esc(p.abbr) + '</span>' + RP.esc(p.name) + '</td>' +
+      '<td class="num">' + p.rating.toFixed(1) + '</td><td class="num">' + p.factor.toFixed(3).replace('.', ',') + '</td>' +
+      '<td class="num">' + policies[p.code].toLocaleString('id-ID') + '</td>' +
+      '<td class="num"><span class="badge badge-' + st + '">' + r + '%</span></td>' +
+      '<td>' + RP.esc(p.claims) + '</td>' +
+      '<td><span class="status-dot' + (r > 95 ? ' warn' : '') + '">' + (r > 95 ? 'Perlu tinjauan' : 'Normal') + '</span></td></tr>';
+  }).join('');
+
+  /* klaim */
+  var claims = [
+    ['RP-20260914-0198', 'Motor', 'Verifikasi surveyor', '2 hari', 'Aman'],
+    ['RP-20260914-0197', 'Motor', 'Unggah dokumen', '1 hari', 'Aman'],
+    ['RP-20260913-0191', 'Mobil', 'Persetujuan', '4 hari', 'Mendekati batas'],
+    ['RP-20260913-0188', 'Kesehatan', 'Verifikasi', '3 hari', 'Aman'],
+    ['RP-20260912-0176', 'Motor', 'Pembayaran', '6 hari', 'Mendekati batas'],
+    ['RP-20260912-0170', 'Properti', 'Persetujuan', '5 hari', 'Aman']
+  ];
+  document.getElementById('claimsTable').innerHTML = claims.map(function (c) {
+    return '<tr><td class="row-label">' + c[0] + '</td><td>' + c[1] + '</td><td>' + c[2] + '</td><td class="num">' + c[3] + '</td>' +
+      '<td><span class="status-dot' + (c[4] === 'Aman' ? '' : ' warn') + '">' + c[4] + '</span></td></tr>';
+  }).join('');
+
+  /* performa */
+  var perf = [
+    ['Largest Contentful Paint', T.audited.lcp, T.target.lcp],
+    ['Berat halaman awal', T.audited.weight, T.target.weight],
+    ['Jumlah permintaan', T.audited.requests, T.target.requests],
+    ['Waktu dapat diklik', T.audited.tti, T.target.tti],
+    ['Jumlah templat unik', T.audited.pages, T.target.pages]
+  ];
+  document.getElementById('perfGrid').innerHTML = perf.map(function (p) {
+    return '<div class="card kpi-card"><span class="kpi-label">' + p[0] + '</span>' +
+      '<span class="kpi-value" style="font-size:var(--fs-xl)"><span style="color:var(--danger-600);text-decoration:line-through;opacity:.7">' + p[1] + '</span></span>' +
+      '<span class="kpi-delta kpi-up">→ ' + p[2] + '</span></div>';
+  }).join('');
+
+  /* nav highlight */
+  document.querySelectorAll('.admin-nav-link').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.querySelectorAll('.admin-nav-link').forEach(function (x) { x.classList.remove('is-active'); });
+      a.classList.add('is-active');
+    });
+  });
+})();
+</script>
+</body>
+</html>
