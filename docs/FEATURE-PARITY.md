@@ -17,7 +17,7 @@ Legend: **Kept** = same capability · **Improved** = same capability, materially
 | 6 | "Tentang Kami" | Improved | `tentang.html` — story, licence, **how the broker earns money**, reviews (`#ulasan`) |
 | 7 | Customer rating badge (4,6 / 5) | Kept | Header, footer, `tentang.html#ulasan`, `aggregateRating` in structured data |
 | 8 | Testimonials carousel | Improved | Static, honest set including a 4-star review that names a real limitation |
-| 9 | Event & promo campaigns | Kept | Promo cards carried over from the existing site |
+| 9 | Event & promo campaigns | Improved | Cards now name the three factors that actually move a premium; no invented promo codes or deadlines |
 | 10 | Newsletter signup ("Let Us Protect You!") | Kept | Same copy on `index.html`, now confirming where the address went |
 | 11 | Footer: products, informasi lainnya, contact block, social links, copyright | Kept | Rendered once from `app.js`; every link resolves inside the build |
 
