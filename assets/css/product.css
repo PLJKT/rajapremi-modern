@@ -32,8 +32,8 @@
 .table-tight th, .table-tight td { padding: .5rem .6rem; }
 .table-compare th:not(:first-child), .table-compare td:not(:first-child) { text-align: center; }
 .table-compare thead th { position: static; }
-.table-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r-md); }
-.table-scroll .table { min-width: 640px; }
+.table-scroll                                                  { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r-md); max-width: 100%; overscroll-behavior-x: contain; }
+.table-scroll .table                                           { min-width: min(640px, 100%); }
 .bar-cell { width: 140px; }
 .bar { display: block; height: 8px; border-radius: 99px; background: var(--grad-brand); min-width: 4px; }
 
@@ -53,9 +53,10 @@
 .segmented {
   display: inline-flex; padding: 4px; gap: 4px; border-radius: var(--r-md);
   background: var(--bg-sunken); border: 1px solid var(--border); width: 100%;
+  flex-wrap: wrap;
 }
 .segmented button {
-  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: .45rem;
+  flex: 1 1 auto; min-width: 0; display: inline-flex; align-items: center; justify-content: center; gap: .45rem;
   padding: .6rem .8rem; border: 0; border-radius: var(--r-sm); background: transparent;
   font: inherit; font-weight: var(--fw-semi); font-size: var(--fs-sm); color: var(--text-muted);
   cursor: pointer; transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
@@ -330,6 +331,11 @@
 .section-head h2 { margin: 0; }
 .section-head p { margin: .35rem 0 0; color: var(--text-muted); max-width: 60ch; }
 .prod-card-cta { display: inline-flex; align-items: center; gap: .35rem; font-weight: var(--fw-semi); font-size: var(--fs-sm); color: var(--primary); }
+/* The arrow is an icon: without a size it inherited the flex line's width and
+   ballooned to a square as wide as the card (and pushed the page wide). */
+.prod-card-cta svg { width: 15px; height: 15px; flex: 0 0 auto; }
+/* A scroll container that lives inside a card should not double up its border. */
+.table-scroll.in-card { border: 0; border-radius: 0; }
 .prod-ico svg { width: 24px; height: 24px; }
 .quote-tabs .quote-tab.is-active { background: var(--primary); color: var(--on-primary); }
 .testimonial-card { display: flex; flex-direction: column; gap: var(--s-3); height: 100%; }

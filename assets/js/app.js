@@ -113,7 +113,7 @@
       '<div class="container">' +
         '<nav class="nav" aria-label="Navigasi utama">' +
           '<a class="nav-brand" href="index.html">' +
-            '<img class="brand-logo" src="assets/img/brand/rajapremi-logo.png" alt="" width="34" height="34"><span>' + esc(D.CONFIG.brand) + '</span>' +
+            '<img class="brand-logo" src="assets/img/brand/rajapremi-logo.png" alt="" width="34" height="34"><span class="brand-name">' + esc(D.CONFIG.brand) + '</span>' +
             '<span class="badge badge-primary" style="margin-left:.15rem">' + ICON.shield + ' Agregator asuransi</span>' +
           '</a>' +
           '<div class="nav-links">' + links + '</div>' +

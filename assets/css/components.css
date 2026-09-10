@@ -173,6 +173,9 @@
   padding: .32rem .5rem; border-radius: var(--r-sm);
   background: var(--bg-sunken); color: var(--text-muted); border: 1px solid var(--border);
 }
+/* Icon inside a pill: without an explicit size the <svg> takes its default
+   replaced-element box (300x150, or the flex line's width) and bursts out. */
+.badge svg, .chip svg { width: 12px; height: 12px; flex: 0 0 auto; }
 .badge-primary { background: var(--primary-soft); color: var(--primary); border-color: var(--primary-border); }
 .badge-success { background: var(--success-50); color: var(--success-600); border-color: var(--success-100); }
 .badge-warn    { background: var(--warn-50);    color: var(--warn-600);    border-color: var(--warn-100); }
@@ -410,6 +413,9 @@
 .prod-link { font-size: var(--fs-sm); font-weight: var(--fw-semi); display: inline-flex; align-items: center; gap: .3rem; }
 
 .feature { display: flex; gap: var(--s-4); }
+/* As a card the feature stacks (icon, title, copy, badge) instead of laying all
+   four children out in one row, which pushed the badge past the card edge. */
+.card.feature { flex-direction: column; align-items: flex-start; gap: var(--s-2); }
 .feature-ico {
   width: 38px; height: 38px; border-radius: var(--r-md); flex: none;
   display: grid; place-items: center; background: var(--primary-soft); color: var(--primary);
@@ -700,3 +706,41 @@ table.table .num { text-align: right; font-variant-numeric: tabular-nums; }
   .site-header, .site-footer, .ai-fab, .ai-panel, .no-print { display: none !important; }
   body { background: #fff; }
 }
+
+/* ============================================================
+   Responsive hardening — text, tables and toolbars stay tidy
+   from 320px to 2560px, with no horizontal page scrolling.
+
+   1. A grid/flex item defaults to `min-width: auto`: it refuses to shrink
+      below its content's min-content width. One wide table (our data tables
+      use nowrap cells) or one nowrap toolbar then inflates its track and
+      drags the whole page wider than the screen. Letting those items shrink
+      is what makes the inner .table-scroll scroll instead of the page.
+   2. Rows of chips, steps and segmented buttons wrap rather than overflow.
+   3. The header action row compacts before it can push the layout wide.
+   ============================================================ */
+.two-col > *, .compare-layout > *, .compare-side > *, .compare-main > *,
+.hero-grid > *, .prod-hero > *, .footer-grid > *, .kpi-grid > *,
+.admin-content > *, .admin-main > *, .grid-2 > *, .grid-3 > *, .grid-4 > *,
+.grid-auto-280 > *, .grid-auto-240 > *, .grid-auto-180 > * { min-width: 0; }
+
+/* Wrap, don't overflow. */
+.steps { flex-wrap: wrap; }
+.step-line { flex: 1 1 var(--s-6); min-width: var(--s-5); }
+.chips, .hero-badges, .list-toolbar, .list-toolbar-right { flex-wrap: wrap; }
+.hero-quote-card, .quote-form, .quote-form .field, .quote-row { min-width: 0; }
+
+/* Header: shed the tagline, then the secondary icon and the CTA icon,
+   before the action row can push the page wider than the screen. */
+@media (max-width: 900px) { .nav-brand .badge { display: none; } }
+@media (max-width: 640px) {
+  .nav-actions { gap: var(--s-1); }
+  .nav-actions [data-ai-open] { display: none; }
+  .nav-actions .btn-icon { width: 34px; height: 34px; padding: 0; }
+  .nav-actions .btn-primary { padding: .5rem .7rem; font-size: var(--fs-sm); }
+  .nav-actions .btn-primary svg { display: none; }
+}
+@media (max-width: 480px) {
+  .nav-actions .btn-primary { padding: .45rem .6rem; font-size: var(--fs-xs); }
+}
+@media (max-width: 400px) { .nav-brand .brand-name { display: none; } }
