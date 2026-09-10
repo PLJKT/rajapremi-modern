@@ -25,7 +25,6 @@
   .hub-step-body p {margin: 0; color: var(--text-muted); font-size: var(--fs-sm);}
   .hub-contacts {display: flex; flex-direction: column; gap: var(--s-5);}
   .hub-contacts .kv strong {font-size: var(--fs-md);}
-  .hub-contact-ico {width: 20px; height: 20px; color: var(--primary); flex: none;}
   .hub-form-grid {display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--s-4);}
   @media (max-width: 640px) {.hub-form-grid {grid-template-columns: 1fr;}}
 </style>
@@ -95,7 +94,7 @@
 
       <div class="alert alert-info" style="margin-top:var(--s-6)">
         <span data-ico="clock"></span>
-        <div><strong>Butuh sekarang?</strong> Jam layanan <span data-config="hours">Senin–Jumat 08.30–17.30 WIB</span>. Untuk klaim darurat (kecelakaan, kendaraan hilang), pesan WhatsApp tetap kami pantau di luar jam tersebut.</div>
+        <div><strong>Butuh sekarang?</strong> Jam layanan <span id="hubHoursTop">Senin–Jumat 08.30–17.30 WIB</span>. Untuk klaim darurat (kecelakaan, kendaraan hilang), pesan WhatsApp tetap kami pantau di luar jam tersebut.</div>
       </div>
     </div>
   </section>
@@ -309,7 +308,6 @@
             <div class="kv">
               <span class="hint">WhatsApp (tercepat)</span>
               <strong><a href="https://wa.me/628118899777">+62 811 8899 777</a></strong>
-              <span class="hub-contact-ico" data-ico="whatsapp" style="display:none"></span>
             </div>
             <div class="kv">
               <span class="hint">Telepon</span>
@@ -445,11 +443,15 @@
     el.innerHTML = D.ICONS[el.getAttribute('data-ico')] || '';
   });
 
+  // Aktifkan tab panduan (pola app.js: container [data-tabs] + panel [data-tab-panel]).
+  if (RP && RP.initTabs) RP.initTabs();
+
   var WA = C.whatsapp.replace(/\D/g, '');
 
   // Isi jam layanan dari data bila elemennya ada (data.js adalah sumber tunggal).
   var hoursEl = document.getElementById('hubHours');
-  if (hoursEl && C.hours) hoursEl.textContent = C.hours;
+  var hoursTop = document.getElementById('hubHoursTop');
+  if (C.hours) [hoursEl, hoursTop].forEach(function (el) { if (el) el.textContent = C.hours; });
 
   // Topik bisa dipilih lebih dulu lewat tautan, misal bantuan.html?topik=klaim#hubungi
   var select = document.getElementById('hbTopik');

@@ -86,17 +86,27 @@ for (const page of PAGES) {
   if (unknown.length === 0) ok('every CSS class used is defined (' + classes.size + ' classes)');
   else bad('every CSS class used is defined', unknown.join(', '));
 
-  /* 5. tag balance */
-  const stacks = { };
-  let balance = 0, unbalanced = [];
-  for (const m of html.matchAll(/<\/?(div|section|main|article|aside|header|footer|nav|form|table|tbody|thead|tr|td|th|ul|ol|li|details|span|p|h1|h2|h3|h4|h5|select|label|button|a)\b[^>]*>/g)) {
-    const tag = m[1];
-    if (m[0].startsWith('</')) balance--;
-    else if (!m[0].endsWith('/>') && !['br', 'img', 'input', 'meta', 'link'].includes(tag)) balance++;
-    if (balance < 0) { unbalanced.push('closing ' + tag + ' with nothing open'); balance = 0; }
+  /* 5. tag balance — stack based, so the report names the offending tag */
+  const structure = html
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<script[\s\S]*?<\/script>/g, ' ')
+    .replace(/<style[\s\S]*?<\/style>/g, ' ')
+    .replace(/<svg[\s\S]*?<\/svg>/g, ' ');
+  const VOID = new Set(['br', 'img', 'input', 'meta', 'link', 'hr', 'source', 'area', 'base', 'col', 'embed', 'param', 'track', 'wbr']);
+  const stack = [];
+  let issue = null;
+  for (const m of structure.matchAll(/<(\/?)([a-zA-Z][a-zA-Z0-9-]*)\b([^>]*)>/g)) {
+    const tag = m[2].toLowerCase();
+    if (VOID.has(tag) || m[0].endsWith('/>')) continue;
+    if (m[1] === '/') {
+      const idx = stack.lastIndexOf(tag);
+      if (idx === -1) { issue = issue || ('</' + tag + '> has no opening tag'); }
+      else stack.length = idx;         /* implicitly closes anything left open inside */
+    } else stack.push(tag);
   }
-  if (balance === 0 && unbalanced.length === 0) ok('tags balanced');
-  else bad('tags balanced', 'depth ' + balance + (unbalanced.length ? '; ' + unbalanced[0] : ''));
+  if (stack.length) issue = issue || ('</' + stack[stack.length - 1] + '> missing');
+  if (!issue) ok('tags balanced');
+  else bad('tags balanced', issue);
 
   /* 6. content presence — the failure mode the audit found */
   const textLen = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '')

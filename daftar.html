@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daftar Akun — RajaPremi | Gratis, tanpa biaya pendaftaran</title>
+<meta name="description" content="Buat akun RajaPremi untuk membandingkan premi dari 7 perusahaan asuransi mitra, menyimpan penawaran, dan memantau polis serta klaim. Pendaftaran gratis, tanpa biaya.">
+<meta name="theme-color" content="#4338ca">
+<link rel="canonical" href="https://pljkt.github.io/rajapremi-modern/daftar.html">
+<meta name="robots" content="noindex, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Daftar Akun — RajaPremi">
+<meta property="og:description" content="Pendaftaran gratis untuk membandingkan premi asuransi dari 7 mitra dan memantau polis Anda.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234338ca'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-size='15' font-weight='800' fill='white' text-anchor='middle'%3ERP%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/product.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Daftar Akun RajaPremi","url":"https://pljkt.github.io/rajapremi-modern/daftar.html","description":"Halaman pendaftaran akun RajaPremi (demo statis tanpa backend).","isPartOf":{"@type":"WebSite","name":"RajaPremi","url":"https://pljkt.github.io/rajapremi-modern/"}}
+</script>
+<style>
+  /* Khusus halaman Daftar: dua kolom (formulir + penjelasan alur). */
+  .reg-grid {display: grid; grid-template-columns: minmax(0,1fr) 360px; gap: var(--s-6); align-items: start;}
+  .reg-aside {display: flex; flex-direction: column; gap: var(--s-5);}
+  .reg-steps {list-style: none; margin: var(--s-4) 0 0; padding: 0; display: flex; flex-direction: column; gap: var(--s-4);}
+  .reg-steps li {display: grid; grid-template-columns: 1.75rem minmax(0,1fr); gap: var(--s-3); align-items: start;}
+  .reg-num {display: inline-flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border-radius: 50%; background: var(--primary); color: #fff; font-size: var(--fs-2xs); font-weight: 700;}
+  .reg-steps strong {font-size: var(--fs-sm); display: block;}
+  .reg-steps p {margin: var(--s-1) 0 0; color: var(--text-muted); font-size: var(--fs-xs);}
+  .reg-note {font-size: var(--fs-2xs); color: var(--text-muted);}
+  .reg-grid .field-label {display: block; margin-bottom: var(--s-1);}
+  .reg-two {display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--s-5);}
+  @media (max-width: 900px) {.reg-grid {grid-template-columns: 1fr;}}
+  @media (max-width: 560px) {.reg-two {grid-template-columns: 1fr;}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Lompat ke konten utama</a>
+
+<div id="site-header"></div>
+
+<main id="main">
+
+  <!-- ============ Kepala halaman ============ -->
+  <section class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Remah roti">
+        <a href="index.html">Beranda</a>
+        <span>/</span>
+        <span>Daftar</span>
+      </nav>
+      <span class="eyebrow"><span class="dot"></span> Pendaftaran gratis</span>
+      <h1>Buat akun RajaPremi</h1>
+      <p>
+        Sekali daftar, Anda bisa membandingkan penawaran dari 7 perusahaan asuransi mitra, menyimpan hasil
+        perbandingan, dan memantau polis serta klaim di satu halaman.
+      </p>
+      <div class="chips" style="margin-top:var(--s-4)">
+        <span class="chip">Tanpa biaya pendaftaran</span>
+        <span class="chip">Tanpa kartu kredit</span>
+        <span class="chip">Bisa berhenti kapan saja</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="form-daftar">
+    <div class="container">
+      <div class="alert alert-info" id="demoNotice" role="note" style="margin-bottom:var(--s-6)">
+        <span data-ico="info" aria-hidden="true"></span>
+        <div>
+          <strong>Halaman demo.</strong> Situs ini purwarupa statis tanpa server aplikasi dan tanpa basis data.
+          Formulir di bawah tidak mengirim data ke mana pun — jangan mengisi data pribadi atau kata sandi asli Anda.
+        </div>
+      </div>
+
+      <div class="reg-grid">
+        <div class="card card-pad-lg">
+          <div class="row" style="align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap">
+            <h2 style="margin:0">Data pendaftaran</h2>
+            <span class="reg-note">Sudah punya akun? <a href="masuk.html">Masuk di sini</a></span>
+          </div>
+
+          <form id="daftarForm" novalidate style="margin-top:var(--s-5)">
+            <div class="stack" style="gap:var(--s-5)">
+              <div class="field">
+                <label class="field-label" for="dfNama">Nama lengkap</label>
+                <input class="input" type="text" id="dfNama" name="nama" autocomplete="off"
+                       placeholder="Sesuai kartu identitas" aria-describedby="dfNamaHint">
+                <p class="field-hint" id="dfNamaHint">Nama ini akan tercetak pada dokumen polis, jadi tulis lengkap.</p>
+              </div>
+
+              <div class="reg-two">
+                <div class="field">
+                  <label class="field-label" for="dfEmail">Email</label>
+                  <input class="input" type="email" id="dfEmail" name="email" autocomplete="off" placeholder="nama@email.com">
+                  <p class="field-hint" id="dfEmailHint">Dipakai untuk mengirim polis dan bukti bayar.</p>
+                </div>
+                <div class="field">
+                  <label class="field-label" for="dfWa">Nomor WhatsApp</label>
+                  <input class="input" type="tel" id="dfWa" name="whatsapp" autocomplete="off" placeholder="08xx xxxx xxxx">
+                  <p class="field-hint" id="dfWaHint">Kanal tercepat untuk pertanyaan dan pengingat jatuh tempo.</p>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="field-label" for="dfProduk">Produk yang ingin dibandingkan</label>
+                <select class="select" id="dfProduk" name="produk">
+                  <option value="motor">Asuransi motor</option>
+                  <option value="mobil">Asuransi mobil</option>
+                  <option value="kesehatan">Asuransi kesehatan</option>
+                  <option value="properti">Asuransi properti</option>
+                  <option value="kecelakaan">Kecelakaan diri</option>
+                  <option value="travel">Travel insurance</option>
+                  <option value="umrah">Umrah &amp; Haji</option>
+                  <option value="jiwa">Asuransi jiwa</option>
+                  <option value="lainnya">Belum tahu, ingin dibantu</option>
+                </select>
+                <p class="field-hint">Ini hanya membantu kami menampilkan penawaran yang relevan lebih dulu.</p>
+              </div>
+
+              <div class="reg-two">
+                <div class="field">
+                  <label class="field-label" for="dfSandi">Kata sandi</label>
+                  <input class="input" type="password" id="dfSandi" name="password" autocomplete="off" placeholder="Kata sandi akun">
+                  <p class="field-note">Demo: tidak ada penyimpanan, pemeriksaan, atau pengiriman kata sandi.</p>
+                </div>
+                <div class="field">
+                  <label class="field-label" for="dfSandi2">Ulangi kata sandi</label>
+                  <input class="input" type="password" id="dfSandi2" name="password2" autocomplete="off" placeholder="Ketik ulang">
+                  <p class="field-hint" id="dfSandiHint">Cukup pastikan kedua isian sama pada demo ini.</p>
+                </div>
+              </div>
+
+              <div class="stack" style="gap:var(--s-3)">
+                <label class="checkline">
+                  <input type="checkbox" id="dfSetuju" name="setuju">
+                  <span>Saya menyetujui <a href="bantuan.html">Syarat &amp; Ketentuan</a> dan <a href="bantuan.html#privasi">Kebijakan Privasi</a> RajaPremi.</span>
+                </label>
+                <label class="checkline">
+                  <input type="checkbox" id="dfPromo" name="promo" checked>
+                  <span>Kirimi saya penawaran dan pengingat jatuh tempo lewat email/WhatsApp.</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-lg" id="daftarSubmit">Daftar sekarang</button>
+              <p class="form-foot field-note">
+                Pendaftaran tidak berbiaya. Data yang Anda isi di situs asli dipakai hanya untuk menyiapkan penawaran,
+                menerbitkan polis, dan memenuhi kewajiban pelaporan kepada perusahaan asuransi mitra.
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <aside class="reg-aside">
+          <div class="card card-flat card-pad-lg">
+            <h3>Bonus pengguna baru</h3>
+            <p class="muted" style="font-size:var(--fs-sm)">
+              Setelah mengisi data diri, Anda dapat mengaktifkan <strong>asuransi kecelakaan diri gratis 30 hari</strong>
+              dengan nilai pertanggungan hingga Rp 25 juta — tanpa biaya dan tanpa kartu kredit. Syarat &amp; ketentuan berlaku.
+            </p>
+            <p class="reg-note">Kode promo: GRATIS30</p>
+          </div>
+
+          <div class="card card-flat card-pad-lg">
+            <h3>Setelah menekan Daftar</h3>
+            <ol class="reg-steps">
+              <li>
+                <span class="reg-num" aria-hidden="true">1</span>
+                <div>
+                  <strong>Penawaran dibandingkan</strong>
+                  <p>Kami menampilkan premi dari mitra yang relevan dengan produk pilihan Anda, diurutkan dari total terendah.</p>
+                </div>
+              </li>
+              <li>
+                <span class="reg-num" aria-hidden="true">2</span>
+                <div>
+                  <strong>Anda memilih satu penawaran</strong>
+                  <p>Rincian premi, biaya penanganan, dan bea meterai ditampilkan sebelum pembayaran.</p>
+                </div>
+              </li>
+              <li>
+                <span class="reg-num" aria-hidden="true">3</span>
+                <div>
+                  <strong>Polis terbit dari perusahaan asuransi</strong>
+                  <p>Rata-rata 5–15 menit untuk produk kendaraan, kecelakaan diri, dan travel setelah pembayaran terkonfirmasi.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="card card-flat card-pad-lg">
+            <h3>Privasi singkat</h3>
+            <ul class="stack" style="gap:var(--s-2);font-size:var(--fs-xs)">
+              <li>Data hanya dibagikan kepada perusahaan asuransi yang Anda pilih.</li>
+              <li>Kami tidak menjual daftar nasabah ke pihak ketiga.</li>
+              <li>Pembayaran diproses payment gateway berlisensi Bank Indonesia.</li>
+            </ul>
+            <a class="btn btn-soft btn-block" href="tentang.html#izin" style="margin-top:var(--s-5)">Baca izin &amp; regulasi kami</a>
+          </div>
+
+          <p class="reg-note">
+            Butuh bantuan sebelum mendaftar? Hubungi <a id="dfWaLink" href="bantuan.html">WhatsApp layanan pelanggan</a>
+            (<span id="dfHours">Senin–Jumat 08.30–17.30 WIB</span>).
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/quote.js"></script>
+<script src="assets/js/ai.js"></script>
+<script>
+(function () {
+  var D = window.RPData, RP = window.RP, C = D.CONFIG;
+  var PESAN = 'Demo: tidak ada data yang dikirim atau disimpan. Halaman ini statis tanpa server aplikasi.';
+
+  document.querySelectorAll('[data-ico]').forEach(function (el) {
+    el.innerHTML = D.ICONS[el.getAttribute('data-ico')] || '';
+  });
+
+  var hours = document.getElementById('dfHours');
+  if (hours) hours.textContent = C.hours;
+  var waLink = document.getElementById('dfWaLink');
+  if (waLink) waLink.href = 'https://wa.me/' + C.whatsapp.replace(/\D/g, '');
+
+  /* Formulir demo: tidak pernah dikirim ke mana pun, tidak ada autentikasi. */
+  var form = document.getElementById('daftarForm');
+  if (form) form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+    var cek = document.getElementById('dfSetuju');
+    if (!v('dfNama') || !v('dfEmail') || !v('dfWa') || !v('dfSandi') || !v('dfSandi2')) {
+      RP.toast('Lengkapi nama, email, WhatsApp, dan kata sandi terlebih dahulu (data tidak dikirim ke mana pun).', 'info', 5600);
+      return;
+    }
+    if (v('dfSandi') !== v('dfSandi2')) {
+      RP.toast('Kedua isian kata sandi belum sama. Perbaiki dulu, ya — demo ini tidak menyimpan apa pun.', 'info', 5600);
+      return;
+    }
+    if (!cek || !cek.checked) {
+      RP.toast('Centang persetujuan Syarat & Ketentuan terlebih dahulu untuk melanjutkan.', 'info', 5200);
+      return;
+    }
+    RP.toast('Terima kasih, ' + v('dfNama').split(' ')[0] + '! Pada situs asli, akun Anda dibuat sekarang — ' + PESAN, 'success', 6400);
+  });
+})();
+</script>
+</body>
+</html>

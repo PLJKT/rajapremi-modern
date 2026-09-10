@@ -51,10 +51,15 @@ Some behaviours (voice input) require `http://localhost` or HTTPS rather than `f
 **Tests** (no dependencies — plain Node):
 
 ```bash
-node tests/quote-engine.test.mjs
+node tests/quote-engine.test.mjs   # pricing, coverage mapping, margin-leak prevention, tray, modals, catalogue
+node tests/pages.test.mjs          # every page: shell, metadata, links, CSS classes, tag balance, no-JS content
+node tools/check-tags.mjs faq.html # focused tag-balance check with the offending element named
 ```
 
-Covers quote generation, the coverage mapping, margin-leak prevention, the compare tray, the modals, and catalogue/navigation integrity.
+`tests/quote-engine.test.mjs` runs the real `data.js` and `quote.js` inside a `node:vm` sandbox, so it exercises
+the shipping code rather than a copy. `tests/pages.test.mjs` is the gate that would have caught the failures found
+on the live site: it fails any page that renders too little text without JavaScript, links to a file that does not
+exist, uses a CSS class no stylesheet defines, or leaves a tag unclosed.
 
 ---
 

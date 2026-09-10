@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Masuk Akun — RajaPremi | Pantau polis, klaim, dan tagihan Anda</title>
+<meta name="description" content="Masuk ke akun RajaPremi untuk melihat polis aktif, status klaim, dan tagihan premi Anda dalam satu halaman. Halaman demo statis: tidak ada kredensial yang dikirim.">
+<meta name="theme-color" content="#4338ca">
+<link rel="canonical" href="https://pljkt.github.io/rajapremi-modern/masuk.html">
+<meta name="robots" content="noindex, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Masuk Akun — RajaPremi">
+<meta property="og:description" content="Pantau polis, klaim, dan tagihan premi RajaPremi dalam satu halaman.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234338ca'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-size='15' font-weight='800' fill='white' text-anchor='middle'%3ERP%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/product.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Masuk Akun RajaPremi","url":"https://pljkt.github.io/rajapremi-modern/masuk.html","description":"Halaman masuk akun RajaPremi (demo statis tanpa backend).","isPartOf":{"@type":"WebSite","name":"RajaPremi","url":"https://pljkt.github.io/rajapremi-modern/"}}
+</script>
+<style>
+  /* Khusus halaman Masuk: dua kolom (formulir + daftar manfaat). */
+  .auth-grid {display: grid; grid-template-columns: minmax(0,1fr) 360px; gap: var(--s-6); align-items: start;}
+  .auth-aside {display: flex; flex-direction: column; gap: var(--s-5);}
+  .auth-list {list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--s-4);}
+  .auth-list li {display: flex; gap: var(--s-3); align-items: flex-start;}
+  .auth-list p {margin: var(--s-1) 0 0; color: var(--text-muted); font-size: var(--fs-xs);}
+  .auth-list strong {font-size: var(--fs-sm);}
+  .auth-ico {display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--primary); color: #fff; flex: none;}
+  .auth-ico svg {width: 1rem; height: 1rem;}
+  .auth-sep {display: flex; align-items: center; gap: var(--s-3); margin: var(--s-5) 0; color: var(--text-muted); font-size: var(--fs-2xs);}
+  .auth-sep::before, .auth-sep::after {content: ""; height: 1px; background: rgba(15,23,42,.12); flex: 1;}
+  .auth-top {display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); flex-wrap: wrap;}
+  .auth-note {font-size: var(--fs-2xs); color: var(--text-muted);}
+  @media (max-width: 900px) {.auth-grid {grid-template-columns: 1fr;}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Lompat ke konten utama</a>
+
+<div id="site-header"></div>
+
+<main id="main">
+
+  <!-- ============ Kepala halaman ============ -->
+  <section class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Remah roti">
+        <a href="index.html">Beranda</a>
+        <span>/</span>
+        <span>Masuk</span>
+      </nav>
+      <span class="eyebrow"><span class="dot"></span> Akun RajaPremi</span>
+      <h1>Masuk ke akun Anda</h1>
+      <p>
+        Satu tempat untuk polis aktif, status klaim, jadwal jatuh tempo, dan dokumen pembayaran Anda.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="form-masuk">
+    <div class="container">
+      <div class="alert alert-info" id="demoNotice" role="note" style="margin-bottom:var(--s-6)">
+        <span data-ico="info" aria-hidden="true"></span>
+        <div>
+          <strong>Halaman demo.</strong> Situs ini adalah purwarupa statis tanpa server aplikasi dan tanpa basis data.
+          Formulir di bawah tidak mengirim data ke mana pun — jangan memasukkan email atau kata sandi asli Anda.
+        </div>
+      </div>
+
+      <div class="auth-grid">
+        <div class="card card-pad-lg">
+          <div class="auth-top">
+            <h2 style="margin:0">Masuk</h2>
+            <span class="auth-note">Belum punya akun? <a href="daftar.html">Daftar sekarang</a></span>
+          </div>
+
+          <form id="masukForm" novalidate style="margin-top:var(--s-5)">
+            <div class="stack" style="gap:var(--s-5)">
+              <div class="field">
+                <label class="field-label" for="msEmail">Email terdaftar</label>
+                <input class="input" type="email" id="msEmail" name="email" autocomplete="off"
+                       placeholder="nama@email.com" aria-describedby="msEmailHint">
+                <p class="field-hint" id="msEmailHint">Gunakan email yang Anda pakai saat mendaftar.</p>
+              </div>
+
+              <div class="field">
+                <label class="field-label" for="msSandi">Kata sandi</label>
+                <input class="input" type="password" id="msSandi" name="password" autocomplete="off"
+                       placeholder="Kata sandi akun Anda" aria-describedby="msSandiHint">
+                <p class="field-hint" id="msSandiHint">Halaman demo tidak menyimpan atau memeriksa kata sandi.</p>
+              </div>
+
+              <div class="row" style="align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap">
+                <label class="checkline">
+                  <input type="checkbox" id="msIngat" name="ingat">
+                  <span>Ingat perangkat ini</span>
+                </label>
+                <button type="button" class="btn btn-ghost btn-sm" id="msLupa">Lupa kata sandi?</button>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-lg" id="masukSubmit">Masuk</button>
+              <p class="form-foot field-note">
+                Dengan masuk Anda menyetujui Syarat &amp; Ketentuan serta Kebijakan Privasi RajaPremi. Pada situs
+                sesungguhnya, sesi login hanya berjalan di atas koneksi terenkripsi.
+              </p>
+            </div>
+          </form>
+
+          <div class="auth-sep">atau masuk dengan</div>
+
+          <div class="stack" style="gap:.6rem">
+            <button type="button" class="btn btn-secondary btn-block" data-sosial="Google">Masuk dengan Google</button>
+            <button type="button" class="btn btn-secondary btn-block" data-sosial="Facebook">Masuk dengan Facebook</button>
+            <button type="button" class="btn btn-secondary btn-block" data-sosial="Apple">Masuk dengan Apple</button>
+          </div>
+
+          <p class="auth-note" style="margin-top:var(--s-5)">
+            Tidak menerima email konfirmasi? Periksa folder spam, lalu hubungi kami di
+            <a id="msWa" href="bantuan.html">WhatsApp layanan pelanggan</a> atau <a id="msEmailLink" href="bantuan.html">email dukungan</a>.
+          </p>
+        </div>
+
+        <aside class="auth-aside">
+          <div class="card card-flat card-pad-lg">
+            <h3>Kenapa punya akun</h3>
+            <ul class="auth-list" style="margin-top:var(--s-4)">
+              <li>
+                <span class="auth-ico" data-ico="doc" aria-hidden="true"></span>
+                <div>
+                  <strong>Polis &amp; dokumen di satu tempat</strong>
+                  <p>Unduh polis, kartu peserta, dan bukti bayar tanpa meminta ulang ke tim kami.</p>
+                </div>
+              </li>
+              <li>
+                <span class="auth-ico" data-ico="shield" aria-hidden="true"></span>
+                <div>
+                  <strong>Status klaim yang bisa dilacak</strong>
+                  <p>Lihat tahap klaim Anda: laporan, verifikasi surveyor, keputusan, pencairan.</p>
+                </div>
+              </li>
+              <li>
+                <span class="auth-ico" data-ico="clock" aria-hidden="true"></span>
+                <div>
+                  <strong>Pengingat jatuh tempo</strong>
+                  <p>Notifikasi sebelum masa polis berakhir, agar Anda tidak kehilangan masa perlindungan.</p>
+                </div>
+              </li>
+              <li>
+                <span class="auth-ico" data-ico="refresh" aria-hidden="true"></span>
+                <div>
+                  <strong>Perpanjangan cepat</strong>
+                  <p>Bandungkan ulang harga dari mitra kami saat memperpanjang polis kendaraan.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card card-flat card-pad-lg">
+            <h3>Butuh bantuan cepat?</h3>
+            <dl class="stack" style="gap:var(--s-3);margin-top:var(--s-4)">
+              <div>
+                <dt class="field-label">Jam layanan</dt>
+                <dd class="auth-note" style="margin:0" id="msHours">Senin–Jumat 08.30–17.30 WIB</dd>
+              </div>
+              <div>
+                <dt class="field-label">Telepon</dt>
+                <dd class="auth-note" style="margin:0" id="msPhone">+62 21 5089 8888</dd>
+              </div>
+              <div>
+                <dt class="field-label">Rating layanan</dt>
+                <dd class="auth-note" style="margin:0"><span id="msRating">4,6</span>/5 dari 12.400 ulasan</dd>
+              </div>
+            </dl>
+            <a class="btn btn-soft btn-block" href="bantuan.html" style="margin-top:var(--s-5)">Buka Pusat Bantuan</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/quote.js"></script>
+<script src="assets/js/ai.js"></script>
+<script>
+(function () {
+  var D = window.RPData, RP = window.RP, C = D.CONFIG;
+  var PESAN = 'Demo: tidak ada data yang dikirim atau disimpan. Halaman ini statis tanpa server aplikasi.';
+
+  document.querySelectorAll('[data-ico]').forEach(function (el) {
+    el.innerHTML = D.ICONS[el.getAttribute('data-ico')] || '';
+  });
+
+  function set(id, text) { var el = document.getElementById(id); if (el) el.textContent = text; }
+  set('msHours', C.hours);
+  set('msPhone', C.phone);
+  set('msRating', String(C.csRating).replace('.', ','));
+
+  var wa = document.getElementById('msWa');
+  if (wa) { wa.href = 'https://wa.me/' + C.whatsapp.replace(/\D/g, ''); wa.textContent = 'WhatsApp layanan pelanggan'; }
+  var mail = document.getElementById('msEmailLink');
+  if (mail) { mail.href = 'mailto:' + C.email; mail.textContent = 'email dukungan'; }
+
+  /* Formulir demo: tidak pernah dikirim ke mana pun. */
+  var form = document.getElementById('masukForm');
+  if (form) form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = (document.getElementById('msEmail') || {}).value || '';
+    var sandi = (document.getElementById('msSandi') || {}).value || '';
+    if (!email.trim() || !sandi.trim()) {
+      RP.toast('Lengkapi email dan kata sandi terlebih dahulu (data tidak dikirim ke mana pun).', 'warn', 5200);
+      return;
+    }
+    RP.toast(PESAN, 'success', 6000);
+  });
+
+  var lupa = document.getElementById('msLupa');
+  if (lupa) lupa.addEventListener('click', function () {
+    RP.toast('Pemulihan kata sandi hanya tersedia di situs asli. Demo ini tidak mengirim email apa pun.', 'info', 5600);
+  });
+
+  document.querySelectorAll('[data-sosial]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      RP.toast('Masuk dengan ' + btn.getAttribute('data-sosial') + ' tidak aktif pada demo ini. ' + PESAN, 'info', 5600);
+    });
+  });
+})();
+</script>
+</body>
+</html>

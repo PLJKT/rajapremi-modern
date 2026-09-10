@@ -333,7 +333,7 @@
   document.querySelectorAll('[data-copy]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var hash = btn.getAttribute('data-copy');
-      var url = location.origin + location.pathname + hash;
+      var url = location.href.split('#')[0] + hash;
       var ok = function (fine) { toast(fine ? 'Tautan pertanyaan disalin' : 'Salin manual: ' + url, fine ? 'success' : 'warn'); };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(url).then(function () { ok(true); }, function () { ok(false); });

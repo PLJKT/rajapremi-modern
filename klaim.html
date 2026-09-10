@@ -18,7 +18,7 @@
 <style>
   /* hanya tata letak khusus halaman klaim */
   .claim-stage { display: flex; flex-direction: column; }
-  .claim-stage .feature-ico { margin-bottom: .5rem; }
+  .claim-stage .feature-ico { vertical-align: middle; }
   .claim-doc-type { font-size: var(--fs-xs); color: var(--text-subtle); white-space: nowrap; }
   .claim-contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--s-4); }
   @media (max-width: 640px) { .claim-strip .step { font-size: var(--fs-2xs); } }
@@ -458,11 +458,15 @@
   var stageIcons = ['send', 'upload', 'camera', 'check', 'wallet'];
   var sg = document.getElementById('claimStages');
   if (sg) sg.innerHTML = (D.CLAIM_STEPS || []).map(function (s, i) {
-    return '<div class="card card-flat claim-stage">' +
-      '<span class="feature-ico">' + (D.ICONS[stageIcons[i]] || '') + '</span>' +
-      '<strong>Tahap ' + (i + 1) + ': ' + RP.esc(s.title) + '</strong>' +
+    return '<div class="card card-flat">' +
+      '<div class="step-card">' +
+      '<span class="step-num">' + (i + 1) + '</span>' +
+      '<div class="claim-stage">' +
+      '<strong>' + (D.ICONS[stageIcons[i]] ? '<span class="feature-ico" style="margin-right:.4rem">' + D.ICONS[stageIcons[i]] + '</span>' : '') + RP.esc(s.title) + '</strong>' +
       '<p class="muted" style="font-size:var(--fs-sm);margin:.35rem 0 .5rem">' + RP.esc(s.desc) + '</p>' +
       '<span class="badge badge-primary" style="align-self:flex-start">' + RP.esc(s.sla) + '</span>' +
+      '</div>' +
+      '</div>' +
       '</div>';
   }).join('');
 
