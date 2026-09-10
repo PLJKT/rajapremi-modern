@@ -132,5 +132,54 @@ check('every navigation target resolves to a page in this repo',
     .every(h => h.indexOf('produk.html?id=') === 0 || fs.existsSync(path.join(root, h))),
   D.NAV.flatMap(e => [e.href].concat((e.items || []).map(i => e.label === 'Produk' ? 'produk.html?id=' + i.id : i.id + '.html'))).filter(h => h.indexOf('produk.html?id=') !== 0 && !fs.existsSync(path.join(root, h))).join(', '));
 
+section('7. Every delegation target is bound');
+
+/* The comparison tray sits outside both mount hosts. When nobody bound it, the
+   clear / remove / "Bandingkan N polis" buttons rendered but did nothing at
+   all: no error, no modal, no visual difference. Mount into a recording DOM and
+   assert that every element the engine listens on actually received a handler. */
+function mountProbe() {
+  const hosts = {};
+  const makeEl = (id) => {
+    const el = {
+      id, hidden: false, innerHTML: '', dataset: {}, style: {}, children: [],
+      listeners: {},
+      addEventListener(type) { (this.listeners[type] = this.listeners[type] || []).push(true); },
+      insertAdjacentHTML() {}, setAttribute() {}, getAttribute: () => null,
+      querySelector: () => null, querySelectorAll: () => [], scrollIntoView() {},
+      classList: { add() {}, remove() {}, toggle() {}, contains: () => false },
+      getBoundingClientRect: () => ({ width: 0, height: 0, top: 0, left: 0, right: 0, bottom: 0 })
+    };
+    return el;
+  };
+  for (const id of ['quoteForm', 'quoteResults', 'compareTray', 'modalHolder']) hosts[id] = makeEl(id);
+  const box = Object.assign({}, sandbox);
+  delete box.RPData; delete box.RPQuote;
+  /* quote.js publishes onto `global` (=== `window`), so the copy must point at
+     itself, not at the sandbox it was cloned from. */
+  box.window = box;
+  box.globalThis = box;
+  box.document = Object.assign({}, sandbox.document, {
+    getElementById: (id) => hosts[id] || null,
+    querySelector: (sel) => (sel === '#compareTray' ? hosts.compareTray : null),
+    querySelectorAll: () => [],
+    body: makeEl('body')
+  });
+  vm.createContext(box);
+  vm.runInContext(read('assets/js/data.js'), box, { filename: 'data.js' });
+  vm.runInContext(read('assets/js/quote.js'), box, { filename: 'quote.js' });
+  box.RPQuote.mount({ formId: 'quoteForm', resultId: 'quoteResults' });
+  return hosts;
+}
+try {
+  const hosts = mountProbe();
+  for (const id of ['quoteForm', 'quoteResults', 'compareTray']) {
+    const types = Object.keys(hosts[id].listeners);
+    check(`${id} receives a click handler`, types.indexOf('click') > -1, 'bound: ' + (types.join(', ') || 'nothing'));
+  }
+} catch (e) {
+  check('mount() binds every host', false, e.message);
+}
+
 console.log('\n' + (fail === 0 ? 'PASS' : 'FAIL') + ' — ' + pass + ' passed, ' + fail + ' failed');
 process.exit(fail === 0 ? 0 : 1);

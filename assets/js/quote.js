@@ -523,6 +523,9 @@
 
     bind(formHost);
     bind(resultHost);
+    /* The comparison tray lives outside both hosts, so without its own
+       delegation the clear / remove / compare buttons never fire. */
+    bind(document.getElementById('compareTray'));
     rerender(false);
     if (submitted) run(false);
   }
