@@ -35,8 +35,7 @@ RPData.generateQuotes(input)      // pricing and offer generation (data.js)
 
 ## Cost and impact, per feature
 
-Estimates assume current Indonesian infrastructure costs and the offer volumes implied by the audit
-(~3,900 policies per month, ~12,400 quotes per month).
+Estimates assume current Indonesian infrastructure costs; your current quote volumes were not measured, so none are assumed.
 
 | Feature | Build effort | Running cost | Expected effect |
 |---|---|---|---|

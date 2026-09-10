@@ -399,7 +399,7 @@ Rules: 4-pt spacing scale, one accent colour for the primary action per screen, 
 ### 5.3 Page-by-page UX plan
 
 **Home (`/`) — conversion surface**
-* *Above the fold:* one-sentence value proposition in Bahasa Indonesia, the quote widget, and a trust strip (7 insurers, official partner logos, "OJK-registered intermediary", average saving vs. direct).
+* *Above the fold:* one-sentence value proposition in Bahasa Indonesia, the quote widget, and a trust strip (7 insurers, official partner logos, average saving vs. direct).
 * *Needs-based entry:* three big tiles — "Kendaraan", "Kesehatan", "Properti" — with sub-copies that describe the customer situation, not the product ("Saya punya motor yang dipakai harian").
 * *Social proof with substance:* replace the bare "4.6" rating with a source, count and a couple of real quotes; link to testimonials with names and cities.
 * *Friction removal:* show the whole quote flow as "3 langkah, 2 menit" and never ask for the phone number before the price.

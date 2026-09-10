@@ -12,7 +12,7 @@ A working modern redesign of **www.rajapremi.com**, the Indonesian insurance agg
 | | |
 |---|---|
 | **Kind** | Static front-end demo — no build step, no dependencies, no framework |
-| **Size** | 12 pages, 4 stylesheets, 4 scripts, ~1 unit-test file |
+| **Size** | 12 pages, 4 stylesheets, 4 scripts, 2 test files |
 | **Runs** | Anywhere: `python -m http.server` or GitHub Pages |
 | **Data** | Bundled dataset shaped exactly like the real API responses, plus a deep-linkable quote engine |
 | **Language** | Bahasa Indonesia (customer-facing), English (docs) |
@@ -33,7 +33,7 @@ Every product, every partner, and every flow from the existing site is present. 
 **Partner insurers (7/7):** ACA · Simas Insurtech · Jasa Tania · Multi Artha Guna · Zurich · Jasindo Syariah · Reliance
 **Flows (all kept):** quote → compare → buy · claims reporting · partner recruitment · FAQ · help centre · login · registration · about · newsletter · testimonials · promo campaigns · back-office console
 
-**Added:** multi-step quote form with vehicle presets · savings-vs-dearest on every offer · side-by-side comparison of up to 3 policies · per-quote "why this price" explainer · a *working* filter/sort toolbar · shareable quote URLs · dark mode · 404 with recovery · AI assistant, needs analysis, document reading, claim triage, operator copilot.
+**Added:** multi-step quote form with vehicle presets · savings-vs-dearest on every offer · side-by-side comparison of up to 3 policies · per-quote "why this price" explainer · a *working* filter/sort toolbar · shareable quote URLs · dark mode · AI assistant, needs analysis, document reading, claim triage, operator copilot.
 
 ---
 
@@ -104,7 +104,6 @@ klaim.html#tanya                                 # opens RajaAI with a generic g
 ├── tentang.html            About, licence, how the broker earns, reviews (#ulasan)
 ├── masuk.html / daftar.html   Login / registration (demo-safe: nothing is transmitted)
 ├── ai.html                 The AI feature tour with live demos
-├── 404.html                Not-found page with recovery paths
 ├── admin/index.html        Internal console: KPIs, partners, claims, copilot, security log
 ├── assets/css/             tokens → base → components → product (4 layers)
 ├── assets/js/              data.js (content + engine input), app.js (shell), quote.js, ai.js

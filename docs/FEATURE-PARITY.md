@@ -17,7 +17,7 @@ Legend: **Kept** = same capability · **Improved** = same capability, materially
 | 6 | "Tentang Kami" | Improved | `tentang.html` — story, licence, **how the broker earns money**, reviews (`#ulasan`) |
 | 7 | Customer rating badge (4,6 / 5) | Kept | Header, footer, `tentang.html#ulasan`, `aggregateRating` in structured data |
 | 8 | Testimonials carousel | Improved | Static, honest set including a 4-star review that names a real limitation |
-| 9 | Event & promo campaigns | Improved | Promo cards with explicit validity ("31 Okt 2026", "Kuota terbatas") |
+| 9 | Event & promo campaigns | Kept | Promo cards carried over from the existing site |
 | 10 | Newsletter signup ("Let Us Protect You!") | Kept | Same copy on `index.html`, now confirming where the address went |
 | 11 | Footer: products, informasi lainnya, contact block, social links, copyright | Kept | Rendered once from `app.js`; every link resolves inside the build |
 
@@ -52,7 +52,7 @@ Legend: **Kept** = same capability · **Improved** = same capability, materially
 | # | Existing feature | Status | Where / what changed |
 |---|---|---|---|
 | 28 | Login (`service.rajapremi.co/login` equivalent) | Kept | `masuk.html`, demo-safe |
-| 29 | Registration | Kept | `daftar.html`, feeds the "free accident cover" promo |
+| 29 | Registration | Kept | `daftar.html`, demo-safe (nothing is transmitted) |
 | 30 | Partner / agent recruitment | Improved | `partner.html` — value proposition, revenue model table, 3-step onboarding, form |
 | 31 | Partner-facing commission model | Improved | Now described openly where it belongs (partner page, internal console) instead of leaking in API responses |
 
@@ -78,7 +78,7 @@ Legend: **Kept** = same capability · **Improved** = same capability, materially
 | 42 | `sitemap.xml` serving HTML | Fixed | No fake sitemap; canonical URLs are honest |
 | 43 | ~1.80 MB of JavaScript on first paint | Improved | ~0 third-party JS; system fonts; no framework |
 | 44 | Content appearing only after the bundle runs | Improved | Markup is in the HTML; JS enhances |
-| 45 | Bad URLs stuck on "Please wait…" | Fixed | `404.html` with recovery paths |
+| 45 | Bad URLs stuck on "Please wait…" | Fixed | Content is in the HTML, so every internal link resolves; the demo ships no separate error page |
 | 46 | API key readable in the public bundle | Fixed by design | No secrets client-side; the swap-in point is the server (`README` → Switching to live data) |
 | 47 | Commission fields in public API responses | Fixed by design | Customer views render only payable amounts |
 | 48 | No security headers | Documented | Addressed in `docs/ROADMAP.md` (server configuration, not a static-site concern) |

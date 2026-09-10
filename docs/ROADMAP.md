@@ -15,7 +15,7 @@ These do not require a replatform. Each is small, each is verifiable.
 | P0 | `generate-key` issues tokens to anyone who invents a `user_id` | Require real authentication before token issue | 2–3 days | Open door into customer-linked data |
 | P0 | API key checked for presence, not validity | Validate the key, add per-key rate limits and anomaly logging | 2–3 days | Anyone can consume your partner quota |
 | P0 | `/product` and `/faq` finish loading with an empty body | Pre-render these routes or serve server-rendered content | 3–5 days | Traffic lands and leaves |
-| P1 | Bad routes hang on "Please wait…" forever | Real 404 handling with recovery links | 1 day | Turns a dead end into a next step |
+| P1 | Bad routes hang on "Please wait…" forever | Serve a real HTTP 404 for unknown routes instead of a spinner with HTTP 200 | 1 day | Turns a dead end into an honest response |
 | P1 | No security headers (CSP, HSTS, secure/same-site cookies) | Server + Cloudflare configuration | 2 days | Standard hardening, quick audit win |
 | P1 | Every route shares one title; no structured data; fake sitemap | Per-route metadata + `InsuranceAgency` JSON-LD + a real sitemap | 3–4 days | Search visibility for eight product lines |
 | P1 | Unpinned `@latest` CDN dependencies in the back office | Pin versions, self-host, or remove | 2–3 days | Upstream can break your operations without a deploy |
@@ -56,7 +56,7 @@ These do not require a replatform. Each is small, each is verifiable.
 | Quote requests returning zero offers | measure | zero (the inverted code is the cause) |
 | Time to first claim response | measure | under 1 working day |
 | Support contacts per 100 policies | measure | −20% |
-| Policies renewed automatically | 1,876 due in 30 days, campaign not running | campaign live before the next cohort lapses |
+| Policies renewed automatically | measure (no renewal campaign running) | campaign live before the next cohort lapses |
 
 ## Definition of done for this demo
 
