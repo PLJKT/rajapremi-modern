@@ -28,6 +28,8 @@
   .reg-num {display: inline-flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border-radius: 50%; background: var(--primary); color: #fff; font-size: var(--fs-2xs); font-weight: 700;}
   .reg-steps strong {font-size: var(--fs-sm); display: block;}
   .reg-steps p {margin: var(--s-1) 0 0; color: var(--text-muted); font-size: var(--fs-xs);}
+  .reg-sep {display: flex; align-items: center; gap: var(--s-3); margin: var(--s-5) 0; color: var(--text-muted); font-size: var(--fs-2xs);}
+  .reg-sep::before, .reg-sep::after {content: ""; height: 1px; background: rgba(15,23,42,.12); flex: 1;}
   .reg-note {font-size: var(--fs-2xs); color: var(--text-muted);}
   .reg-grid .field-label {display: block; margin-bottom: var(--s-1);}
   .reg-two {display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--s-5);}
@@ -150,6 +152,18 @@
               </p>
             </div>
           </form>
+
+          <div class="reg-sep">atau daftar dengan</div>
+
+          <div class="stack" style="gap:.6rem">
+            <button type="button" class="btn btn-secondary btn-block" data-sosial="Google">Daftar dengan Google</button>
+            <button type="button" class="btn btn-secondary btn-block" data-sosial="Facebook">Daftar dengan Facebook</button>
+            <button type="button" class="btn btn-secondary btn-block" data-sosial="Apple">Daftar dengan Apple</button>
+          </div>
+
+          <p class="field-note" style="margin-top:var(--s-5);text-align:center">
+            Tombol di atas tidak aktif pada demo ini — tidak ada data akun yang dibuat atau dikirim ke mana pun.
+          </p>
         </div>
 
         <aside class="reg-aside">
@@ -249,6 +263,11 @@
       return;
     }
     RP.toast('Terima kasih, ' + v('dfNama').split(' ')[0] + '! Pada situs asli, akun Anda dibuat sekarang — ' + PESAN, 'success', 6400);
+  });
+  document.querySelectorAll('[data-sosial]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      RP.toast('Pendaftaran dengan ' + btn.getAttribute('data-sosial') + ' tidak aktif pada demo ini. ' + PESAN, 'info', 5600);
+    });
   });
 })();
 </script>
