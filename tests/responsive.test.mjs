@@ -116,10 +116,25 @@ for (const p of pages) {
 }
 
 /* 11. the official WhatsApp number, linked exactly as on the live site */
-check('js: official WhatsApp link wa.me/6285290003471',
-  /wa\.me\/6285290003471/.test(appJs));
-check('js: official WhatsApp number shown in text',
-  /0852[- ]?9000[- ]?3471/.test(appJs) || /0852[- ]?9000[- ]?3471/.test(read('assets/js/data.js')));
+const WA_CANON = '6285290003471';
+const allWa = [...pages.map((p) => [p, read(p)]), ['assets/js/app.js', appJs], ['assets/js/data.js', read('assets/js/data.js')]]
+  .flatMap(([f, src]) => [...src.matchAll(/wa\.me\/([0-9]+)/g)].map((m) => [f, m[1]]));
+const wrongNumber = allWa.filter(([, n]) => n !== WA_CANON);
+check(`every wa.me link uses the official number (${allWa.length} links)`,
+  allWa.length > 0 && wrongNumber.length === 0,
+  wrongNumber.map(([f, n]) => `${f}: ${n}`).join(', '));
+check('no doubled country code in any wa.me link', !/wa\.me\/62\s*0/.test(css + pages.map(read).join('') + appJs));
+/* The display string "(+62) 0852..." stripped of non-digits is 620852..., which
+   WhatsApp rejects — the link must come from the normalised field instead. */
+const stripBuild = [...pages.map((p) => [p, read(p)]), ['assets/js/app.js', appJs], ['assets/js/data.js', read('assets/js/data.js')]]
+  .filter(([, src]) => /wa\.me\/['"]\s*\+[^;]*replace\(\/\\D/.test(src));
+check('wa.me links are never built by stripping the display string',
+  stripBuild.length === 0, stripBuild.map(([f]) => f).join(', '));
+check('data.js exposes the normalised number and the display copy',
+  /waNumber:\s*'6285290003471'/.test(read('assets/js/data.js')) &&
+  /whatsapp:\s*'\(\+62\) 0852 9000 3471'/.test(read('assets/js/data.js')));
+check('the chat box and the footer icon point at the official link',
+  (appJs.match(/wa\.me\/6285290003471/g) || []).length >= 2);
 
 console.log(`\n${fail ? 'FAIL' : 'PASS'} — ${pass} passed, ${fail} failed`);
 console.log('Reminder: tools/responsive-check.mjs is the browser-level proof (run it before shipping).');

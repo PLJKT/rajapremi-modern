@@ -205,7 +205,7 @@
   set('msRating', String(C.csRating).replace('.', ','));
 
   var wa = document.getElementById('msWa');
-  if (wa) { wa.href = 'https://wa.me/' + C.whatsapp.replace(/\D/g, ''); wa.textContent = 'WhatsApp layanan pelanggan'; }
+  if (wa) { wa.href = C.waLink; wa.textContent = 'WhatsApp layanan pelanggan'; }
   var mail = document.getElementById('msEmailLink');
   if (mail) { mail.href = 'mailto:' + C.email; mail.textContent = 'email dukungan'; }
 

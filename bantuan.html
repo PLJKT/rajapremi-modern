@@ -289,7 +289,7 @@
 
         <div class="alert alert-warn" style="margin-top:var(--s-6)">
           <span data-ico="phone"></span>
-          <div><strong>Klaim darurat?</strong> Telepon <a href="tel:+62215790494">(021) 5790 494</a> atau WhatsApp <a href="https://wa.me/6285290003471">(+62) 0852 9000 3471</a> dan sebutkan nomor polis Anda.</div>
+          <div><strong>Klaim darurat?</strong> Telepon <a href="tel:+62215790494">(021) 5790 494</a> atau WhatsApp <a href="https://wa.me/6285290003471" target="_blank" rel="noopener">(+62) 0852 9000 3471</a> dan sebutkan nomor polis Anda.</div>
         </div>
       </div>
     </div>
@@ -309,7 +309,7 @@
           <div class="hub-contacts" style="margin-top:var(--s-6)">
             <div class="kv">
               <span class="hint">WhatsApp</span>
-              <strong><a href="https://wa.me/6285290003471">(+62) 0852 9000 3471</a></strong>
+              <strong><a href="https://wa.me/6285290003471" target="_blank" rel="noopener">(+62) 0852 9000 3471</a></strong>
             </div>
             <div class="kv">
               <span class="hint">Telepon</span>
@@ -448,7 +448,7 @@
   // Aktifkan tab panduan (pola app.js: container [data-tabs] + panel [data-tab-panel]).
   if (RP && RP.initTabs) RP.initTabs();
 
-  var WA = C.whatsapp.replace(/\D/g, '');
+  var WA = C.waNumber;
 
   // Isi jam layanan dari data bila elemennya ada (data.js adalah sumber tunggal).
   var hoursEl = document.getElementById('hubHours');

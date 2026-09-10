@@ -245,7 +245,7 @@
   var hours = document.getElementById('dfHours');
   if (hours) hours.textContent = C.hours;
   var waLink = document.getElementById('dfWaLink');
-  if (waLink) waLink.href = 'https://wa.me/' + C.whatsapp.replace(/\D/g, '');
+  if (waLink) waLink.href = C.waLink;
 
   /* Formulir demo: tidak pernah dikirim ke mana pun, tidak ada autentikasi. */
   var form = document.getElementById('daftarForm');

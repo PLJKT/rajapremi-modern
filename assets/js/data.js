@@ -21,7 +21,12 @@
     serviceBase: 'https://service.rajapremi.co',
     // Contact details and rating are the ones published on www.rajapremi.com.
     phone: '(021) 5790 494',
-    whatsapp: '(+62) 0852 9000 3471',
+    whatsapp: '(+62) 0852 9000 3471',      // as published on www.rajapremi.com
+    /* wa.me wants digits only, country code included and without the domestic
+       leading zero. Never build it by stripping non-digits off the display
+       string above: '(+62) 0852...' would become 620852..., which WhatsApp
+       rejects as an invalid number. */
+    waNumber: '6285290003471',
     waLink: 'https://wa.me/6285290003471',
     email: 'info@rajapremi.co.id',
     hours: 'Senin - Jumat, 8am - 6pm',
